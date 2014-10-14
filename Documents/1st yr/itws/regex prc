@@ -1,0 +1,78 @@
+>>> re.findall(r'[ab]','abcdabcd')
+['a', 'b', 'a', 'b']
+>>> re.findall(r'[ab]+','abcdabcaadbbcba')
+['ab', 'ab', 'aa', 'bb', 'ba']
+>>> re.findall(r'[ab]*','abcdabcaadbbcba')
+['ab', '', '', 'ab', '', 'aa', '', 'bb', '', 'ba', '']
+
+
+>>> re.findall(r'^[123][abc]+d[abc]+','abcdabcaabbcbaccbbaa')
+[]
+>>> re.findall(r'^[123][abc]+d[abc]+','1abcdabcaabbcbaccbbaa')
+['1abcdabcaabbcbaccbbaa']
+>>> re.findall(r'^[123][abc]+d[abc]+','12abcdabcaabbcbaccbbaa')
+[]
+>>> re.findall(r'^[123]+[abc]+d[abc]+','12abcdabcaabbcbaccbbaa')
+['12abcdabcaabbcbaccbbaa']
+>>> 
+
+
+['12abcdabcaabbcbaccbbaad']
+>>> re.findall(r'^[123]?[abc]+d[abc]+d$','12abcdabcaabbcbaccbbaad')
+[]
+>>> re.findall(r'[123]?[abc]+d[abc]+d$','12abcdabcaabbcbaccbbaad')
+['2abcdabcaabbcbaccbbaad']
+>>> 
+
+
+Python offers two different primitive operations based on regular expressions: match checks for a match only at the beginning of the string, while search checks for a match anywhere in the string and stops after one search
+
+>>> k=re.search(r'\[[123]+\]','sakd[3212]2331gfd123cb')
+>>> k.group()
+'[3212]'
+>>> k=re.search(r'\[[123]+\].','sakd[3212]2331gfd123cb')
+>>> k.group()
+'[3212]2'
+>>> k=re.search(r'\[[123]+\].+','sakd[3212]2331gfd123cb')
+>>> k.group()
+'[3212]2331gfd123cb'
+
+
+>>> k=re.search(r'\[[123]+\]\d+','sakd[3212]2331gfd123cb')
+>>> k.group()
+'[3212]2331'
+
+>>> k=re.findall(r'\w','[3212]gfd123cb\t')
+>>> print k
+['3', '2', '1', '2', 'g', 'f', 'd', '1', '2', '3', 'c', 'b']
+>>> k=re.search(r'\W','sakd[3212]gfd123cb\t')
+>>> k.group()
+'['
+
+
+>>> k=re.search(r'\[[123]+\]\D*','sakd[3212]gfd123cb')
+>>> k.group()
+'[3212]gfd'
+
+>>> k=re.search(r'[123]+','[3212]gfd123cb\t')
+>>> k.group()
+'3212'
+>>> k.end()
+5
+>>> k.start()
+1
+>>> k.span()
+(1, 5)
+>>> pat=re.compile(r"ab*")
+>>> pat.search("abcdefabcd")
+<_sre.SRE_Match object at 0xb77305d0>
+>>> k=pat.search("abcdefabcd")
+>>> k.group()
+'ab'
+>>> k=pat.findall("abcdefabcd")
+>>> print k
+['ab', 'ab']
+
+match = re.search(r'[t|f]ree','tree is free')
+print match.group()
+

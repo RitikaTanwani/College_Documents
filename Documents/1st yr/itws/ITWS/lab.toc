@@ -1,0 +1,24 @@
+\contentsline {section}{\numberline {1}Typesetting Text}{1}{section.1}
+\contentsline {paragraph}{}{1}{section*.2}
+\contentsline {section}{\numberline {2}Typesetting Mathematics}{1}{section.2}
+\contentsline {subsection}{\numberline {2.1}General Formulae}{1}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Calculus}{1}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Counting}{2}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Trigonometry}{2}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Miscellaneous}{2}{subsection.2.5}
+\contentsline {section}{\numberline {3}Tables}{2}{section.3}
+\contentsline {section}{\numberline {4}Creating your own commands/macros}{2}{section.4}
+\contentsline {section}{\numberline {5}Embedding images in your document}{3}{section.5}
+\contentsline {section}{\numberline {6}Displaying Source Code}{3}{section.6}
+\contentsline {section}{\numberline {7}Setting up Passwordless Logins with SSH}{4}{section.7}
+\contentsline {subsection}{\numberline {7.1}Generating a Key Pair}{4}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Using the Key Pair for passwordless SSH}{5}{subsection.7.2}
+\contentsline {section}{\numberline {8}Marking Scheme}{6}{section.8}
+\contentsline {subsection}{\numberline {8.1}Typesetting text - 3 marks}{6}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Typesetting Mathematics - 3 marks}{6}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Tables - 3 marks}{6}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Macro - 1 mark}{6}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}Image - 3 marks}{6}{subsection.8.5}
+\contentsline {subsection}{\numberline {8.6}Listings - 3 marks}{6}{subsection.8.6}
+\contentsline {subsection}{\numberline {8.7}Passwordless SSH}{6}{subsection.8.7}
+\contentsline {section}{References}{7}{section*.3}

@@ -1,0 +1,233 @@
+\documentclass [a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{multicol}
+\title{\textbf{Assignment 2 - \LaTeX}}
+\author{ITWS-2 Instructors \\ \texttt{itws-2-instr@mailinglists.iiit.ac.in}}
+\date{January 29,2012}
+\begin{document}
+\maketitle
+
+\renewcommand*\abstractname{Instructions}
+\hline
+\begin{abstract}
+  You need to submit a \texttt{.tex} file which when compiled with PDF\LaTeX,
+(\texttt{pdflatex}),will generate an exact copy of this \texttt{pdf}.The instructions are similar to the ones for the lab handout.
+The list of packages for this assignment follows:
+\begin{multicols}{3}
+\begin{itemize}  
+\item {\tt amsmath}   
+\item {\tt amssymb}
+\item {\tt url}
+\item {\tt graphicx}     
+\item {\tt xcolor}        
+\item {\tt listings} 
+\item {\tt hyperref}   
+\item {\tt multirow}     
+\item {\tt multicol} 
+\end{itemize}
+\end{multicols}
+  Note that in this document,links(website references,emails,references,table of contents,etc.)are clickable but do not have colored boxes around them,giving the document a cleaner look\footnote{Hint:An optional argument to the hyperrefdoes this({\it this} by the way,is a footnote.)}.Also this ``Instructions'' section in actually the Abstract.You need to figure out how to change its displayed name.
+\\
+
+The image in Subsection 3.2 can be found here and the file regex.py used for listing 1 can be found here.
+\\
+
+
+Your assignment wiil be evaluated based on the extent of similarity of your PDF with this PDF 
+
+\end{abstract}
+\newpage
+\tableofcontents
+
+\newpage
+\section{Typesetting text}
+Paragraphs are automatically indented from the margin (unless specified otherwise),for example:
+
+
+\paragraph {}This is a normal paragraph.It gets indented as one would expect.This is some random text inserted to increase the size of the paragraph. This text is also for the same reason
+\\
+\\
+\noindent This is {\emph also} but isn't indented! Notice how the first line of this paragrph sticks to the left margin,unlike its counterpart in the above paragraph.\footnote{Hint:there's a command for this} 
+
+\paragraph{}You already know how to typeset {\bf bold},{\it italicized},{\tt typewriter} and \textsf {serif} text,or to make text {\small small} or {\huge large}.
+
+\\
+The list in the Abstract should give you some food for thought.\footnote{Hint:It has {\underline {\tt multi}ple} {\underline{\tt col}umns!}}
+\section{Mathematics}
+\\
+\noindent Here are some equations which have been numbered:
+\\
+\begin{equation}
+(a+b)^{n}={\sum_{\substack{k=0}}^{\superstack{k=n}} \binom{n}{k}a^{k}b^{n-k}}
+\end{equation}
+\\
+\begin{equation}
+{\sum_{\substack{i=1}}^{\superstack{n}}a_i}\geq{\sqrt[n]{{\prod_{\substack{i=1}}^{\superstack{n}}a_i}}~~\text{,where $a_i$s are positive reals.}
+\end{equation}
+\noindent To write equation 2 correctly,you'll have to use \verb#\text#,so that you can get the normal text in math mode. Equation 2 can also be written as equation 3,  without the use of \verb#\text# . The {\bf R} in equation 3 has been generated using \verb#\mathbb{R}# which requires the {\tt amssymb} package.
+\begin{equation}
+\sum_{\substack{i=1}}^{\superstack{n}}a_i\geq\sqrt[n]{{\prod_{\substack{i=1}}^{\superstack{n}}}a_i}  ,~~~\forall a \in {\mathbf{R}_{+}}
+\end{equation}
+\noindent Here are a set of equation that have been alligned according to ``=''.Also note that they are not numbered:
+\[
+\begin{align}
+(x+y)^{3}&=(x+y)^2(x+y)\\
+&=(x^2+y^2+2xy)(x+y)\\
+&=x^3+y^3+3x^2y+3y^2x
+\end{align}
+\]
+\noindent Here are a few more equations:
+\[20 \equiv 6\pmod 7\]
+\newpage
+\begin{equation}
+{\text gcd(a,b)}|pa+qb
+\end{equation}
+\begin{equation}
+F_n=
+  \begin{cases}
+    0 & \textrm{if}~ n = 0\\
+    1 & \textrm{if}~ n = 1\\
+  %  1 & \quad \text{if $n$ is 1}\\
+    F_{n-1}+F_{n-2} &  \textrm{if} ~n\geq2\\
+\end{cases}
+  %\end{array} \right
+\end{equation}
+\begin{equation}
+%\begin{align}
+\phi(n)&=\sum_{\substack{i\leq k<n \\ gcd(k,n)=1}}1
+\end{equation}
+\begin{equation}
+&={n.\prod_{\substack{p|n}}\left(1-\frac{1}{p}\right)}     ~~\text{,~where $p$ is a prime}
+%\end{align}
+\end{equation}
+\begin{equation}
+\mathbf{S}=\left{x|x \geq 0,x\in \mathbf{Z}\right}
+\end{equation}
+Equation 4 says that the gcd of two numbers divides the sum of their multiples
+while equation 5 is an inductive definition of the \textit {Fibonacci Series}.Equations 6
+and 7 are two ways of computing \textit{Euler Totient Function.}Equation 8 defines
+the set of all non-negative integers.
+\\
+\\
+We are not done yet:
+\begin{equation}
+\boxed{^1/_6+^5/_6=1}
+\end{equation}
+\begin{equation}
+  x = x_0 + \cfrac{1}{x_1
+          + \cfrac{1}{x_2
+          + \cfrac{1}{x_3 
+          + \cfrac{1}{x_4}}}}
+\end{equation}
+\begin{equation}
+\int \limits_{0}^{n}\!\int \limits_n^{\infty}(x^3+y^2)dx.dy
+\end{equation}
+\begin{center}
+\begin{equation}
+ A_{m,n} =
+ \begin{pmatrix}
+  a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+  a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  a_{m,1} & a_{m,2} & \cdots & a_{m,n}
+ \end{pmatrix}
+\end{equation}
+\end{center}
+Equation 9 has a box around it, equation 10 displays a typical continued fraction,
+equation 11 is an example of a double integral while equation 12 shows a generic
+matrix of dimensions $m \times n$.
+\newpage
+\section{Floats}
+Floats are containers for things in a document that cannot be broken over a
+page. \LaTeX by default recognizes tables and figures as floats. Floats are there
+to deal with the problem of the object that won¡¯t fit on the present page, and
+to help when you really don¡¯t want the object here just now.\footnote{ Taken from the \LaTex Wikibooks page on Floats,Figures and Captions}.
+\\
+\\
+You need to construct floats in this section.
+\\
+\subsection{Tables}
+Columns can be merged in tables. This is done using \verb#\multicolumn#.Row can
+also be merged using the \verb#\multirow# command, which is part of a package called
+{\tt multirow}.
+%table
+The following points about Table 1 are worth noting:
+\begin{itemize}
+\item The first column is left aligned, while the rest are all right aligned.
+\item The heading ¡°Planets¡± spans 2 rows.
+\item The heading ¡°Attributes¡± spans 3 columns and is center aligned.
+\item The line beneath the ¡°Attributes¡± heading only spans rows 2, 3 and 4\footnote{Hint :{\tt cline}}.
+\newpage
+\subsection{Figures}
+You did an example of a simple figure, with a caption, in the Lab handout.
+Figure 1 builds upon the same concepts. It also has a border around it, using a
+command called \verb#\fbox#.
+\section{Listings}
+Listing 1 shows a source code example in the Python programming language\footnote{\href{www.python.org}{Python Programming Language-Official Website}} ,displayed in the default Emacs python colour scheme.
+\\
+There are few notable points about Listing 1:
+\begin{itemize}
+\item  The {\verb#\ttfamily# font has been changed from its default value {\tt cmtt} (Com-
+puter Modern Typewriter) to {\tt pcr} (Courier) just before the use of the
+{\verb#\lstinputlisting# command.
+(It has also been reset to the default immediately after.)\footnote{\cite{fonts} tells you how to make these changes}
+\item The colours that have been used are\footnote{Consulting \cite{5} may help} :
+\begin{itemize}[-]
+\item {\bf Comments} \verb#\color[cmyk]#\left{0, 0.809, 0.809, 0.302\right}
+\\
+\item {\bf Keywords} \verb#\color[cmyk]#\left{0.12, 0.60, 0.00, 0.45\right}
+\\
+\item {\bf Strings} \verb#\color[cmyk]#\left{0.00, 0.76, 0.41, 0.45\right}\\
+\end{itemize}
+\end{itemize}
+\newpage
+\section{Macros}
+Macros, as shown to you in the handout, can be quite useful if you have to use a
+particular sequence (it could be a word or an equation or just about anything)
+many times in your document.\\
+~~~~~Take the word {\bf pneumonoultramicroscopicsilicovolcanoconiosis}, for in-
+stance. It¡¯s a lung disease, and if you were writing a paper/thesis about it, you¡¯d
+have to use the name quite a few times. The job can be simplified using a macro.
+If you put
+
+\begin{verbatim}
+\newcommand{\pumsv}{pneumonoultramicroscopicsilicovolcanoconiosis}
+\end{verbatim}
+
+%\newcommand{\pumsv}{pneumonoultramicroscopicsilicovolcanoconiosis}
+
+%\end{verbatim}
+in the preamble of your document, you could just use \verb#\pumsv# to get pneu-
+monoultramicroscopicsilicovolcanoconiosis wherever needed. (Notice how this
+reduces the chance of making a spelling mistake, since the spelling only needs
+to be correct in the macro definition.)
+\\
+\\
+If you hate typing\verb# \LaTeX{}#, you can define a simple macro for that as well!
+\subsection{Macros that take arguments}
+Macros can also take arguments, like functions in your favourite programming
+language. You could have a macro that typesets the list a0 to an given the
+argument $a$.
+\begin{verbatim}
+\newcommand{\series}[1]{\[#1_0,#1_1,#1_2,\ldots,#1_n\]}
+\end{verbatim}
+\\
+So,typing \verb#series{x}# would produce 
+\[x_0,x_1,x_2,...,x_n\]
+typing \verb#\series{\lambda}# would produce
+\[ \lambda_0 , \lambda_1 , \lambda_2 , . . . , \lambda_n\]
+
+and so on. \LaTeX{}  macros can be made to take any number of arguments.
+
+
+
+
+
+\end{document}

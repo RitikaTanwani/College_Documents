@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="generator" content="MediaWiki 1.13.3" />
+		<meta name="keywords" content="CSO 2011 Lecture Notes" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/mediawiki/opensearch_desc.php" title="CompilersWiki (en)" />
+		<link rel="alternate" type="application/rss+xml" title="CompilersWiki RSS Feed" href="http://192.168.36.187/mediawiki/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="CompilersWiki Atom Feed" href="http://192.168.36.187/mediawiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+		<title>CSO 2011 Lecture Notes - CompilersWiki</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/mediawiki/skins/common/shared.css?164";
+			@import "/mediawiki/skins/monobook/main.css?164";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/mediawiki/skins/common/commonPrint.css?164" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/mediawiki/skins/monobook/IE50Fixes.css?164";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/mediawiki/skins/monobook/IE55Fixes.css?164";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/mediawiki/skins/monobook/IE60Fixes.css?164";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/mediawiki/skins/monobook/IE70Fixes.css?164";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/mediawiki/skins/common/IEFixes.js?164"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/mediawiki/skins";
+var wgArticlePath = "/mediawiki/index.php/$1";
+var wgScriptPath = "/mediawiki";
+var wgScript = "/mediawiki/index.php";
+var wgVariantArticlePath = false;
+var wgActionPaths = [];
+var wgServer = "http://192.168.36.187";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "CSO_2011_Lecture_Notes";
+var wgTitle = "CSO 2011 Lecture Notes";
+var wgAction = "view";
+var wgArticleId = "19";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "699";
+var wgVersion = "1.13.3";
+var wgEnableAPI = true;
+var wgEnableWriteAPI = false;
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/mediawiki/skins/common/wikibits.js?164"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/mediawiki/skins/common/ajax.js?164"></script>
+		<script type="text/javascript" src="/mediawiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/mediawiki/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/mediawiki/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/mediawiki/index.php?title=-&action=raw&gen=css&maxage=18000&useskin=monobook";
+/*]]>*/</style>
+	</head>
+<body class="mediawiki ns-0 ltr page-CSO_2011_Lecture_Notes">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">CSO 2011 Lecture Notes</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From CompilersWiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#High_Level_Organization_of_a_Computer"><span class="tocnumber">1</span> <span class="toctext">High Level Organization of a Computer</span></a>
+<ul>
+<li class="toclevel-2"><a href="#What_is_a_Typical_Computer"><span class="tocnumber">1.1</span> <span class="toctext">What is a Typical Computer</span></a></li>
+<li class="toclevel-2"><a href="#High_Level_Organization_of_a_Computer_2"><span class="tocnumber">1.2</span> <span class="toctext">High Level Organization of a Computer</span></a></li>
+<li class="toclevel-2"><a href="#What_Happens_When_We_Run_a_Hello_World_Program"><span class="tocnumber">1.3</span> <span class="toctext">What Happens When We Run a Hello World Program</span></a></li>
+<li class="toclevel-2"><a href="#Computing_System_.3D_Hardware_.2B_System_Software_.2B_Application_Software"><span class="tocnumber">1.4</span> <span class="toctext">Computing System = Hardware + System Software + Application Software</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Abstractions"><span class="tocnumber">2</span> <span class="toctext">Abstractions</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Programming_Abstractions"><span class="tocnumber">2.1</span> <span class="toctext">Programming Abstractions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Representation_of_Integers"><span class="tocnumber">3</span> <span class="toctext">Representation of Integers</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Unsigned_Integers"><span class="tocnumber">3.1</span> <span class="toctext">Unsigned Integers</span></a></li>
+<li class="toclevel-2"><a href="#Signed_Integers"><span class="tocnumber">3.2</span> <span class="toctext">Signed Integers</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Unsigned_versus_2.27s_Complement_Addition"><span class="tocnumber">4</span> <span class="toctext">Unsigned versus 2's Complement Addition</span></a></li>
+<li class="toclevel-1"><a href="#Representation_of_Floating_Point_Numbers"><span class="tocnumber">5</span> <span class="toctext">Representation of Floating Point Numbers</span></a></li>
+<li class="toclevel-1"><a href="#ARM_Processors_and_their_ISA"><span class="tocnumber">6</span> <span class="toctext">ARM Processors and their ISA</span></a>
+<ul>
+<li class="toclevel-2"><a href="#ARM_ISA:_RISC_or_CISC"><span class="tocnumber">6.1</span> <span class="toctext">ARM ISA: RISC or CISC</span></a>
+<ul>
+<li class="toclevel-3"><a href="#CISC_ISAs"><span class="tocnumber">6.1.1</span> <span class="toctext">CISC ISAs</span></a></li>
+<li class="toclevel-3"><a href="#RISC_ISAs"><span class="tocnumber">6.1.2</span> <span class="toctext">RISC ISAs</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="High_Level_Organization_of_a_Computer"></a><h2><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=1" title="Edit section: High Level Organization of a Computer">edit</a>]</span> <span class="mw-headline">High Level Organization of a Computer</span></h2>
+<a name="What_is_a_Typical_Computer"></a><h3><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=2" title="Edit section: What is a Typical Computer">edit</a>]</span> <span class="mw-headline">What is a Typical Computer</span></h3>
+<p>The basic objective of the Computer Systems Organizations course is to study the anatomy of a typical computer system. However the notion of a typical computer systems could keep changing with time. For example in 90's it could mean a desktop machine with a monitor displaying green characters and in the last decade it could mean a laptop and it could mean some thing else in this decade. It is important to note that there a computing systems like big servers (like Mirage in our IIIT), Google cloud, game boxes and many embedded systems which do compute but may not immediately cross our minds. In fact from the graph below it can be noted that embedded systems are an order of magnitude more in number than desktop machines which is not surprising given that most people in India have cell phones but not a desktop machine.
+</p>
+<a href="/mediawiki/index.php/Image:Desktopserversecs.jpg" class="image" title="Desktopserversecs.jpg"><img alt="" src="/mediawiki/images/thumb/4/42/Desktopserversecs.jpg/250px-Desktopserversecs.jpg" width="250" height="173" border="0" class="thumbborder" /></a><div class="floatright"><span><a href="/mediawiki/index.php/Image:Marketshare.jpg" class="image" title="Marketshare.jpg"><img alt="" src="/mediawiki/images/thumb/9/9b/Marketshare.jpg/250px-Marketshare.jpg" width="250" height="144" border="0" /></a></span></div>
+<p>In this course we shall focus on a typical desktop machine organization and its components at a certain level of abstraction. The fundamental ideas here are applicable in embedded systems and server machines as well.
+</p>
+<a name="High_Level_Organization_of_a_Computer_2"></a><h3><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=3" title="Edit section: High Level Organization of a Computer">edit</a>]</span> <span class="mw-headline">High Level Organization of a Computer</span></h3>
+A typical computing system consists of the following three major modules connected through a set of wires called <b>bus</b> (refer the figure below).<div class="floatright"><span><a href="/mediawiki/index.php/Image:Computerhighlevel1.jpg" class="image" title="Computerhighlevel1.jpg"><img alt="" src="/mediawiki/images/thumb/2/27/Computerhighlevel1.jpg/250px-Computerhighlevel1.jpg" width="250" height="145" border="0" class="thumbborder" /></a></span></div>
+<ol><li> Processor
+</li><li> Memory
+</li><li> Input/Output Devices
+</li></ol>
+<p>A slightly more detailed picture with the interconnecting buses can be observed in the following two figures.
+In this course we shall study how to design each of these modules and to interconnect them using different bus architectures. However before we get into these issues we shall first understand how to program and put to use such a system given to us.
+</p>
+<div class="floatleft"><span><a href="/mediawiki/index.php/Image:Computerhighlevel2.jpg" class="image" title="Computerhighlevel2.jpg"><img alt="" src="/mediawiki/images/thumb/4/44/Computerhighlevel2.jpg/250px-Computerhighlevel2.jpg" width="250" height="154" border="0" class="thumbborder" /></a></span></div><div class="floatright"><span><a href="/mediawiki/index.php/Image:Computerhighlevel3.jpg" class="image" title="Computerhighlevel3.jpg"><img alt="" src="/mediawiki/images/thumb/4/4b/Computerhighlevel3.jpg/250px-Computerhighlevel3.jpg" width="250" height="181" border="0" class="thumbborder" /></a></span></div>
+<p><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />The following two figures gives an inside view of a desktop and laptop. 
+</p>
+<div class="floatleft"><span><a href="/mediawiki/index.php/Image:Desktop.jpg" class="image" title="Desktop.jpg"><img alt="" src="/mediawiki/images/thumb/2/2d/Desktop.jpg/300px-Desktop.jpg" width="300" height="159" border="0" class="thumbborder" /></a></span></div><div class="floatright"><span><a href="/mediawiki/index.php/Image:Laptop.jpg" class="image" title="Laptop.jpg"><img alt="" src="/mediawiki/images/thumb/0/0a/Laptop.jpg/250px-Laptop.jpg" width="250" height="236" border="0" class="thumbborder" /></a></span></div>
+<p><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+The motherboard of a system contains the processor, few other chips, memory slots where we can plug-in the memory modules and I/O slots through which we can connect peripheral devices onto the bus. All these modules are connected through a bus on the motherboard.
+<br /><b>Reading Assignment:</b> Read about Motherboards from <a href="http://computer.howstuffworks.com/motherboard.htm" class="external text" title="http://computer.howstuffworks.com/motherboard.htm" rel="nofollow">howstuffworks.com.</a>
+</p>
+<div class="floatright"><span><a href="/mediawiki/index.php/Image:Motherboard.jpg" class="image" title="Motherboard.jpg"><img alt="" src="/mediawiki/images/thumb/3/32/Motherboard.jpg/300px-Motherboard.jpg" width="300" height="165" border="0" class="thumbborder" /></a></span></div>
+<p><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</p>
+<a name="What_Happens_When_We_Run_a_Hello_World_Program"></a><h3><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=4" title="Edit section: What Happens When We Run a Hello World Program">edit</a>]</span> <span class="mw-headline">What Happens When We Run a Hello World Program</span></h3>
+<p>The following <b>Hello World</b> program could have been your first C-program.
+</p>
+<pre>
+#include &lt;stdio.h&gt;
+main()
+{
+   printf(&quot;Hello World\n&quot;);
+}
+</pre>
+<p>This program instructs the computer to the string "Hello World\n" on the monitor screen. When we enter this program using an editor like <b>vi</b> through a keyboard and save it, the program gets stored on the hard disk as a sequence of bits (0s and 1s) encoded on the magnetic surface of the disk. But the processor which has to execute the <b>Hello World</b> program cannot understand C-language and so we make use of a compiler which translated the C-language program into a language that the processor can understand.
+</p>
+<pre>
+$gcc hello.c -o hello
+</pre>
+<p>The <b>gcc</b> compiler translates the <b>Hello World</b> program into a sequence of machine instructions and stores the translated program in the file <b>hello</b> which is again stored on the hard disk as a sequence of bits. Now to execute the <b>hello</b> program, we take the help of the Operating System (OS) of the computer and give the <b>hello</b> command through the keyboard. The OS then loads the program into main memory of the computer and tells the processor to execute the instructions of the program (refer the figures below). 
+</p>
+<div class="floatleft"><span><a href="/mediawiki/index.php/Image:Hello1.jpg" class="image" title="Hello1.jpg"><img alt="" src="/mediawiki/images/thumb/3/31/Hello1.jpg/300px-Hello1.jpg" width="300" height="225" border="0" class="thumbborder" /></a></span></div><div class="floatright"><span><a href="/mediawiki/index.php/Image:Hello2.jpg" class="image" title="Hello2.jpg"><img alt="" src="/mediawiki/images/thumb/8/8e/Hello2.jpg/350px-Hello2.jpg" width="350" height="239" border="0" class="thumbborder" /></a></span></div>
+<p><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+Then the processor fetches the instructions of the program from the main memory one-by-one, decodes them and executes the corresponding action. In this case the net effect of this process is to print the "Hello World!" string on the monitor screen (refer figure below).
+</p>
+<div class="center"><div class="floatnone"><span><a href="/mediawiki/index.php/Image:Hello3.jpg" class="image" title="Hello3.jpg"><img alt="" src="/mediawiki/images/thumb/b/b8/Hello3.jpg/350px-Hello3.jpg" width="350" height="235" border="0" class="thumbborder" /></a></span></div></div>
+<p><br />
+</p>
+<a name="Computing_System_.3D_Hardware_.2B_System_Software_.2B_Application_Software"></a><h3><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=5" title="Edit section: Computing System = Hardware + System Software + Application Software">edit</a>]</span> <span class="mw-headline">Computing System = Hardware + System Software + Application Software</span></h3>
+<p>To program a computer for various application needs we need to write the relevant software, which is a collection of programs. However, we abstract away the hardware details which people writing application software are not much concerned about we introduce a layer of System Software which abstracts away machine details to the application software. Operating system is the key System Software which acts as a Hardware-Software interface. Along with OS, other tools like compilers, loaders, linkers, assemblers, editors etc. provide abstractions to the application software developers to enhance productivity, maintainability and platform independence(refer the figure below).
+</p>
+<div class="center"><div class="floatnone"><span><a href="/mediawiki/index.php/Image:Hardwaresoftware.jpg" class="image" title="Hardwaresoftware.jpg"><img alt="" src="/mediawiki/images/thumb/c/cd/Hardwaresoftware.jpg/250px-Hardwaresoftware.jpg" width="250" height="209" border="0" class="thumbborder" /></a></span></div></div>
+<a name="Abstractions"></a><h2><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=6" title="Edit section: Abstractions">edit</a>]</span> <span class="mw-headline">Abstractions</span></h2>
+<p>Computer science is all about providing abstractions. An abstraction provides a logical view of a certain service or a resource by giving a well-defined black-box model, its associated properties and hides the internal details of the black-box. For example the circuit below on the left hand side corresponds to an AND gate whereas the figure below on the right hand side is a functional representation of the same. Throughout this course we shall use logic gates as our fundamental units of abstraction ignoring particular technology realizations of the same.
+</p>
+<div class="floatleft"><span><a href="/mediawiki/index.php/Image:Transistorgates.jpg" class="image" title="Transistorgates.jpg"><img alt="" src="/mediawiki/images/thumb/e/ed/Transistorgates.jpg/250px-Transistorgates.jpg" width="250" height="154" border="0" class="thumbborder" /></a></span></div>
+<div class="floatright"><span><a href="/mediawiki/index.php/Image:Gates.jpg" class="image" title="Gates.jpg"><img alt="" src="/mediawiki/images/thumb/2/26/Gates.jpg/250px-Gates.jpg" width="250" height="120" border="0" class="thumbborder" /></a></span></div>
+<p><br /><br /><br /><br /><br /><br /><br /><br /><br />
+An Operating System provides abstractions to the application programs to interface with the hardware resources of a system (refer Figure below)through System Calls.
+</p>
+<div class="center"><div class="floatnone"><span><a href="/mediawiki/index.php/Image:Osabstraction.jpg" class="image" title="Osabstraction.jpg"><img alt="" src="/mediawiki/images/thumb/f/f7/Osabstraction.jpg/250px-Osabstraction.jpg" width="250" height="56" border="0" class="thumbborder" /></a></span></div></div>
+<p>A processor provides abstractions to both the application and system software through what is called its Instruction Set Architecture (ISA) (refer the Figure below). The ISA includes the following among other things.
+</p>
+<ol><li> Programmable Registers.
+</li><li> Instruction Set.
+</li><li> Instruction Formats.
+</li><li> Addressing modes for accessing data and instructions residing in the memory.
+</li><li> Exceptional Conditions
+</li><li> .....
+</li></ol>
+<div class="floatright"><span><a href="/mediawiki/index.php/Image:Abstractionhierarchy.jpg" class="image" title="Abstractionhierarchy.jpg"><img alt="" src="/mediawiki/images/thumb/5/57/Abstractionhierarchy.jpg/250px-Abstractionhierarchy.jpg" width="250" height="163" border="0" class="thumbborder" /></a></span></div>
+<p>The following quote on ISA is due to Amdahl, Blaaw, and Brooks (1964).
+</p><p><i>“. . . the attributes of a [computing] system as seen by the programmer, i.e. the conceptual structure and functional behavior, as distinct from the organization of the data flows and controls the logic design, and the physical implementation.”</i>
+<i><br /><br /></i>
+In this course we shall study the ISAs for 8085, ARM and MIPS. An important point which is worth noting here is that the same ISA can have different hardware realizations. For example the IA32 (or x86) ISA has different hardware realizations coming from two different companies AMD and Intel. Even within this course we shall see three different hardware realizations for the MIPS ISA.
+</p>
+<a name="Programming_Abstractions"></a><h3><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=7" title="Edit section: Programming Abstractions">edit</a>]</span> <span class="mw-headline">Programming Abstractions</span></h3>
+<p>We can program a processor by using the instructions from the Instruction Set of the processor as specified in its ISA. Every instruction from the ISA has a corresponding bit pattern only which the processor can understand and we call the bit pattern the opcode of the instruction. We can load the sequence of opcodes corresponding to the instructions of our program in the memory and ask the processor to execute those instructions by setting the Program Counter of the processor to point to the first instruction of the program.
+In fact you will use this approach to program the 8085 microprocessor in your lab. The second approach is by using assembly mnemonics. Here we write our program using a series of assembly language instructions (refer Figure below) and we rely on the <b>assembler</b> program to translate our program into the machine opcodes which the processor can understand. Assembly Languages abstracts away the low level instruction formats through the use of mnemonics and relies on assemblers to implement this abstraction. Although assembly language programming is way better than programming at machine opcode level, it is still tedious to write even a sorting program. So we go to high level programming languages like C, C++, Java etc. which provide programming abstractions which are machine independent and are highly expressive to capture the programmer's intent concisely. We then rely on compilers to translate programs written in high-level languages into machine understandable sequence of opcodes.
+</p>
+<div class="center"><div class="floatnone"><span><a href="/mediawiki/index.php/Image:Levelsofabstraction.jpg" class="image" title="Levelsofabstraction.jpg"><img alt="" src="/mediawiki/images/thumb/8/87/Levelsofabstraction.jpg/250px-Levelsofabstraction.jpg" width="250" height="151" border="0" class="thumbborder" /></a></span></div></div>
+<p>When we consider the abstractions provided by the high-level programming language, it necessitates quoting the title of a book, "Programs = Algorithms + Data Structures", written by a famous computer scientist Niklaus Wirth who also designed the Pascal programming language. To write programs in high-level programming languages we need abstractions to represent Data Structures and abstractions to express algorithms acting on these data structures. 
+</p>
+<div class="floatright"><span><a href="/mediawiki/index.php/Image:Niklauswirth.jpg" class="image" title="Niklauswirth.jpg"><img alt="" src="/mediawiki/images/thumb/6/68/Niklauswirth.jpg/250px-Niklauswirth.jpg" width="250" height="191" border="0" class="thumbborder" /></a></span></div>
+<p>We can classify the abstractions provided by a C-like language into the following categories.
+</p>
+<ol><li> <b>Data Abstractions:</b> Data Abstractions provide certain primitive data types like int, float, char etc. and a mechanism (like structures, arrays etc.) to hierarchilaly compose the primitive data types to create new abstract data types.
+</li><li> <b>Data Processing Abstractions:</b> Data Processing Abstractions provide operations (like addition, multiplication, comparison etc.) which act on the primitive data types which can again be composed to perform complex operations on both primitive and user-defined data types.
+</li><li> <b>Control Abstractions:</b> Control abstractions include language features like conditional/unconditional goto, if-then-else, for-loop, while-loop etc. A language which doesn't support at least one these Control Abstractions will not be Turing Complete which means there exists certain functions which are not computable using the language features alone.
+</li><li> <b>Procedure Abstractions:</b> Procedures allows a user to define his/her own operation to act upon primitive or user defined data types. Further it allows modular development of programs enabling software readability, maintainability and efficiency also.
+</li><li> <b>Other Abstractions:</b> Languages like C++ and Java provide features like classes, inheritance, polymorphism etc to support object-oriented design and implementation of software. Similary different languages can provide different sets of abstraction depending upon their design philosophy and the application utility.
+</li></ol>
+<p>In the next couple of sections we shall see how to implement primitive Data Abstractions Integers and Floating-Point numbers in the machines. We shall see how to implement other abstractions using the ARM ISA later on.
+this is it
+</p>
+<a name="Representation_of_Integers"></a><h2><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=8" title="Edit section: Representation of Integers">edit</a>]</span> <span class="mw-headline">Representation of Integers</span></h2>
+<p>What does the 4-bit string 1001 represent? It could mean 9, -1, -6 and -7 when treated as an unsigned integer, sign-magnitude integer, one's complement integer and two's complement integer respectively. So what a bit string means it depends on the semantics or the definition we associate to it. In this section we shall study binary representation of unsigned and signed integers. In the next section we shall study binary representation of floating-point integers. 
+</p>
+<a name="Unsigned_Integers"></a><h3><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=9" title="Edit section: Unsigned Integers">edit</a>]</span> <span class="mw-headline">Unsigned Integers</span></h3>
+<p>Consider the following bijective function which maps a w-bit binary string to a non-negative integer.
+</p>
+<pre>
+ B2U_w: \{0,1\}^k \rightarrow \{0,\cdots,2^w-1\}
+ B2U_w(\vec{b})= Sigma_{i=0}^{w-1}b_i 2^i
+</pre>
+<p>For example B2U_4(0101)=5 and B2U_4(1101)=13. The inverse function B2U_4^- is also efficiently computable. In other words, we can easily compute the binary representation of an unsigned integer in the range of the function. In C-language all variables of type unsigned integers are allocated a fixed number of bytes (or equivalent number of bits) for storage which is typically 4 bytes or 32 bits. You can check this by running the following C-program on your machine.
+</p>
+<pre>
+#include &lt;stdio.h&gt;
+main()
+{
+   printf(&quot;Size of Unsigned Integer:&nbsp;%d\n&quot;, sizeof(unsigned int));
+}
+</pre>
+<p>Using 32-bits the maximum unsigned integer that we can represent is given by the decimal equivalent of the hex number 0xffffffff which you can see by running the following C-program.
+</p>
+<pre>
+#include &lt;stdio.h&gt;
+main()
+{
+   printf(&quot;Maximum Unsigned Integer:&nbsp;%u\n&quot;, 0xffffffff);
+}
+</pre>
+Having represented unsigned integers in binary, we would like to figure out how to perform addition and multiplication operations. Let us just focus on addition operation in our discussion and the relevant ideas can be applied to multiplication operations too with suitable modifications. I presume that you know the algorithm to add two binary numbers as illustrated in the following example. <div class="floatright"><span><a href="/mediawiki/index.php/Image:BinaryAdditionExample.gif" class="image" title="BinaryAdditionExample.gif"><img alt="" src="/mediawiki/images/thumb/2/27/BinaryAdditionExample.gif/250px-BinaryAdditionExample.gif" width="250" height="179" border="0" /></a></span></div> We also know the analogous algorithm for addition in the unsigned integer domain. Now the beauty of the mapping function B2U_w is that it shows the <i>isomorphic structure</i> between the unsigned integers and their binary representation with respect to the addition operation (and also multiplication operation). To elaborate more on this idea let us define the w-bit addition of two numbers as the regular binary addition except that we ignore the carry-out bit from the MSB if at all there is one. With this definition, when we add two w-bit numbers, the result is always a w-bit number.
+<p>The key claim here is whether we do addition on two unsigned integers in decimal notation which we are familiar with or we do addition of their respective w-bit binary representations, the net result is just the same except for the difference in their notational representation. This claim is true so far as the result of the addition operation does cause an overflow, in other words the result would fit into w-bits.
+Consider the following table with three columns. If we want to add 1 and 4, whether we carry out addition in column 2 or in column 3, the respective results would fall in Row 5. However if we want to add 4 and 5, then the result wouldn't fall in the range in the column 2 and the result in the column 3 would fall in Row-1 (recall how w-bit addition is defined). It can be observed though that there is isomorphism between (mod 2^w) addition of decimal numbers and w-bit addition of binary numbers without worrying about overflow at all since it would never happen in modular arithmetic. It has to be noted here that we can use any other function (preferably bijective) from the w-bit strings to unsigned numbers and create a isomorphism between the decimal domain and the binary domain by appropriately defining the addition operations in the binary domain. I would leave it to you to ponder whether such an alternate function has any utility.
+</p>
+<table style="color:green; background-color:#ffffcc;" cellpadding="10" cellspacing="0" border="1">
+<tr>
+<td>R0
+</td><td>000
+</td><td>0
+</td></tr>
+<tr>
+<td>R1
+</td><td>001
+</td><td>1
+</td></tr>
+<tr>
+<td>R2
+</td><td>010
+</td><td>2
+</td></tr>
+<tr>
+<td>R3
+</td><td>011
+</td><td>3
+</td></tr>
+<tr>
+<td>R4
+</td><td>100
+</td><td>4
+</td></tr>
+<tr>
+<td>R5
+</td><td>101
+</td><td>5
+</td></tr>
+<tr>
+<td>R6
+</td><td>110
+</td><td>6
+</td></tr>
+<tr>
+<td>R7
+</td><td>111
+</td><td>7
+</td></tr>
+</table>
+<p>It is easy to note here that the addition of two w-bit unsigned numbers would cause an overflow if and only if the carry-out bit is 1.
+</p>
+<a name="Signed_Integers"></a><h3><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=10" title="Edit section: Signed Integers">edit</a>]</span> <span class="mw-headline">Signed Integers</span></h3>
+<p>There are popularly 3-different ways of representing signed integers. 
+</p>
+<ol><li> Sign-Magnitude Representation
+</li><li> 1's Complement Representation
+</li><li> 2's Complement Representation
+</li></ol>
+<p>The mapping function for Sign-Magnitude representation is:
+</p>
+<pre>
+ B2S_w(b_{w-1}...b_0) = (-1)^{b_{w-1}}*(2^{w-2}*b_{w-2}+...+2^0*b_0)
+</pre>
+<p>The mapping function for 1's complement representation is:
+</p>
+<pre>
+ B2O_w(b_{w-1}...b_0) = -b_{w-1}*(2^{w-1}-1)+ b_{w-2}*2^{w-2}+...+b_0*2^0)
+</pre>
+<p>The mapping function for 2's complement representation is:
+</p>
+<pre>
+ B2T_w(b_{w-1}...b_0) = -b_{w-1}*(2^{w-1})+ b_{w-2}*2^{w-2}+...+b_0*2^0)
+</pre>
+<p>I will leave it to you as an exercise to prove that among the 3 mapping functions only the B2T_w function corresponding to 2's complement representation is bijective. Let us stick to our definition of w-bit addition of binary numbers and we shall see that there is an isomorphic structure between signed integers and their 2's complement representation with respect to addition. It has to be noted that this isomorphism holds if and only if the results of addition does not cause overflow or underflow.  Sign-magnitude and 1's complement representation of signed integers doesn't carry this isomorphic structure with respect to the canonical binary addition rules. It is worth noting that we can create an isomorphic structure even with these representations by suitable modifying the rules of binary addition. To understand these ideas consider the following table.
+</p>
+<table style="color:green; background-color:#ffffcc;" cellpadding="10" cellspacing="0" border="1">
+<tr>
+<td>
+</td><td>3-bit String
+</td><td>Sign-Maginitude Representation
+</td><td>1's-Complement Representation
+</td><td>2's-Complement Representation
+</td></tr>
+<tr>
+<td>R0
+</td><td>000
+</td><td>0
+</td><td>0
+</td><td>0
+</td></tr>
+<tr>
+<td>R1
+</td><td>001
+</td><td>1
+</td><td>1
+</td><td>1
+</td></tr>
+<tr>
+<td>R2
+</td><td>010
+</td><td>2
+</td><td>2
+</td><td>2
+</td></tr>
+<tr>
+<td>R3
+</td><td>011
+</td><td>3
+</td><td>3
+</td><td>3
+</td></tr>
+<tr>
+<td>R4
+</td><td>100
+</td><td>-0
+</td><td>-3
+</td><td>-4
+</td></tr>
+<tr>
+<td>R5
+</td><td>101
+</td><td>-1
+</td><td>-2
+</td><td>-3
+</td></tr>
+<tr>
+<td>R6
+</td><td>110
+</td><td>-2
+</td><td>-1
+</td><td>-2
+</td></tr>
+<tr>
+<td>R7
+</td><td>111
+</td><td>-3
+</td><td>0
+</td><td>-1
+</td></tr>
+</table>
+<p>For example if we add Row3 with Row4, the resulting binary number is 111 which lies in Row 7, whereas if we perform the addition on Sign-Magnitude numbers in Column 2, we get a value in Row 3 indicating the lack of isomorphic structure with respect to addition between the binary and sign-magnitude representation of numbers. It can be verified that there is no isomorphic structure between binary and one's complement representation of numbers by adding elements in Row 5 and Row 6. In binary addition we get an element in Row 3, whereas in the one's complement representation we get an element in Row 4 in Column 3. However it can be verified that as long as there is no overflow there is a perfect isomorphism with respect to addition between binary and two's complement representation of numbers.
+</p>
+<a name="Unsigned_versus_2.27s_Complement_Addition"></a><h2><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=11" title="Edit section: Unsigned versus 2's Complement Addition">edit</a>]</span> <span class="mw-headline">Unsigned versus 2's Complement Addition</span></h2>
+<p>From the previous discussion it could have been noted that the rules of binary addition for both Unsigned and 2's Complement Addition is exactly the same. It means that we could use the same k-bit ripple carry to add any 2 unsigned or 2's complement numbers and we need not tell the k-bit ripple adder whether we are doing signed arithmetic or unsigned arithmetic. To illustrate this point further let us that I have a k-bit adder circuit with me, some of the students in the class want to do 2's complement addition and some of you may want to perform unsigned addition over k-bit numbers using my k-bit adder circuit. But you don't want to reveal me whether you are performing signed or unsigned arithmetic for whatever reasons you have. It is no big deal for my k-bit adder circuit as the rules of addition remains the same for both signed and unsigned numbers. However there is a catch here. The catch is the overflow conditions for signed and unsigned arithmetic are different. To understand this idea let us take a look at the following table.
+</p>
+<a name="Representation_of_Floating_Point_Numbers"></a><h2><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=12" title="Edit section: Representation of Floating Point Numbers">edit</a>]</span> <span class="mw-headline">Representation of Floating Point Numbers</span></h2>
+<p>We shall postpone discussing this topic to a later class.
+</p>
+<a name="ARM_Processors_and_their_ISA"></a><h2><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=13" title="Edit section: ARM Processors and their ISA">edit</a>]</span> <span class="mw-headline">ARM Processors and their ISA</span></h2>
+<p>ARM processor was initially designed between 1983 and 1985 in Cambridge, England by Acorn Computer Ltd. Back then ARM stood for Acorn Risc Machine. In 1990, Acorn Computer Ltd. transformed into a new company by name ARM Ltd and from then on ARM stood for Advanced Risc Machine. It is interesting to note that ARM Ltd. makes money not by actually manufacturing and selling ARM processors but by licensing its technology (ARM core design) to a network of partners. For example a company intending to use ARM on its System-on-Chip (SOC) design would have to pay upfront licensee fee to gain access to ARM design files. Further the company has to pay royalty to ARM Ltd. for every ARM enabled chip that it manufactures. Given that at least 90 percent of the embedded (and mobile) systems market is dominated by ARM cores, most of us could have payed ARM Ltd. few dollars to own our mobile phones. The following pictures shows the ARM Ltd. network of partners and an example SoC design using ARM core.
+</p>
+<div class="floatleft"><span><a href="/mediawiki/index.php/Image:Armpartners.jpg" class="image" title="Armpartners.jpg"><img alt="" src="/mediawiki/images/thumb/3/30/Armpartners.jpg/250px-Armpartners.jpg" width="250" height="158" border="0" /></a></span></div>
+<div class="floatright"><span><a href="/mediawiki/index.php/Image:Armsoc.gif" class="image" title="Armsoc.gif"><img alt="" src="/mediawiki/images/thumb/1/1d/Armsoc.gif/250px-Armsoc.gif" width="250" height="228" border="0" /></a></span></div>
+<p><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+The following two pictures give the ARM market share and the number of ARM chips shipped.
+</p>
+<div class="floatleft"><span><a href="/mediawiki/index.php/Image:Armmarketshare.JPG" class="image" title="Armmarketshare.JPG"><img alt="" src="/mediawiki/images/thumb/4/42/Armmarketshare.JPG/250px-Armmarketshare.JPG" width="250" height="140" border="0" /></a></span></div>
+<div class="floatright"><span><a href="/mediawiki/index.php/Image:Armchipssold.JPG" class="image" title="Armchipssold.JPG"><img alt="" src="/mediawiki/images/thumb/e/e3/Armchipssold.JPG/250px-Armchipssold.JPG" width="250" height="102" border="0" /></a></span></div>
+<p><br /><br /><br /><br /><br /><br /><br /><br />
+Last year (Spring 2010) when I taught the course, one of the homeworks involved students reporting whether their mobile phone is a powered or not. Here is an extract of the mail which my favorite TA Phani Deepak sent to the class. 
+<a href="http://picasaweb.google.com/phanidee/MySamsungPhoneDisAssembly#5437361263514433314" class="external text" title="http://picasaweb.google.com/phanidee/MySamsungPhoneDisAssembly#5437361263514433314" rel="nofollow">Click here to goto picasa album.</a>
+</p>
+<pre>
+P.S 1: You have two options to complete the survey.
+
+Red Pill:
+ Dis-assemble you phone, see the logo on the processor
+Blue Pill:
+ Search for your model's description on internet &amp; try to see whether it
+talks any thing about the processor used in.
+
+P.S 2: Reference image for Red Pill takers&nbsp;;) -
+http://picasaweb.google.com/phanidee/MySamsungPhoneDisAssembly#5437361263514433314
+(Courtesy: Phani).
+</pre>
+<p><b>Reading Assignment:</b> Read the <a href="http://www.arm.com/products/processors/index.php" class="external text" title="http://www.arm.com/products/processors/index.php" rel="nofollow">article at this link</a> giving an overview of various ARM processors and different versions of ARM ISA. The following two pictures summarizing ARM processors are taken from this article.
+</p>
+<div class="floatleft"><span><a href="/mediawiki/index.php/Image:Armprocessorsoverview1.JPG" class="image" title="Armprocessorsoverview1.JPG"><img alt="" src="/mediawiki/images/thumb/1/10/Armprocessorsoverview1.JPG/300px-Armprocessorsoverview1.JPG" width="300" height="186" border="0" /></a></span></div>
+<div class="floatright"><span><a href="/mediawiki/index.php/Image:Armprocessorsoverview2.JPG" class="image" title="Armprocessorsoverview2.JPG"><img alt="" src="/mediawiki/images/thumb/2/23/Armprocessorsoverview2.JPG/375px-Armprocessorsoverview2.JPG" width="375" height="293" border="0" /></a></span></div>
+<p><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</p><p><br />
+</p>
+<a name="ARM_ISA:_RISC_or_CISC"></a><h3><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=14" title="Edit section: ARM ISA: RISC or CISC">edit</a>]</span> <span class="mw-headline">ARM ISA: RISC or CISC</span></h3>
+<p>Instruction Set Architecture (ISA) for a processor provides the abstract interface through which the users can program the processor for different application needs. When go about designing a new ISA, what should be the guiding principles? 
+</p>
+<ol><li> <b>Expressiveness:</b> The basic necessity is that we should be able to translate any high-level language program into an equivalent program using the instructions provided by the ISA. More technically we should be able to write a program for every <i>Turing Computable</i> function. Once this basic requirement is satisfied we would like the ISA to have <i>complex instructions</i> using which we can write our programs more easily.
+</li><li> <b>Hardware Realizability:</b> We should be able to realize the ISA using the available hardware technologies. If the ISA is simple, then we can potentially design simple and fast  processors implementing the ISA.
+</li></ol>
+<p>While designing an ISA there is an interesting trade-off between <i>expressiveness</i> which the programmer's desire and <i>ease of hardware realization</i> which is processor designer's wish. This trade-off is nicely summarized in the following quote way back in 1947 when we had only vacuum tube computers. 
+</p>
+<pre>
+It is easy to see by formal-logical methods that there exist certain [instruction sets]
+that are in abstract adequate to control and cause the exception of any sequence of
+operations….The really decisive considerations from the present point of view, in
+selecting an [instruction set], are more of practical nature: simplicity of the equipment 
+demanded by the [instruction set], and the clarity of its application to the actually 
+important problems together with the speed of handling those problems.
+
+- Burks, Goldstine and Von Neumann, 1947
+</pre>
+<p>We have two ISA design philosophies, RISC and CISC, distinguished by whether they lean towards <i>expressiveness</i> or <i>ease-of-hardware-realizabilitiy</i>.
+</p>
+<a name="CISC_ISAs"></a><h4><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=15" title="Edit section: CISC ISAs">edit</a>]</span> <span class="mw-headline">CISC ISAs</span></h4>
+<p>CISC stands for Complex Instruction Set Computers. ISAs following CISC philosophy provides complex instructions and addressing modes which can provide greater level of abstractions and hence greater ease of programmability. However using these complex instructions requires having a slightly global view of program logic. This is quite possible for an assembly language programmer but it is quite hard for a compiler. For example consider the following program which is copying one array to another.
+</p>
+<pre>
+for(i=0; i&lt;=512; ++i)
+   A[i] = B[i]; 
+</pre>
+<p>Intel has a block copy instruction using which the loop can be expressed in a couple of instructions. So an assembly language programmer can use that instruction to translate this loop code into assembly code. However, for the compiler it is hard task to analyze the code and automatically conclude that the code is performing a block copy operation. To amplify this idea further let us suppose that a certain ISA has an instruction for matrix multiplication. When an assembly language programmer wants to perform matrix multiplication he can use that instruction. However it is hard for a compiler to conclude that the 3-dimensional nested loop written in C-language corresponds to matrix multiplication and use that instruction in the translated assembly code. So from a compiler-writer perspective CISC ISA may not be that useful and this observation has to be kept in mind in the light of the fact that except for a hand-full of people every one writes programs in high level languages and relies on the ingenuity of the compiler and hence its writer to map it to efficient assembly code. 
+</p><p>Although CISC ISAs provide for excellent <b>code density</b> due to better abstractions provided by instructions, for the reasons mentioned above it may not be fully realized to its potential in practice as the compiler-writer may end up using simpler instructions during the code translation process. <b>Code Density</b> means the number of instructions required to express certain programming task.
+</p><p>From a hardware designers perspective, coming up with efficient hardware realizations for  CISC ISAs is difficult. Variable length instruction formats and instructions with diverse workloads contribute to this difficulty. Processor designers achieve higher instruction throughput by overlapping processing of instructions in the hardware using pipelining and super-scalar techniques. In this course we shall look at pipelined implementation of processors but not super-scalar implementations. In pipelined implementations, the processing of an instruction is split into inter-connected stages and each stage is carried out by a different hardware unit. The idea is very similar to the assembly line used in car manufacturing or for that matter any large scale manufacturing of products involves assembly lines.
+</p>
+<a name="RISC_ISAs"></a><h4><span class="editsection">[<a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit&amp;section=16" title="Edit section: RISC ISAs">edit</a>]</span> <span class="mw-headline">RISC ISAs</span></h4>
+<p>RISC stands for Reduced Instruction Set Computers. ISAs following RISC philosophy provides instructions performing simple tasks like performing arithmetic operation of values present in registers, moving a word of data from memory to register or vice-versa etc. RISC ISAs usually support simple addressing modes and follow <b>load-store architecture</b>. In load-store architectures arithmetic operations would be performed only on operands occupying registers. So when arithmetic needs to be performed on operands residing main memory, the operands have to be promoted to registers and the result of the arithmetic operation has to be stored back to the main memory if necessary. The principal reason for this is to maintain uniform work-load across all instructions. Also in the RISC ISAs all instructions will have the same opcode length. Berkeley RISC, Stanford's MIPS and HP's PA-RISC are examples of ISAs following RISC philosophy. 
+</p><p>From a programmers perspective due to lower level of instruction abstractions, he has to use more instructions and hence more work to express a programming task as compared to CISC ISA. This would be mean less code density. However, from compiler writer perspective it is good as he need not perform complex program analysis to get a global picture of program semantics for efficient mapping of program into sequence of machine instructions. From a hardware designers perspective, uniform opcode lengths and little variance in the workloads across different instructions makes it easy to design time and power efficient hardware pipelines processing the instruction sequences reaching the CPU from the main memory.
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 173/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key compilersdb:pcache:idhash:19-0!1!0!!en!2 and timestamp 20120111172017 -->
+<div class="printfooter">
+Retrieved from "<a href="http://192.168.36.187/mediawiki/index.php/CSO_2011_Lecture_Notes">http://192.168.36.187/mediawiki/index.php/CSO_2011_Lecture_Notes</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="/mediawiki/index.php/CSO_2011_Lecture_Notes" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="/mediawiki/index.php?title=Talk:CSO_2011_Lecture_Notes&amp;action=edit" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-edit"><a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=edit" title="You can edit this page.&#10;Please use the preview button before saving. [e]" accesskey="e">Edit</a></li>
+				 <li id="ca-history"><a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;action=history" title="Past versions of this page. [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/mediawiki/index.php?title=Special:UserLogin&amp;returnto=CSO_2011_Lecture_Notes" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/mediawiki/skins/common/images/wiki.png);" href="/mediawiki/index.php/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage-description"><a href="/mediawiki/index.php/Main_Page">Main Page</a></li>
+				<li id="n-portal"><a href="/mediawiki/index.php/CompilersWiki:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-currentevents"><a href="/mediawiki/index.php/CompilersWiki:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-recentchanges"><a href="/mediawiki/index.php/Special:RecentChanges" title="The list of recent changes in the wiki. [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="/mediawiki/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+				<li id="n-help"><a href="/mediawiki/index.php/Help:Contents" title="The place to find out.">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/mediawiki/index.php/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search CompilersWiki [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/mediawiki/index.php/Special:WhatLinksHere/CSO_2011_Lecture_Notes" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/mediawiki/index.php/Special:RecentChangesLinked/CSO_2011_Lecture_Notes" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/mediawiki/index.php/Special:Upload" title="Upload files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/mediawiki/index.php/Special:SpecialPages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/mediawiki/index.php?title=CSO_2011_Lecture_Notes&amp;oldid=699" title="Permanent link to this version of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified on 4 August 2011, at 15:24.</li>
+				<li id="viewcount">This page has been accessed 1,884 times.</li>
+				<li id="privacy"><a href="/mediawiki/index.php/CompilersWiki:Privacy_policy" title="CompilersWiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/mediawiki/index.php/CompilersWiki:About" title="CompilersWiki:About">About CompilersWiki</a></li>
+				<li id="disclaimer"><a href="/mediawiki/index.php/CompilersWiki:General_disclaimer" title="CompilersWiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.147 secs. --></body></html>

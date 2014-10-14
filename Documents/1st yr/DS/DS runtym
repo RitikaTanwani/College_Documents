@@ -1,0 +1,143 @@
+*-->Computer scientists generally think of “log n” as meaning log2 n, rather than loge n
+or log10 n. Notice that log2 n is the number of times we have to divide n by 2 to get
+down to 1, or alternatively, the number of 2’s we must multiply together to reach
+n. You may easily check that n = 2k is the same as saying log2 n = k; just take
+logarithms to the base 2 of both sides.
+
+
+Logarithms
+arise quite frequently in the analysis of divide-and-conquer algorithms (e.g., merge
+sort) that divide their input into two equal, or nearly equal, parts at each stage. If
+we start with an input of size n, then the number of stages at which we can divide
+the input in half until pieces are of size 1 is log2 n, or, if n is not a power of 2, then
+the smallest integer greater than log2 n.
+
+*-->Example 3.13. Consider the for-loop of lines (3) and (4) in Fig. 3.7, which is
+(3)
+(4)
+for (j = 0; j < n; j++)
+A[i][j] = 0;
+We know that line (4) takes O(1) time. Clearly, we go around the loop n times, as
+we can determine by subtracting the lower limit from the upper limit found on line
+(3) and then adding 1. Since the body, line (4), takes O(1) time, we can neglect the
+time to increment j and the time to compare j with n, both of which are also O(1).
+Thus, the running time of lines (3) and (4) is the product of n and O(1), which is
+112
+THE RUNNING TIME OF PROGRAMS
+O(n).
+
+*--> Example 3.15. As we observed in Example 3.12, the selection statement of
+ lines (4) and (5) of Fig. 3.8 has an if-part, line (5), which takes O(1) time, and a
+missing else-part, which takes 0 time. Thus, f (n) is 1 and g(n) is 0. As g(n) is
+O f (n) , we get O(1) as an upper bound on running time for lines (4) and (5).
+Note that the O(1) time to perform the test A[j] < A[small] at line (4) can be
+neglected. 
+ 
+*--> O(n) is nothing but time taken to execut n statements of order 1 i.e..... n*O(1)
+
+*-->Recursive fnctns ::Suppose we have determined that a good upper bound on the running time
+of a function F is O h(n) , where n is a measure of the size of the arguments of
+F . Then when a call to F is made from within a simple statement (e.g., in an
+assignment), we add O h(n) to the cost of that statement.
+
+*-->int fact(int n)
+{
+if (n <= 1)
+return 1; /* basis */
+else
+return n*fact(n-1); /* induction */
+}
+
+3
+Example 3.24. Let us reconsider the recursive program from Section 2.7 to
+compute the factorial function; the code is shown in Fig. 3.23. Since there is only
+one function, fact, involved, we shall use T (n) for the unknown running time
+of this function. We shall use n, the value of the argument, as the size of the
+argument. Clearly, recursive calls made by fact when the argument is n have a
+smaller argument, n − 1 to be precise.
+For the basis of the inductive definition of T (n) we shall take n = 1, since no
+recursive call is made by fact when its argument is 1. With n = 1, the condition
+of line (1) is true, and so the call to fact executes lines (1) and (2). Each takes
+O(1) time, and so the running time of fact in the basis case is O(1). That is, T (1)
+is O(1).
+Now, consider what happens when n > 1. The condition of line (1) is false,
+and so we execute only lines (1) and (3). Line (1) takes O(1) time, and line (3)
+takes O(1) for the multiplication and assignment, plus T (n − 1) for the recursive
+call to fact. That is, for n > 1, the running time of fact is O(1) + T (n − 1). We
+can thus define T (n) by the following recurrence relation:
+BASIS.
+T (1) = O(1).
+INDUCTION.
+T (n) = O(1) + T (n − 1), for n > 1.
+
+We have now shown that T (n) = a + (n − 1)b. However, a and b are unknown
+constants. Thus, there is no point in presenting the solution this way. Rather,
+we can express T (n) as a polynomial in n, namely, bn + (a − b), and then replace
+terms by big-oh expressions, giving O(n) + O(1). Using the summation rule, we
+can eliminate O(1), which tells us that T (n) is O(n). That makes sense; it says
+that to compute n!, we make on the order of n calls to fact (the actual number is
+exactly n), each of which requires O(1) time, excluding the time spent performing
+the recursive call to fact. 3
+
+
+Summary of Solutions
+In the table below, we list the solutions to some of the most common recurrence
+relations, including some we have not covered in this section. In each case, we
+assume that the basis equation is T (1) = a and that k ≥ 0.
+INDUCTIVE EQUATION
+k
+T (n) = T (n − 1) + bn
+T (n) = cT (n − 1) + bnk , for c > 1
+T (n) = cT (n/d) + bnk , for c > dk
+T (n) = cT (n/d) + bnk , for c < dk
+T (n) = cT (n/d) + bnk , for c = dk
+T (n)
+O(nk+1 )
+O(cn )
+O(nlogd c )
+O(nk )
+O(nk log n)
+
+
+
+
+
+
+
+Summary of Chapter 3
+Here are the important concepts covered in Chapter 3.
+3 Many factors go into the selection of an algorithm for a program, but simplicity,
+ ease of implementation, and efficiency often dominate.
+3 Big-oh expressions provide a convenient notation for upper bounds on the run-
+ ning times of programs.
+3 There are recursive rules for evaluating the running time of the various com-
+ pound statements of C, such as for-loops and conditions, in terms of the running
+times of their constituent parts.
+3 We can evaluate the running time of a function by drawing a structure tree
+ that represents the nesting structure of statements and evaluating the running
+time of the various pieces in a bottom-up order.
+3 Recurrence relations are a natural way to model the running time of recursive
+ programs.
+3 We can solve recurrence relations either by iterated substitution or by guessing
+ a solution and checking our guess is correct.
+Divide and conquer is an important algorithm-design technique in which a problem
+is partitioned into subproblems, the solutions to which can be combined to provide
+a solution to the whole problem. A few rules of thumb can be used to evaluate the
+running time of the resulting algorithm: A function that takes time O(1) and then
+calls itself on a subproblem of size n− 1 takes time O(n). Examples are the factorial
+function and the merge function.
+3 More generally, a function that takes time O(nk ) and then calls itself on a
+ subproblem of size n − 1 takes time O(nk+1 ).
+3 If a function calls itself twice but the recursion goes on for log2 n levels (as in
+ merge sort), then the total running time is O(n log n) times the work done at
+each call, plus O(n) times the work done at the basis. In the case of merge
+sort, the work at each call, including basis calls, is O(1), so the total running
+time is O(n log n) + O(n), or just O(n log n).
+
+If a function calls itself twice and the recursion goes on for n levels (as in the
+Fibonacci program of Exercise 3.9.4), then the running time is exponential in
+n.
+
+All the above also hold if bnk is replaced by any kth-degree polynomial.
+
+

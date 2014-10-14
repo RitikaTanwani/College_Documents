@@ -1,0 +1,466 @@
+\documentclass[a4paper,10pt,titlepage]{article}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{amsmath}
+
+% LaTeX Handout for Week 4 Labs.
+% Mihir, Sankalp.
+
+% We're deliberately not including some of the more advanced topics,
+% like labels and cross-referencing, citations & bibliographies,
+% tables with merged cells, advanced mathematics, customizing listings
+% using \lstset, to keep the level of the handout such that it might be
+% done by the average first year in 2 hours, hopefully.
+
+% We'll probably post an assignment separately, which will be more
+% involved.
+
+\lstset{
+  language=C,                  % the language of the code
+  basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{black},      % the size of the fonts that are used for the line-numbers
+  backgroundcolor=\color{lightgray},  % choose the background color. You must add \usepackage{xcolor}
+  showstringspaces=false,         % underline spaces within strings
+  frame=double,                   % adds a frame around the code
+  captionpos=b,                   % sets the caption-position to bottom
+  commentstyle=\ttfamily\color{blue},   % set colour blue for comments
+  keywordstyle=\color{orange},
+  stringstyle=\color{red},
+}
+
+\title{\LaTeX{} Lab Handout}
+\author{ITWS-2 Instructors \\ \texttt{itws-2-instr@mailinglists.iiit.ac.in}}
+\date{\today}
+
+\newcommand{\qubit}{$|\psi\rangle$}
+\newcommand{\Marks}[1]{\hspace*{\fill}{\footnotesize{(\textbf{#1 points})}}}
+\newcommand{\Mark}[1]{\hspace*{\fill}{\footnotesize{(\textbf{#1 point})}}}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\begin{abstract}
+  You need to submit a \TeX\ source which when compiled using
+  pdf~\LaTeX\ (the command \texttt{pdflatex}), produces an exact copy
+  of this \textsc{pdf}, \textbf{except the sections on passwordless ssh and the marking scheme}.\\
+
+  The only difference being that it should have your Name, Roll
+  No.~and Email in the author field, in place of ours, and the date
+  of compilation (today) in the date field, if it differs from what's
+  present in this file. Try to match
+  the typesetting as closely as you can.\\
+
+   Each of the following carries marks:
+  \begin{enumerate}
+  \item Content
+  \item Text formatting
+  \item Document structure
+  \end{enumerate}
+
+  This document has been typeset using the \texttt{article}
+  documentclass, with paper dimensions \texttt{a4} and font size \texttt{10pt}.\\
+
+  \noindent The following packages have been used:
+  \begin{itemize}
+  \item \texttt{url} to display URLs
+  \item \texttt{hyperref} to make links (including URLs) clickable
+    % \item \texttt{parskip} so that paragraphs all start from the left
+    %   margin
+  \item \texttt{graphicx} to include images
+  \item \texttt{listings} to include source code
+  \item \texttt{xcolor} to get a variety of font colours, referrable
+    by name (used in the source code listings)
+  \end{itemize}
+
+  \noindent Use the image at: \url{http://xkcd.com/149/} for Figure \ref{fig:sandwich}\\
+
+  \noindent Consulting The Wikibooks guide to \LaTeX{} (link
+  in the Online References section of the course website) should help.\\
+
+  \textbf{Note: } If you look closely, you'll see that this abstract
+  has been generated using a special command, which is part of the
+  article documentclass (it has a lesser font size and a smaller
+  margin)! Find it.
+
+  \textbf{Note: } We have not used \textsc{Bib}\TeX{} for the References. They
+  are written in the \texttt{tex} file itself.
+\end{abstract}
+
+\section{Typesetting Text}
+
+There are many different ways of embellishing text provided by
+\LaTeX{}:
+
+\begin{itemize}
+\item \textbf{Bold Text}
+\item \emph{Emphasized Text}
+\item \textsl{Slanted Text}
+\item \textsc{Text in Small Caps}
+\item \texttt{Text in Teletype Font}
+\item \textsf{Text in the Serif Font}
+\item \textrm{Text in the Roman Font (default)}
+\end{itemize}
+Notice that emphasized text is different from italicized text. \textit{For example, this text is written in italics, but \emph{these words are
+    emphasized text}}. Also, this is normal text, but \emph{this is emphasized text}.
+\paragraph{}
+\noindent The above is achieved using this: 
+\begin{verbatim}
+\textit{For example, this text is written in italics, but 
+      \emph{these words are emphasized text}}. Also, this 
+      is normal text, but \emph{this is emphasized text}.
+\end{verbatim}
+Text can be superscripted: \textit{``Remember, Remember the 5\textsuperscript{th} of November!''}\\
+
+The {\Large size} of {\scriptsize text} can {\LARGE also} be {\Huge
+  varied}.
+
+\section{Typesetting Mathematics}
+
+Math can be typeset inline, for example: $a= b^2 + c$, or displayed
+separately as shown in the rest of this section.\\
+
+\noindent \textit{Note: Do not get intimidated, there are simple commands for
+  generating most of the symbols/structures shown below!}
+
+\subsection{General Formulae}
+
+\[ D = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]
+
+% \[
+% {n \choose r} = \displaystyle\sum_{k = r - 1}^{k = n - 1}
+% {k \choose r - 1}
+% = \displaystyle\sum_{k = 0}^{k = r}
+% {n - 1 - k \choose r}
+% \]
+
+\subsection{Calculus}
+
+% \[\lim_{x\rightarrow\infty}\frac{x^2 + 4x + 4}{x^3 + 6x^2 + 12x + 8}=0 \]
+
+% \[
+% \frac{\partial f}{\partial x} = \frac{\partial f}{\partial y} \frac{\partial y}{\partial x}
+% \]
+
+\[ \int_0^{+\infty} x^n e^{-x}dx = n!\]
+
+\subsection{Counting}
+
+\[{^nC_r} = \binom{n}{r} = \frac{n!}{r!(n-r)!}\]
+\[{^nP_r} = \frac{n!}{(n-r)!}\]
+
+\subsection{Trigonometry}
+
+\[\sin^2\theta + \cos^2\theta=1\]
+
+%\subsection{Matrices}
+% \[
+% A =
+% \begin{pmatrix}
+%   a_{1,1} & a_{1,2} & a_{1,3} & \cdots & a_{1,n} \\
+%   a_{2,1} & a_{2,2} & a_{2,3} & \cdots & a_{2,n} \\
+%   a_{3,1} & a_{3,2} & a_{3,3} & \cdots & a_{3,n} \\
+%   \vdots  &  \vdots &  \vdots & \ddots & \vdots \\
+%   a_{M,1} & a_{M,2} & a_{M,3} & \cdots & a_{M,n}
+% \end{pmatrix}
+% \]
+
+\subsection{Miscellaneous}
+
+\[\vec{F} = m\vec{v}\]
+\[q = ms\Delta t\]
+%\[\rho = \frac{m}{V}\]
+\[\overline{(A\land B)} = \overline{A}\lor \overline{B}\]
+
+\section{Tables}
+
+Here is an elementary table:
+\begin{center}
+  \begin{tabular}{l p{5.5cm} c}
+    \textbf{\#} & \textbf{Column 1} & \textbf{Column 2} \\
+    \hline
+    \hline
+    1. & Notice that this column has a predefined width - 5.5cm & This one does not. \\\hline
+    2. & These lines will help you understand. & These will too. \\[50pt]\hline
+    3. & There is an extra gap between rows ``2.'' and ``3.''. You have to find a way to can get this gap. & Some text here. \\\hline
+    4. & (No, you can't get the desired output by ``leaving a row blank'') & (Try it.) \\ \hline
+    5. & Tables which have minimal vertical lines are more readable than those with a large number of vertical lines & ... \\\hline
+    \hline
+  \end{tabular}
+\end{center}
+% The following table demonstrates the above fact:
+% \begin{center}
+%   \begin{tabular}{| c | c | c |}
+%     Col 1 & Col 2 & Col 3 \\
+%     \hline
+%     This table & has lots of & vertical lines \\
+%     which makes & it look less & readable than \\
+%     the one & shown earlier, & with \\
+%     more & horizontal & lines
+%   \end{tabular}
+% \end{center}
+
+\section{Creating your own commands/macros}
+
+This is a very powerful feature in \LaTeX{}. For example, a qubit in
+quantum computing, $|\psi\rangle$, is written in \LaTeX{} source as
+\verb#$|\psi\rangle$#. Writing this everywhere is messy, so we define
+a new command (macro) in the document preamble:
+\begin{verbatim}
+    \newcommand{\qubit}{$|\psi\rangle$}
+\end{verbatim}
+Now, \verb#\qubit{}# produces the same result as
+\verb#$|\psi\rangle$#, which is \qubit{}.\\(This last instance of
+the qubit should be produced using a macro in your \TeX{} source.)
+
+\section{Embedding images in your document}
+\LaTeX\ also supports images. Use the \verb#\includegraphics# command to include images
+in documents. Using the \verb#\figure# environment, you can add
+captions to images.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=3.5cm]{sandwich.png}
+  \caption{xkcd: Sandwich. The width of this image is 3.5cm}
+  \label{fig:sandwich}
+\end{figure}
+
+\section{Displaying Source Code}
+The \texttt{listings} package is used to display source code in a
+document. It is often convenient to define the parameters to listings
+in the preamble itself (e.g.~if all code listings are in the same
+language.)
+% \begin{lstlisting}[language=C,numbers=left,basicstyle=\ttfamily,keywordstyle=\color{orange},commentstyle=\color{blue}\ttfamily,backgroundcolor=\color{lightgray},]
+%   \begin{lstlisting}[language=C, numbers=left]
+
+\begin{lstlisting}[caption=My C program!,label=lst:hello-world-c]
+  #include<stdio.h>
+  // My program
+  int main()
+  {
+    printf("Number Tester\n\nEnter a Number: ");
+    int n;
+    scanf("%d",&n);
+    if(n>=0)
+    {
+      printf("positive\n");
+    }
+    else
+    {
+      printf("negative\n");
+    }
+  }
+\end{lstlisting}
+
+\noindent The following are some of the main options which have been
+set globally for listings in this file, to get the desired effect in
+Listing \ref{lst:hello-world-c}:
+\begin{itemize}
+\item \verb#language=C# (source code language)
+\item \verb#basicstyle=\footnotesize\ttfamily# (basic font style)
+\item \verb#keywordstyle=\color{orange}#
+\item \verb#commentstyle=\color{blue}\ttfamily#
+\item \verb#numbers=left# (line numbers, and where to put them)
+\item \verb#backgroundcolor=\color{lightgray}#
+\end{itemize}
+
+Try figuring out the rest of the options
+yourself. \cite{wikibooks-listings} should give you an idea
+of what is to be done.
+
+\newpage
+\section{Setting up Passwordless Logins with SSH}
+\textit{\textbf{Note:} You don't have to include this section in your
+document. This section can be left out.}\\
+
+
+  \texttt{ssh} supports what is known as \emph{key-based} authentication. It
+  involves the generation of a key-pair, one of which is called the
+  \emph{private} key and the other the \emph{public} key. These two fit together
+  like pieces of a jigsaw puzzle. Each public key only matches with
+  its private counterpart, and vice-versa.
+
+  Lets now go over the process of generating and using these keys for
+  setting up \texttt{ssh} access without being queried for a password each
+  time.\\
+
+  \noindent \texttt{harry} wants to setup passwordless access to a remote machine. Let
+  us assume you are \texttt{harry}.
+\subsection{Generating a Key Pair}
+
+
+\begin{itemize}
+\item execute the \texttt{ssh-keygen} command:
+\end{itemize}
+
+\begin{verbatim}
+ [harry@privetdrive ~]$ ssh-keygen
+ Generating public/private rsa key pair.
+ Enter file in which to save the key (/home/harry/.ssh/id_rsa):
+\end{verbatim}
+
+\begin{itemize}
+\item When queried for the file, press enter (i.e.~choose the default
+  location).
+\item If your user doesn't have a \texttt{.ssh} directory, it will be created
+    and you will get the following message:
+\end{itemize}
+
+\begin{verbatim}
+ Created directory '/home/harry/.ssh'.
+\end{verbatim}
+
+\begin{itemize}
+\item It will then ask you for a passphrase, which is used each time you
+    want to use the key.
+\end{itemize}
+
+\begin{verbatim}
+ Enter passphrase (empty for no passphrase):
+\end{verbatim}
+
+\begin{itemize}
+\item Leave the passphrase empty (press enter) since our intent is to
+    not be queried for anything at all.
+\end{itemize}
+
+\begin{verbatim}
+ Enter same passphrase again:
+\end{verbatim}
+
+\begin{itemize}
+\item After this, you should see output similar to the following:
+\end{itemize}
+
+\begin{verbatim}
+ Your identification has been saved in /home/harry/.ssh/id_rsa.
+ Your public key has been saved in /home/harry/.ssh/id_rsa.pub.
+ The key fingerprint is:
+ 10:39:09:e0:77:ef:90:c8:9e:14:30:fd:6c:72:db:41 harry@privetdrive
+ The key's randomart image is:
+ +--[ RSA 2048]----+
+ |  +o...o         |
+ | . o. +.E        |
+ |  . oooo         |
+ |   o.+=+.        |
+ |    ++ooS.       |
+ |   o ..o.        |
+ |    o   .        |
+ |                 |
+ |                 |
+ +-----------------+
+\end{verbatim}
+\subsection{Using the Key Pair for passwordless SSH}
+
+
+   Now that the key pair is generated, we need to setup things so that
+   the public key is placed in a specific file on the remote machine
+   (server) where you want to login, without being queried for a
+   password. The private key must remain in the \texttt{\textasciitilde{}/.ssh} folder
+   (default location where it was placed by \texttt{ssh-keygen}) for this to
+   work.
+
+\begin{itemize}
+\item Suppose you have an account on a remote machine called
+     \texttt{hogwarts}, with the same user id (\texttt{harry}). The following
+     command will place your public key in the appropriate location on
+     \texttt{hogwarts}.
+\end{itemize}
+
+\begin{verbatim}
+ [harry@privetdrive ~]$ ssh-copy-id harry@hogwarts
+ The authenticity of host 'hogwarts (256.256.256.256)'
+ can't be established.
+ RSA key fingerprint is
+ 47:18:e3:f6:d6:ea:b9:58:96:96:04:74:9f:6c:1c:fe.
+ Are you sure you want to continue connecting (yes/no)? yes
+ Warning: Permanently added 'hogwarts,256.256.256.256' (RSA)
+ to the list of known hosts.
+ harry@hogwarts's password:
+\end{verbatim}
+
+\begin{itemize}
+\item When queried, enter your password.
+\item You will see a message similar to the one below:
+\end{itemize}
+
+\begin{verbatim}
+ Now try logging into the machine, with "ssh 'harry@hogwarts'",
+ and check in:
+
+   ~/.ssh/authorized_keys
+
+ to make sure we haven't added extra keys that you weren't expecting.
+
+\end{verbatim}
+
+\begin{itemize}
+\item Your setup is complete.
+\end{itemize}
+
+Voila! \texttt{harry} should now be able to enter \texttt{hogwarts} without a password!
+
+\newpage
+\section{Marking Scheme}
+\textit{\textbf{Note:} You don't have to include this section in your
+document. This section can be left out.}
+\subsection{Typesetting text - 3 marks}
+\begin{itemize}
+ \item \textbf{2 marks} for different text styles.
+ \item \textbf{1 mark} for sub/superscripts and font size.
+\end{itemize}
+
+\subsection{Typesetting Mathematics - 3 marks}
+\begin{itemize}
+ \item Sections 2.1 to 2.4 - \textbf{0.5 marks} each.
+ \item Section 2.5 - \textbf{1 mark}.
+\end{itemize}
+
+\subsection{Tables - 3 marks}
+\begin{itemize}
+ \item \textbf{1 mark} for width of 5.5cm for Column 1 in first table.
+ \item \textbf{1 mark} for a gap of 50pt between row 2 and row 3.
+ \item \textbf{0.5 marks} for the double horizontal lines (at the top
+   and bottom)
+ \item \textbf{0.5 marks} for the single horizontal lines.
+\end{itemize}
+
+\subsection{Macro - 1 mark}
+\textbf{1 mark} for proper definition and use of the macro.
+
+\subsection{Image - 3 marks}
+\begin{itemize}
+ \item \textbf{1 mark} for including the image.
+ \item \textbf{1 mark} for the caption.
+ \item \textbf{1 mark} for centering.
+\end{itemize}
+
+\subsection{Listings - 3 marks}
+\textbf{3 marks} for the look, language, colours, line numbering,
+fonts, etc.
+
+\subsection{Passwordless SSH}
+\textbf{4 marks} Demonstrating passwordless login from your lab
+machine to web.\\
+\textbf{Please unset it before leaving.}
+
+\newpage
+\begin{thebibliography}{10}
+\addcontentsline{toc}{section}{References}
+\bibitem{ltxprimer-1} \LaTeX\ Tutorials, a Primer, \emph{Indian \TeX\ Users Group (TUG India)}, TUG India, 2002-2003
+\bibitem{intro-to-latex} The Not So Short Introduction to \LaTeXe , OR, \LaTeXe\ in 157 minutes, \emph{Oetiker T.,
+    Hyna I. and Schlegl E.}, Version 5.01, April 6, 2001
+\bibitem{compre-symb-list} The Comprehensive \LaTeX\ Symbol List, \emph{Scott Pakin}, 2009
+\bibitem{wikibooks-listings} LaTeX/Packages/Listings - Wikibooks, open books for an open world, \url{http://en.wikibooks.org/}
+
+\end{thebibliography}
+
+
+\end{document}
+

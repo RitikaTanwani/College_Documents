@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>OJ</title>
+		<link href="P1_files/default.css" rel="stylesheet" media="screen" type="text/css">
+		<script src="P1_files/jqminmax.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<h1>*OJ*</h1><h2>happily judging your solution</h2><br clear="all">
+			</div>
+			<div id="mainbody">
+				<div id="nav">
+					<ul>
+						<li><a href="http://10.4.3.68/oj/index">announcements</a></li>
+						<li><a href="http://10.4.3.68/oj/register">register</a></li>
+						<li><a href="http://10.4.3.68/oj/teams">teamList</a></li>
+						<li><a href="http://10.4.3.68/oj/problem">problems</a></li>
+						<li><a href="http://10.4.3.68/oj/submit">submit</a></li>
+						<li><a href="http://10.4.3.68/oj/judge">status</a></li>
+						<li><a href="http://10.4.3.68/oj/ranks">rankList</a></li>
+						<li><a href="http://10.4.3.68/oj/about">about</a></li>
+					</ul><br clear="all">
+				</div>
+				<div id="content">
+					<h1>H Index of Researcher</h1>
+					
+					<h1> Question </h1>
+					One measure that is gaining popularity recently for researcher effectiveness is the h-index. <br>
+					Read about it on wikepedia. <br>
+					
+					In this problem, we compute a slightly new mesaure as follows :  <br>
+					
+					Conisder a graph with two kinds of nodes: author nodes 
+corresponding to authors, and paper nodes that correspond to papers. <br>
+					There are directed edges from an author node A to all the papers that are authored/co-authored by A. <br>
+					
+					There are also directed edges between papers such that an edge from P1 to P2 indicates that paper P2 cites paper P1.<br>
+					Given this graph, for each author find his h-index defined as follows : <br>
+					
+					An author is said to have a h- index of k if exactly k of his 
+papers have at least k citations and the remaining papers have at most k
+ citations each. <br>
+					
+					<!--	In counting the citations of a paper Pi you should discount citations Pk such that there exists a paper Pj where Pj cites Pi , and Pk cites both Pj and Pi . <br /> 					
+					In case there is such a Pk with 2 or more such Pj's, discount Pk only once overall. <br /> -->
+
+					
+					Under the above definition, find the h-index of all authors in the input.<br>
+					
+
+
+					<h1>Input Specification</h1>
+					First Line : Number of Authors (A)<br>
+					Second Line : Number of Papers (P)<br>
+					Third Line : Number of Author-Paper Tuples (M)<br>
+					Fourth Line : Number of Paper-Paper Tuples (N)<br>
+					This is followed by M lines of Author-Paper tuples and then N lines of Paper-Paper tuples.<br>
+					Author 1 will be denoted as a1, Author 2 as a2 and so on <br>
+					Paper 1 will be denoted as p1, Paper 2 will be denoted as p2 and so on <br>
+					<h1>Output Specification</h1>
+					Output the h-index of each author on separate line, starting from author 1, then author 2 and so on till the last author.<br>
+
+					<h1>Sample Input</h1>
+					3<br>
+					3<br>
+					4<br>
+					2<br>
+					a1 p1<br>
+					a2 p2<br>
+					a3 p3<br>
+					a2 p3<br>
+					p2 p3<br>
+					p3 p1<br>
+
+					<h1>Sample Output</h1>
+					0<br>
+					1<br>
+					1<br>
+			</div>
+			</div>
+			<div id="footer">
+				GPL License . Designed By <a href="http://students.iiit.ac.in/%7Erajatgoel">Rajat Goel</a>
+			</div>
+		</div>
+	
+
+</body></html>

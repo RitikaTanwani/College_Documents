@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>OJ</title>
+		<link href="P2_files/default.css" rel="stylesheet" media="screen" type="text/css">
+		<script src="P2_files/jqminmax.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<h1>*OJ*</h1><h2>happily judging your solution</h2><br clear="all">
+			</div>
+			<div id="mainbody">
+				<div id="nav">
+					<ul>
+						<li><a href="http://10.4.3.68/oj/index">announcements</a></li>
+						<li><a href="http://10.4.3.68/oj/register">register</a></li>
+						<li><a href="http://10.4.3.68/oj/teams">teamList</a></li>
+						<li><a href="http://10.4.3.68/oj/problem">problems</a></li>
+						<li><a href="http://10.4.3.68/oj/submit">submit</a></li>
+						<li><a href="http://10.4.3.68/oj/judge">status</a></li>
+						<li><a href="http://10.4.3.68/oj/ranks">rankList</a></li>
+						<li><a href="http://10.4.3.68/oj/about">about</a></li>
+					</ul><br clear="all">
+				</div>
+				<div id="content">
+					<h1>Variable Scope Resolution</h1>
+					
+					<h1> Question </h1>
+
+					Recall that one of the important applications of hashing is to create symbol tables. <br>
+
+					A symbol table records the variables declared in a program and checks for duplicates when a variable declaration is made.<br> 
+					In this program, we shall build such a symbol table using C-style semantics.<br> 
+					
+					The input to the program is a list of variable names and two other characters: '{' and '}'.<br> 
+					
+					A variable name means that the new name has to be inserted into the hash table. <br>
+
+					An input of '{' means that a new scope is being introduced and a '}' input means that the latest scope is ending. <br>
+					Your program should add all valid variable names to the hash table using the hash function specified below.<br> 
+					
+					<h1> HASH Function </h1>
+					The hash function you use is:<br>
+
+					f(name) = (name[0]*27 + name[1]*53 + name[2]*11 + name[3]*23 + name[4]*31 + name[5]*7 + name[6]*29 + name[7]*13) mod 37. <br>
+
+					You may assume that all names provided in the input are of at most 8 characters.<br> 
+
+					In the above, for an index i, name[i] refers to the ASCII value of the ith character from left in the name. <br>
+					
+					For instance, for the variable name 'test', name[0] = t, name[1] = e, name[2]= s, name[3] = t.<br> 
+					There will not be more than 15 variable names in the question.<br>
+
+					<h1> Output Specification </h1>
+				
+					If there are duplicate variable names within the "SAME SCOPE" then an ERROR has to be generated <br>
+					
+					and the error message shall contain the name of the variable that is causing the error along with its scope.<br> 
+					For example, a typical error message could be:<br>
+
+					varname,2 <br>
+
+					Your program shall insert all valid names in a hash table and then print the contents of the hash table. <br> 
+					
+					The output is printed on STDIN (printf) as follows : 
+					First Line contains  : the total number of VALID variable names entered in the hash table, <br>
+					Second Line contains : the number of errors. <br>
+					From third line, the output contains a list of variable name and its scope separated by a comma on separate lines.<br>
+ 
+
+					There are two rules to be followed in printing this list of 
+variable name and scope : 
+					
+					Rule 1 : The ordering is such that all variables starting with 
+minimum scope value of '0' are printed first, then all variables of 
+scope value '1', then '2' and so on. <br>
+
+					Rule 2 : For variable names with the same scope value, they are printed in asceding order of the HASH function value. <br>
+
+					eg. if cc and bb, both these variables have scope 1, then <br>
+					hash(bb)= 33, hash(cc) = 2, thus hash(cc) &lt; hash(bb)  and output is<br>
+					cc,1<br>
+					bb,1<br>
+
+					It is gauranteed that two variables within the same scope will always have different values for hash function. <br>
+					
+					List of error is printed at the end with the same above two rules.<br>
+					
+					Each testcase will end with a DONE and the next test case will start on the next line. <br>
+					
+					Note that DONE will not be used as a variable name.<br>
+
+					Thus each line will either have a { or a } or a variable name or DONE.<br>
+					
+					<h1> Sample Input</h1>
+
+					{<br>
+					a<br>
+					}<br>
+					{<br>
+					b<br>
+					}<br>
+					DONE<br>
+					{<br>
+					cc<br>
+					{<br>
+					cc<br>
+					}<br>
+					bb<br>
+					}<br>
+					DONE<br>
+					{<br>
+					cc<br>
+					cc<br>
+					}<br>
+					DONE<br>
+					
+					<h1> Sample Output</h1>
+
+
+					2<br>
+					0<br>
+					a,0<br>
+					b,1<br>
+					3<br>
+					0<br>
+					cc,0<br>
+					bb,0<br>
+					cc,1<br>
+					1<br>
+					1<br>
+					cc,0<br>
+					cc,0<br>
+
+				</div>
+			</div>
+			<div id="footer">
+				GPL License . Designed By <a href="http://students.iiit.ac.in/%7Erajatgoel">Rajat Goel</a>
+			</div>
+		</div>
+	
+
+</body></html>

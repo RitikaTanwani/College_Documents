@@ -1,0 +1,53 @@
+\documentclass{report}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{caption}
+\usepackage{cite}
+\usepackage{rotating}
+}
+\lstset{
+  language=python,
+  basicstyle=\footnotesize\ttfamily,
+  numbers=left,
+  numberblanklines=true,
+  numberstyle=\tiny\color{black},
+  backgroundcolor=\color{lightgrey},
+  showstringspaces=false,
+  frame=double,
+  captionpos=b,
+  commentstyle=\ttfamily\color{black},
+  keywordstyle=\color{orange},
+  stringstyle=\color{red},
+}
+  
+\begin{document}
+\begin{figure}
+\setlength{\unitlength}{1mm}
+\begin{center}
+\begin{picture}(40,40)
+\put(10,10){\thicklines \framebox(40,40){\begin{rotate}{30} \LaTeX\ \end{rotate}}}
+\end{picture}
+\end{center}
+\caption{Figure 1 : \LaTeX\ at 30 degrees}
+\end{figure}
+\begin{lstlisting}[caption=Listing 1: \textbf{regex.py}]
+#!/usr/bin/python
+
+# A simple regex match example in python
+
+str = 'an example word:cat!!'
+match = re.search(r'word':\w\w\w', str)
+# If-statement after search() tests if it succeeded
+     if match:
+        print 'found', match.group() ## 'found word:cat'
+     else:
+        print 'did not find'
+
+
+\end{lstlisting}

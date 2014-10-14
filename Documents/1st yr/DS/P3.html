@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>OJ</title>
+		<link href="P3_files/default.css" rel="stylesheet" media="screen" type="text/css">
+		<script src="P3_files/jqminmax.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<h1>*OJ*</h1><h2>happily judging your solution</h2><br clear="all">
+			</div>
+			<div id="mainbody">
+				<div id="nav">
+					<ul>
+						<li><a href="http://10.4.3.68/oj/index">announcements</a></li>
+						<li><a href="http://10.4.3.68/oj/register">register</a></li>
+						<li><a href="http://10.4.3.68/oj/teams">teamList</a></li>
+						<li><a href="http://10.4.3.68/oj/problem">problems</a></li>
+						<li><a href="http://10.4.3.68/oj/submit">submit</a></li>
+						<li><a href="http://10.4.3.68/oj/judge">status</a></li>
+						<li><a href="http://10.4.3.68/oj/ranks">rankList</a></li>
+						<li><a href="http://10.4.3.68/oj/about">about</a></li>
+					</ul><br clear="all">
+				</div>
+				<div id="content">
+					<h1>Perfect Hashing</h1>
+
+					It is clear that in general one cannot avoid collisons in a hash 
+table. In this problem, we shall study one possibility to avoid 
+collisons. <br> 
+
+					Consider hashing of 25 integers between 1 to 100, both inclusive into a hash table of SIZE 31. <br>
+
+					Note : Size of 31 implies hash table has 31 cells. [0 to 30]<br> 
+
+					Let h(x) be a hash function <br> 
+					HASH FUNCTION : h(x) = ( a * x + b mod p ) mod m <br>
+					where a,b are constants and p,m are primes<br>
+
+					It is possible that more than one entries in the input of 25 
+integers have the same value of h(x), thus there is a collision in some 
+cell (out of the 31 cells of the hash table). <br>
+
+					To resolve this collision, the elements that collide in a cell are again hashed to a new hash table.<br>
+
+					The size of this hash table is square of the number of elements that collide for a given cell. <br>
+
+					After hashing 25 integers, for cells with 0 or 1 elements there is no need to create a separate hash table. <br>
+					But for cells in which 2 elements collide, a separate hash table of
+ size 4(=2^2) needs to be created, and for cells in which 3 elements 
+collide, a separate hash table of size 9(=3^2) has to be created and so 
+on. <br>
+
+					
+					If new hash table is created to avoid collisions in a cell 'k', 
+then for the new hash table you will use a hashing function that has the
+ same form : ( a_k * x + b_k mod p_k) mod m_k  as the original table. <br>
+
+
+					It holds that by choosing a_k, b_k, m_k and p_k appropriately, 
+collisons in the secondary hash table can be completely avoided. <br>
+					However we will assume that a_k, b_k and p_k will be the same as a b and p and m_k is the new hash table size. <br>
+					This technique supports only Insert and Find, and not Delete. Such a technique is called ''perfect hashing''. <br>
+
+					<h1> Question </h1>
+
+					Implement perfect hashing, for 25 integers in range[1,100]. <br>
+					The original hash table will have 31 cells. (SIZE = 31) <br>
+					The values of a,b,p and m will be given for the original hash table. <br>
+					Compute h(x) for all the input 25 integers. <br>
+					In case of collisions in some cell, say cell : cell_k {k belongs to [0,30]} <br>
+					<li>
+					  Create a secondary hash table (size = #collisions ^ 2) using the given values of a_k, b_k, p_k, m_k.
+					</li>
+					<li>
+					  Compute the new hash function index h(x) of colliding elements in the hash table and store them at these index.
+					  </li>
+					<br>
+
+					Finally print the entire hash table as follows : 
+					<li> start with cell_0 and go to last cell_30</li>
+					<li> for each non empty cell with only one element, print the cell number and the element separated by a space </li>
+					<li> for each cell with more than one elements,  <br>
+					1. Print the cell number and then the size of the secondary hash table for that cell. <br>
+ 
+					2. On the next line, print a list of space separated index and 
+element values present in the secondary hash table, in the increasing 
+order of index.</li>
+					
+					<h1>Input Specification</h1>
+					First 25 lines contain the 25 integers. <br> 
+					Next Line contains the value of a, b, p and m separated by a space and in that order.  <br>
+					<h1>Output Specification</h1>
+					The output of each cell will be printed on separate lines. <br>
+					Starting with cell_0 and going to cell_30, for non empty cells with
+ only one element print the index number and element separted by space. <br>
+					For non-empty cell with more than one element, print index number 
+and size of secondary hash table separated by a space and then, <br>
+					on the next line print space separated list of index and values in hash table, in increasing order of indices. <br>
+					(Note these are the values that were colliding in the original hash table) <br>
+					<h1>Sample Input</h1>
+					70<br>
+					99<br>
+					72<br>
+					29<br>
+					9<br>
+					88<br>
+					65<br>
+					78<br>
+					30<br>
+					43<br>
+					68<br>
+					20<br>
+					61<br>
+					40<br>
+					0<br>
+					52<br>
+					39<br>
+					42<br>
+					58<br>
+					87<br>
+					98<br>
+					24<br>
+					4<br>
+					51<br>
+					84<br>
+					11 5 53 31<br>
+
+					<h1>Sample Output</h1>
+					0 65<br>
+					1 43<br>
+					2 4<br>
+					1 70 2 72<br>
+					3 99<br>
+					4 24<br>
+					5 4<br>
+					0 51 1 0 <br>
+					6 29<br>
+					7 58<br>
+					8 87<br>
+					9 61<br>
+					10 39<br>
+					11 68<br>
+					12 42<br>
+					13 20<br>
+					15 78<br>
+					16 52<br>
+					17 30<br>
+					18 4<br>
+					19 88<br>
+					20 9<br>
+					21 40<br>
+					23 98<br>
+					28 84<br>
+				</div>
+			</div>
+			<div id="footer">
+				GPL License . Designed By <a href="http://students.iiit.ac.in/%7Erajatgoel">Rajat Goel</a>
+			</div>
+		</div>
+	
+
+</body></html>

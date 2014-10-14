@@ -1,0 +1,176 @@
+
+
+1. The aim of this problem is to extend the notion of a level order
+traversal as follows. Along with a binary tree T, you are given a 
+integer number d that is at leat 1. A d-wise level order traversal
+of T is defined as follows. Starting with the root of T, traverse 
+the nodes up to depth d in a preorder manner, and then use level
+order on the remaining nodes at level d+1. This rule is to be 
+applied recursively. If d = 1, this is the standard level order
+traversal. For d = 2, on the binary search tree obtained by inserting
+12, 8, 10, 13, 18, 34, 15, 17, 22, and 39 in that order, the 2-wise level
+order travesal output is: 12, 8, 13, 10, 15, 18, 17, 34, 22, and 39.
+
+Write a program to implement the d-wise level order traversal of a 
+binary tree T. The input to the program is a space separated list of
+numbers which are to be inserted into a binary search tree in that order.
+The last number in this list is the value of d. The output is the 
+space-separated d-wise level order traversal of the tree. 
+
+Example input: 
+12 8 10 13 18 34 15 17 22 39 2
+Corresponding output:
+12 8 13 10 18 15 34 17 22 39
+
+As usual, the first line of the input is the number of testcases.
+
+
+2.  Recall that one of the important applications of hashing is
+to create symbol tables. A symbol table records the variables declared
+in a program and checks for duplicates when a variable declaration is
+made. In this program, we shall build such a symbol table using
+C-style semantics.
+
+The input to the program is a list of variable names and two other
+characters: '{' and '}'. On each line of the input there is either a
+variable name or one of the characters '{' or '}'. An variable name
+means that the new name has to be inserted into the hash table. An
+input of '{' means that a new scope is being introduced and a '}'
+input means that the latest scope is ending. 
+
+Your program should add all valid variable names to the hash table
+using the hash function specified below. If there are duplicate
+variable names then an error has to be generated and the error message
+shall contain the name of the variable that is causing the error along
+with its scope. All such messages are written to the output file.
+A typical error message could be:
+
+"error1", 2
+"error2", 5
+
+
+Your program shall insert all valid names in a hash table and then
+print the contents of the hash table. The output is printed into a
+file output.txt with the first line containing the total number of
+names entered, the second line contains the number of errors. From the
+third line, the file contains a variable name and its scope separated
+by a comma. This is done so that names that have a hash value of 0 are
+printed first, names hashing to 1 are printed later, and so on. Errors
+are printed at the end. An example output file is:
+
+5
+1
+test,0
+flag,0
+sum,1
+index,2
+returnval,2
+error1,2
+
+
+The hash function you use is:
+
+f(name) = (name[0]*27 + name[1]*53 + name[2]*11 + name[3]*23 +
+name[4]*31 + name[5]*7 + name[6]*29 + name[7]*13) mod 37.
+
+You may assume that all names provided in the input are of at most 8
+characters. In the above, for an index i, name[i] refers to the ASCII
+value of the $i$th character from left in the name. For instance, for
+the variable name 'test', name[0] = t, name[1] = e, so on. 
+
+
+
+
+Problem 3. It is clear that in general one cannot avoid collisons in
+a hash table. In this problem, we shall study one possibility to avoid
+collisons. 
+
+Consider hashing integers between 1 to 100, both inclusive. Let h(x)
+be a hash function so that h(x) = ( ax+b mod p ) mod m where a,b are
+constants in the range 1 to yy, both inclusive. When there is
+a collison, then that cell in the table is used to point to another
+hash table whose size is a square of the number of collisions in that
+cell. 
+
+To avoid collisions, all the elements that collide at a cell are
+hashed again to the new table using another hash function of the form
+(a_1x+b1 mod p1) mod m1 for different values of a1, b1, m1, and p1.
+The choice of these values are done for each cell separately. 
+
+It holds that by choosing m1 and p1 appropriately, collisons in the
+secondary hash table can be completely avoided. Also, a few trials are
+enough to find such m1 and  p1. However, this technique supports only
+Insert and Find, and not Delete. Such a technique is called ''perfect
+hashing''.
+
+In this problem, you will will implement hashing using  perfect
+hashing. The input could be 25 integers in the range 1 to 100, both
+inclusive. Choose two primes m and p, with p larger than m and compute
+the hash values of all the input elements according to the hash
+function h(x) = ((ax+b) mod p) mod m. At each cell in the table
+of size m, count the number of collisions. Let n_i be the number of
+collisions at cell i. Now, reserve another table of size n_i^2 that
+will be used to hash all those elements whose hash value with respect
+to h. 
+
+For each i, for all such elements, choose another hash function h_i(x)
+= ((a_i x + b_i)mod p_i) mod m_i where m_i could be next prime to
+n_i^2.  The goal should be that there are no collisons between these
+elements when using h_i as the hash function. It is likely that one
+has to try more than one choice of a_i, b_i, and p_i. 
+
+The input will be a list of 25 integers in the range 1 to 100 both
+inclusive. The last four lines of the input contain the choices of a,
+b, p, and m. Use the hash function given by a,b, p, and m, and report
+the number of collisons at each cell in an output file -- one line for
+each cell. If there are no collisons, write 0 in that line. 
+
+In the output, called output.txt, also write i, the choices of a_i, b_i,
+p_i, and m_i for each such i such that n_i > 0. These choices are the
+ones that give no collisons.
+
+4. It holds that given an inorder traversal sequence and a preorder
+traversal sequence, there is a unique binary tree that has the given
+inorder and preorder sequences. Write a program to take as input an inorder
+traversal sequence, and a preorder traversal sequence, and builds a binary
+tree that is uniquely determined by these two sequences. As output, produce
+the postorder traversal sequence of the tree constructed.
+
+5. A Cartesian tree of n numbers is a binary tree that is defined as follows. 
+The root of the tree is the smallest element of the n numbers. The left 
+subtree of the root is a Cartesian tree of the elements before the smallest
+element and the right subtree of the root is a Cartesian tree of the 
+elements after the smallest element. For instance, if the numbers are 
+5 4 1 2 6, then the root is 1, the left subtree is a Cartesian tree of
+elements 5 4 and the right subtree is a Cartesian tree of elements 2 6.
+
+
+Write a program that takes n numbers as input and builds a Cartesian tree
+of the input. As output, produce the preorder and postorder traversals of
+the resulting Cartesian tree.
+
+The input is a space separated list of n numbers, all positive and more than
+0. 
+
+6. Given a binary tree T, write a program to check whether T is a binary search
+tree. Output 1 if T is a binary search tree and 0 otherwise. Also, write a program
+to check if T is an AVL tree. Again, output 1 if T is an AVL tree and 0
+otherwise. In case of output being 0, list all nodes that fail the criteria 
+according to their level order.
+
+The input is given as two lines of space separated numbers. The first line
+corresponds to the inorder traversal and the second line corresponds to the 
+preorder traversal sequence.
+
+7. Let T be a tree. Produce a tree where the left and right
+child of every node in T are swapped. Print the postorder and inorder
+traversals of the resulting tree. The output shall be two lines, the
+first line containing the space separated postorder traversal sequence
+and the second line containing the space separated inorder traversal 
+sequence. 
+
+The input is given as two lines of space separated numbers. The first line
+corresponds to the inorder traversal and the second line corresponds to the 
+preorder traversal sequence. 
+
+

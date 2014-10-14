@@ -1,0 +1,120 @@
+#+TITLE: Assignment1
+#+AUTHOR:RITIKA TANWANI
+
+- NAME :: RITIKA TANWANI
+
+- ROLL NUMBER :: 201101153
+
+
+Problem 1:
+
+[[file:../Codes/1-1.sh][Link :1-1.sh]]
+
+I surfed internet to find how to compare strings ,how to extract tar or gz from a filename and also learnt to use cut command.
+#+begin_example
+$> ./1-1.sh itws.tar
+Sample Output
+a.txt
+b.txt
+new_folder
+...
+img_02.jpg
+i.e. list of files and directories in itws.tar
+#+end_example
+
+[[file:../Codes/1-2.sh][Link :1-2.sh]]
+I searched man pages and internet and came to know about NT and o:order to display pid and process
+#+begin_example
+Input
+$> ./1-2.sh
+Sample output
+/usr/bin/firefox 2137
+/usr/bin/thunderbird 3451
+....
+/bin/evince 6792
+#+end_example
+
+Problem 2:
+
+[[file:../Codes/2-1.sh][Link :2-1.sh]]
+Searched on net to display whole of a string i.e using $* where echo -n command can be implemented using printf statement
+#+begin_example
+Sample Input
+$prompt> ./2-1.sh hello world program
+Output
+hello world program$prompt>
+#+end_example
+
+[[file:../Codes/2-2.sh][Link :2-2.sh]]
+I searched on net and found the direct command to find maximum memory of a process.
+But then I understood the use of each of the flags.
+#+begin_example
+$>./2-2.sh
+Sample output
+/usr/bin/firefox 3421
+#+end_example
+
+[[file:../Codes/2-3.sh][Link :2-3.sh]]
+Learnt who command in the class and cut command to extract the column
+#+begin_example
+$>./2-3.sh
+Sample output
+user1
+user23
+#+end_example
+
+
+
+[[file:../Codes/2-4.sh][Link :2-4.sh
+]]From man page I found out how not to display matching pattern i.e using grep -v command
+#+begin_example
+Input
+$>./2-4.sh firefox
+Sample Output
+0 S user 2950
+1 2 80 0 - 141365 poll_s 18:35 ? 00:03:03 /usr/bin/firefox
+0 S user 3349 2950 0 80 0 - 13167 poll_s 19:32 ? 00:00:00 /usr/firefox/plugins
+0 S user 3351 2950 0 80 0 - 13169 poll_s 19:32 ? 00:00:00 /usr/firefox/plugin/totem
+
+0 S user 4381 3090 0 80 0 - 832 pipe_w 20:31 pts/3 00:00:00 grep firefox
+is
+5
+not present.
+#+end_example
+
+Problem 3:
+
+[[file:../Codes/3-1.sh][Link :3-1.sh]]
+du-sh finds disk usage and I found the functioning of sort ,and awk to implement the
+required process and also  after discussing with friends, I could write the command
+#+begin_example
+$>./3-1.sh /home/user/itws2
+Sample Output
+/home/user/itws2/Book/b.jpg
+#+end_example
+
+
+
+
+[[file:../Codes/3-2.sh][Link :3-2.sh]]
+I used man pages to find the functioning of 'find *' command 
+and wrote the required command
+#+begin_example
+Input
+$>./3-2.sh /home/user/work/itws2/assignment
+Output
+Removed files
+a.txt~
+assign.org~
+#+end_example
+
+[[file:../Codes/3-3.sh][Link :3-3.sh]]
+When a vedio is opened its buffered vedio and  id can be accessed through proc directory
+Then we copy the id and store the reqired id on our computer.
+
+#+begin_example
+Sample Execution
+$>./3-3.sh myvideo.flv
+Sample Output
+Video myvideo.flv saved successfully.
+#+end_example

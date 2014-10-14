@@ -1,0 +1,42 @@
+Memory usage patterns and index sorting
+
+When the size of the array to be sorted approaches or exceeds the available primary memory, so that (much slower) disk or swap space must be employed, the memory usage pattern of a sorting algorithm becomes important, and an algorithm that might have been fairly efficient when the array fit easily in RAM may become impractical. In this scenario, the total number of comparisons becomes (relatively) less important, and the number of times sections of memory must be copied or swapped to and from the disk can dominate the performance characteristics of an algorithm. Thus, the number of passes and the localization of comparisons can be more important than the raw number of comparisons, since comparisons of nearby elements to one another happen at system bus speed (or, with caching, even at CPU speed), which, compared to disk speed, is virtually instantaneous.
+
+For example, the popular recursive quicksort algorithm provides quite reasonable performance with adequate RAM, but due to the recursive way that it copies portions of the array it becomes much less practical when the array does not fit in RAM, because it may cause a number of slow copy or move operations to and from disk. In that scenario, another algorithm may be preferable even if it requires more total comparisons.
+
+One way to work around this problem, which works well when complex records (such as in a relational database) are being sorted by a relatively small key field, is to create an index into the array and then sort the index, rather than the entire array. (A sorted version of the entire array can then be produced with one pass, reading from the index, but often even that is unnecessary, as having the sorted index is adequate.) Because the index is much smaller than the entire array, it may fit easily in memory where the entire array would not, effectively eliminating the disk-swapping problem. This procedure is sometimes called "tag sort".[17]
+
+Another technique for overcoming the memory-size problem is to combine two algorithms in a way that takes advantages of the strength of each to improve overall performance. For instance, the array might be subdivided into chunks of a size that will fit easily in RAM (say, a few thousand elements), the chunks sorted using an efficient algorithm (such as quicksort or heapsort), and the results merged as per mergesort. This is less efficient than just doing mergesort in the first place, but it requires less physical RAM (to be practical) than a full quicksort on the whole array.
+
+Techniques can also be combined. For sorting very large sets of data that vastly exceed system memory, even the index may need to be sorted using an algorithm or combination of algorithms designed to perform reasonably with virtual memory, i.e., to reduce the amount of swapping required.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Comparison with other sorts
+
+Heapsort primarily competes with quicksort, another very efficient general purpose nearly-in-place comparison-based sort algorithm.
+
+Quicksort is typically somewhat faster, due to better cache behavior and other factors, but the worst-case running time for quicksort is O(n2), which is unacceptable for large data sets and can be deliberately triggered given enough knowledge of the implementation, creating a security risk. See quicksort for a detailed discussion of this problem, and possible solutions.
+
+Thus, because of the O(n log n) upper bound on heapsort's running time and constant upper bound on its auxiliary storage, embedded systems with real-time constraints or systems concerned with security often use heapsort.
+
+Heapsort also competes with merge sort, which has the same time bounds, but requires Ω(n) auxiliary space, whereas heapsort requires only a constant amount. Heapsort also typically runs more quickly in practice on machines with small or slow data caches. On the other hand, merge sort has several advantages over heapsort:
+
+    Like quicksort, merge sort on arrays has considerably better data cache performance, often outperforming heapsort on a modern desktop PC, because it accesses the elements in order.
+    Merge sort is a stable sort.
+    Merge sort parallelizes better; the most trivial way of parallelizing merge sort achieves close to linear speedup, while there is no obvious way to parallelize heapsort at all.
+    Merge sort can be easily adapted to operate on linked lists (with O(1) extra space[6]) and very large lists stored on slow-to-access media such as disk storage or network attached storage. Heapsort relies strongly on random access, and its poor locality of reference makes it very slow on media with long access times. (Note: Heapsort can also be applied to doubly linked lists with only O(1) extra space overhead)[citation needed]
+
+Introsort is an interesting alternative to heapsort that combines quicksort and heapsort to retain advantages of both: worst case speed of heapsort and average speed of quicksort.

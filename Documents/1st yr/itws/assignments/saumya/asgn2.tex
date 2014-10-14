@@ -1,0 +1,127 @@
+\documentclass{article}
+\title{\textbf{Assignment 2 - {\LaTeX}}}
+\author{ITWS-2 Instructors\\ \texttt{itws-2-instr@mailinglists.iiit.ac.in}}
+\date{January 29,2012}
+\usepackage{amsmath,graphicx,amyssymb,xcolor,multirow,url,listings,multicol}
+%\usepackage{hyperref}
+%\hypersetup{colorlinks=false}
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref}
+\renewcommand{\abstractname}{Instructions}
+\begin{document}
+\maketitle
+%\rule{\linewidth}{0.5mm}
+\hline
+\begin{abstract}
+%\begin{center}
+%\textbf{Instructions}
+%\end{center}
+You need to submit a \texttt{.tex} file which when compiled with PDF{\LaTeX},
+(\texttt{pdflatex}), will generate an exact copy of this \texttt{pdf}. The instructions are similar to the ones for the lab handout. The list of packages used for this assignment follows:
+
+\begin{multicols}{3}
+\begin{itemize}
+\item \texttt{amsmath}
+\item \texttt{amyssymb}
+\item \texttt{url}
+\item \texttt{graphicx}
+\item \texttt{xcolor}
+\item \texttt{listings}
+\item \texttt{hyperref}
+\item \texttt{multirow}
+\item \texttt{multicol}
+\end{itemize}
+\end{multicols}
+
+Note that in this document, links (website references, emails, refer\-ences, table of contents, etc.) are clickable but do not have coloured boxes around them, giving the document a cleaner look\footnote{Hint: an optional argument to the \texttt{hyperref} package does this. (\emph{this}, by the way, is a footnote)}. Also, this ``Instructions'' section is actually the Abstract. You need to figure out how to change its displayed name.\\
+
+The image in Subsection 3.2 can be found \href{http://pascal.iiit.ac.in/~sankalp/itws2/latexassignment/latex.png}{\textit{\underline{here}}} and the file \texttt{regex.py} used for Listing 1 can be found \href{http://pascal.iiit.ac.in/~sankalp/itws2/latexassignment/regex.py}{\textit{\underline{here}}}.\\
+
+Your assignment will be evaluated based on the extent of similarity of your \textsc{pdf} with this \textsc{pdf}
+\end{abstract}
+\newpage
+\tableofcontents
+\newpage
+\section{Typesetting text}
+Paragraphs are automatically indented from the margin (unless specified other-
+wise), for example :\\
+
+This is a normal paragraph. It gets indented as one would expect. This is
+some random text inserted to increase the size of the paragraph. This text is
+also for the same reason.\\
+
+\noindent This is also a paragraph but isn’t indented! Notice how the first line of this
+paragraph sticks to the left margin, unlike its counterpart in the above para-
+graph\footnote{Hint: there's a command that does this.}\\
+
+You already know how to typeset \textbf{bold}, \textit{italicized}, \texttt{typewriter} and \textsf{serif} text, or to make text {\small small} or {\Huge large}.\\
+
+The list in the Abstract should give you some food for thought\footnote{Hint: It has \underline{multi}ple \underline{col}umns!}.
+
+\section{Mathematics}
+Here are some equations which have been numbered:
+%\[
+\begin{equation} \label{eq:eq1}
+(a + b)^n = {\sum_{k=0} ^ {k=n}} \binom{n}{k}a^kb^{n-k}
+\end{equation}
+%\]
+%\[
+\begin{equation} \label{eq:eq2}
+{\sum_{i=1}^{n}}a_{i} \geq {\sqrt[n]{\prod_{i=1}^{n}a_{i}}}~~ \text{, where $a_i$s are positive reals.}
+\end{equation}
+%\]
+To write equation \ref{eq:eq2} correctly, you'll have to use \verb#\text#, so that you can get normal text in math mode. Equation \ref{eq:eq2} can also be written as equation \ref{eq:eq3}, without the use of \verb#\text#. The \textbf{R} in equation \ref{eq:eq3} has been generated using the \verb#\mathbb{R}# command, which requires the \verb#amssymb# package.   
+%\[
+\begin{equation} \label{eq:eq3}
+\sum_{i=1}^{n}a_{i}\geq \sqrt[n]{\prod_{i=1}^{n}a_{i}}~~~, \forall a_{i} \in \mathbf{R}_{+}}
+\end{equation}
+%\]
+Here are a set of equations that have been aligned according to ``=''. Also note that they are not numbered:
+\[
+\begin{align}
+(x + y)^{3} &= (x + y)^{2}(x + y)\\
+&= (x^{2} + y^{2} + 2xy)(x + y)\\
+&= x^{3} + y^{3} + 3x^{2}y + 3xy^{2}\\
+\end{align}
+\]
+\nopagebreak[0]
+Here are a few more equations:
+\[
+20 \equiv 6 \pmod 7
+\]
+%page to b inserted
+\section{Floats}
+Floats are containers for things in a document that cannot be broken over a
+page.{\LaTeX} by default recognizes tables and figures as floats. Floats are there
+to deal with the problem of the object that won’t fit on the present page, and
+to help when you really don’t want the object here just now.\footnote{Taken from the {\LaTeX} Wikibooks page on Floats, Figures and Captions}.
+\paragraph{}
+You need to construct floats in this section.
+\subsection{Tables}
+Columns can be merged in tables. This is done using \verb#\multicolumn#. Rows can also be merged using the \verb#\multirow# command, which is part of a package called \texttt{multirow}.\\
+%\begin{center}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|r|r|r|}\hline
+\multirow{2}{*}{\textbf{Planet}} & \multicolumn{3}{|c|}{\textbf{Attributes}}\\
+\cline{2-4}
+&  Radius(km) & Mass(\times10^{21}) & Density(g/cm^{3})\\\hline
+Mercury & 2,439.7 & 330.2 & 5.43\\
+Earth & 6,371 & 5,973.6 & 5.515\\
+Mars & 3,390 & 641.85 & 3.94\\
+Jupiter & 69,911 & 1,898,600 & 1.33\\\hline
+\end{tabular}
+\caption{Planets}
+\end{center}
+\end{table}\\
+The following points about Table 1 are worth noting:\\
+\begin{itemize}
+\item The first column is left aligned, while the rest are all right aligned
+\item The heading ``Planets'' spans 2 rows.
+\item The heading ``Attributes'' spans 3 columns and is center aligned.
+\item The line beneath the ``Attributes'' heading only spans rows 2,3 and 4\footnote{Hint: \texttt{cline}}
+\end{itemize} 
+
+
+
+
+\end{document}

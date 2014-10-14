@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>OJ</title>
+		<link href="P2_files/default.css" rel="stylesheet" media="screen" type="text/css">
+		<script src="P2_files/jqminmax.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<h1>*OJ*</h1><h2>happily judging your solution</h2><br clear="all">
+			</div>
+			<div id="mainbody">
+				<div id="nav">
+					<ul>
+						<li><a href="http://10.4.3.68/oj/index">announcements</a></li>
+						<li><a href="http://10.4.3.68/oj/register">register</a></li>
+						<li><a href="http://10.4.3.68/oj/teams">teamList</a></li>
+						<li><a href="http://10.4.3.68/oj/problem">problems</a></li>
+						<li><a href="http://10.4.3.68/oj/submit">submit</a></li>
+						<li><a href="http://10.4.3.68/oj/judge">status</a></li>
+						<li><a href="http://10.4.3.68/oj/ranks">rankList</a></li>
+						<li><a href="http://10.4.3.68/oj/about">about</a></li>
+					</ul><br clear="all">
+				</div>
+				<div id="content">
+					<h1>Level order of a DAG</h1>
+					
+					<h1> Question </h1>
+					One of the advantages of a directed acyclic graph is that it is 
+possible to induce a level ordering on the nodes of the graph as 
+follows. <br>
+					Nodes in level i, for i=1,2,..., have the property that they have edges only to nodes in same level i or above.<br> 
+					Given a directed acyclic graph as an input, produce such a level ordering. <br>  
+					<b>Note :</b> Start with vertex 0 as the source node (level 1) for the level order traversal. <br>
+					<h1>Input Specification</h1>
+					First Line : N, which is the number of nodes present. (Nodes are 0, 1, 2, 3, ..., N-1) <br>
+ 
+					This is followed by a N*N adjacency matrix (0 denotes no edge and 1
+ denotes a directed edge), N lines each containing N space separated 
+numbers. <br>
+
+					<h1>Output Specification</h1>
+					Print the number of levels on the first line. <br>
+					From the next line, print the nodes in each level (starting from level 0) as space separated numbers<br>
+					The nodes in level 1 will be the second line of output, level 2 will be the third line and so on <br>
+					Also for nodes in each level, you should sort the node numbers in increasing order<br>
+					
+
+					<h1>Sample Input</h1>
+					8<br>
+					0 1 1 1 0 0 0 0<br>
+					0 0 0 0 0 1 0 0<br>
+					0 1 0 0 1 1 0 0<br>
+					0 0 1 0 1 0 0 0<br>
+					0 0 0 0 0 0 1 0<br>
+					0 0 0 0 0 0 1 0<br>
+					0 0 0 0 0 0 0 1<br>
+					0 0 0 0 0 0 0 0<br>
+
+					<h1>Sample Output</h1>
+					5<br>
+					0<br>
+					1 2 3<br>
+					4 5<br>
+					6<br>
+					7<br>
+			</div>
+			</div>
+			<div id="footer">
+				GPL License . Designed By <a href="http://students.iiit.ac.in/%7Erajatgoel">Rajat Goel</a>
+			</div>
+		</div>
+	
+
+</body></html>

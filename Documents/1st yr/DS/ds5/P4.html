@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>OJ</title>
+		<link href="P4_files/default.css" rel="stylesheet" media="screen" type="text/css">
+		<script src="P4_files/jqminmax.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<h1>*OJ*</h1><h2>happily judging your solution</h2><br clear="all">
+			</div>
+			<div id="mainbody">
+				<div id="nav">
+					<ul>
+						<li><a href="http://10.4.3.68/oj/index">announcements</a></li>
+						<li><a href="http://10.4.3.68/oj/register">register</a></li>
+						<li><a href="http://10.4.3.68/oj/teams">teamList</a></li>
+						<li><a href="http://10.4.3.68/oj/problem">problems</a></li>
+						<li><a href="http://10.4.3.68/oj/submit">submit</a></li>
+						<li><a href="http://10.4.3.68/oj/judge">status</a></li>
+						<li><a href="http://10.4.3.68/oj/ranks">rankList</a></li>
+						<li><a href="http://10.4.3.68/oj/about">about</a></li>
+					</ul><br clear="all">
+				</div>
+				<div id="content">
+					<h1> GCD in Graphs</h1>
+					
+					<h1> Question </h1>
+					Construct a directed graph descirbed as follows: The vertex set is the set of integers 1 through N for a given N.<br>
+					<b> NOTE : </b> Both 1 and N are included in the vertex set. <br>
+
+					Two vertices i and j are joined by an edge from j to i (j -&gt; i) if  i divides j. <br>
+
+					From your graph, delete edges k -&gt; i such that there exists a j and for this j we have, <br>  
+					(1) i divides j and, <br>
+					(2) j divides k. <br>
+					
+					i.e. delete k -&gt; i when we have j such that k -&gt; j -&gt; i <br> 
+
+					(In effect, delete all the edges implied by transitivity). <br>
+
+					Extend your implementation to find the GCD (greatest common divisor) of two vertices i and j.<br>
+					Input will consist of queries like : <br> 
+					4 8<br> 
+					and you have to output the GCD of 4 and 8 i.e. 4 in the output. <br>
+
+					<h1>Input Specification</h1>
+					First Line : The value of N<br>
+					Second Line : The number of queries (Q).<br>
+					The next Q lines will consist of queries with each query being two space separated numbers in 1 to N. <br>
+
+					<h1>Output Specification</h1>
+					Print the adjacency matrix after the removal of transitivity. N lines each with N space separated values. <br>
+					Print the GCD corresponding to each query in input on separate lines. <br>
+
+					<h1>Sample Input</h1>
+					6<br>
+					3<br>
+					4 3<br>
+					6 3<br>
+					6 4<br>
+
+					<h1>Sample Output</h1>
+					0 0 0 0 0 0<br>
+					1 0 0 0 0 0<br>
+					1 0 0 0 0 0<br>
+					0 1 0 0 0 0<br>
+					1 0 0 0 0 0<br>
+					0 1 1 0 0 0<br>
+					1<br>
+					3<br>
+					2<br>
+			</div>
+			</div>
+			<div id="footer">
+				GPL License . Designed By <a href="http://students.iiit.ac.in/%7Erajatgoel">Rajat Goel</a>
+			</div>
+		</div>
+	
+
+</body></html>

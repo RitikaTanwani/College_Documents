@@ -1,0 +1,225 @@
+<!--?xml version="1.0" encoding="iso-8859-1"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-US"><head><script>if( self == top ){ window.location.replace( "../../../../?topic=%2Fcom.ibm.xlcpp8a.doc%2Flanguage%2Fref%2Fcplr035.htm");}</script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="dc.language" scheme="rfc1766" content="en-us">
+<!-- All rights reserved. Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights                   -->
+<!-- Use, duplication or disclosure restricted by            -->
+<!-- GSA ADP Schedule Contract with IBM Corp.                -->
+<meta name="dc.date" scheme="iso8601" content="2005-07-13">
+<meta name="copyright" content="(C) Copyright IBM Corporation 1998, 2005">
+<meta name="security" content="public">
+<meta name="Robots" content="index,follow">
+<meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+<meta name="keywords" content="this pointer, this, pointers, classes,
+member functions">
+<title>The this pointer (C++ only)</title>
+<link rel="stylesheet" type="text/css" href="cplr035_data/ibmidwb.css">
+<link rel="stylesheet" type="text/css" href="cplr035_data/swg_info_common.css">
+</head>
+<body>
+<a id="Top_Of_Page" name="Top_Of_Page"></a>
+<a name="cplr035"></a>
+<h2 id="cplr035">The this pointer<span> (C++ only)</span></h2><a id="idx1050" name="idx1050"></a><a id="idx1051" name="idx1051"></a><a id="idx1052" name="idx1052"></a><a id="idx1053" name="idx1053"></a>
+<p>The keyword <tt class="xph">this</tt> identifies a special type of pointer. Suppose
+that you create an object named <tt class="xph">x</tt> of class <tt class="xph">A</tt>, and class <tt class="xph">A</tt> has a nonstatic member function <tt class="xph">f()</tt>. If you call the function <tt class="xph">x.f()</tt>, the keyword <tt class="xph">this</tt> in the body of <tt class="xph">f()</tt> stores
+the address of <tt class="xph">x</tt>. You cannot declare the <tt class="xph">this</tt> pointer
+or make assignments to it.</p>
+<p>A static member function does not have a <tt class="xph">this</tt> pointer.</p>
+<p></p>
+<p>The type of the <tt class="xph">this</tt> pointer for a member function of a class
+type <tt class="xph">X</tt>, is <tt class="xph">X* const</tt>. If the member function is declared
+with the <span class="bold">const</span> qualifier, the type of the <tt class="xph">this</tt> pointer for that member function for class <tt class="xph">X</tt>, is <tt class="xph">const
+X* const</tt>.</p>
+<p>A <tt class="xph"> const this</tt> pointer can by used only with <tt class="xph">const</tt> member
+functions. Data members of the class will be constant within that function.
+The function is still able to change the value, but requires a <tt class="xph">const_cast</tt> to do so: </p>
+<pre class="xmp">void foo::p() const{    
+member = 1;                       // illegal    
+const_cast &lt;int&amp;&gt; (member) = 1;   // a bad practice but legal 
+}</pre><p class="indatacontent"> A better technique would be to declare <tt class="xph">member</tt> mutable.</p>
+<p>If the member function is declared with the <span class="bold">volatile</span> qualifier,
+the type of the <tt class="xph">this</tt> pointer for that member function for class <tt class="xph">X</tt> is <tt class="xph">volatile X* const</tt>. For example, the compiler will not
+allow the following:</p>
+<pre class="xmp">struct A {
+  int a;
+  int f() const { return a++; }
+};
+</pre><p class="indatacontent">The compiler will not allow the statement <tt class="xph">a++</tt> in the body
+of function <tt class="xph">f()</tt>. In the function <tt class="xph">f()</tt>, the <tt class="xph">this</tt> pointer is of type <tt class="xph">A* const</tt>. The function <tt class="xph">f()</tt> is
+trying to modify part of the object to which <tt class="xph">this</tt> points.</p>
+<p>The <tt class="xph">this</tt> pointer is passed as a hidden argument to all nonstatic
+member function calls and is available as a local variable within the body
+of all nonstatic functions.</p>
+<p>For example, you can refer to the particular class object that a member
+function is called for by using the <tt class="xph">this</tt> pointer in the body of
+the member function. The following code example produces the output <tt class="xph">a = 5</tt>:</p>
+<pre class="xmp">#include &lt;iostream&gt;
+using namespace std;
+
+struct X {
+private:
+  int a;
+public:
+  void Set_a(int a) {
+
+    // The 'this' pointer is used to retrieve 'xobj.a'
+    // hidden by the automatic variable 'a'
+    this-&gt;a = a;
+  }
+   void Print_a() { cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; endl; }
+};
+
+int main() {
+  X xobj;
+  int a = 5;
+  xobj.Set_a(a);
+  xobj.Print_a();
+}</pre>
+<p>In the member function <tt class="xph">Set_a()</tt>, the statement <tt class="xph">this-&gt;a =
+a</tt> uses the <tt class="xph">this</tt> pointer to retrieve <tt class="xph">xobj.a</tt> hidden
+by the automatic variable <tt class="xph">a</tt>.</p>
+<p>Unless a class member name is hidden, using the class member name is equivalent
+to using the class member name with the <tt class="xph">this</tt> pointer and the class
+member access operator (<tt class="xph">-&gt;</tt>).</p>
+<p>The example in the first column of the following table shows code that
+uses class members without the <tt class="xph">this</tt> pointer. The code in the second
+column uses the variable <tt class="xph">THIS</tt> to simulate the first column's hidden
+use of the <tt class="xph">this</tt> pointer:</p>
+<a name="wq245"></a>
+<table id="wq245" summary="" frame="border" rules="all" width="100%" border="1">
+<thead valign="bottom">
+<tr>
+<th id="wq246" align="left">Code without using <tt class="xph">this</tt> pointer</th>
+<th id="wq247" align="left">Equivalent code, the <tt class="xph">THIS</tt> variable simulating the hidden
+use of the <tt class="xph">this</tt> pointer</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td headers="wq246">
+<pre class="xmp">#include &lt;string&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+struct X {
+private:
+  int len;
+  char *ptr;
+public:
+  int GetLen() {
+    return len;
+  }
+  char * GetPtr() {
+    return ptr;
+  }
+  X&amp; Set(char *);
+  X&amp; Cat(char *);
+  X&amp; Copy(X&amp;);
+  void Print();
+};
+
+X&amp; X::Set(char *pc) {
+  len = strlen(pc);
+  ptr = new char[len];
+  strcpy(ptr, pc);
+  return *this;
+}
+
+X&amp; X::Cat(char *pc) {
+  len += strlen(pc);
+  strcat(ptr,pc);
+  return *this;
+}
+
+X&amp; X::Copy(X&amp; x) {
+  Set(x.GetPtr());
+  return *this;
+}
+
+void X::Print() {
+  cout &lt;&lt; ptr &lt;&lt; endl;
+}
+
+int main() {
+  X xobj1;
+  xobj1.Set("abcd")
+       .Cat("efgh");
+
+  xobj1.Print();
+  X xobj2;
+  xobj2.Copy(xobj1)
+       .Cat("ijkl");
+
+  xobj2.Print();
+}</pre></td>
+<td headers="wq247">
+<pre class="xmp">#include &lt;string&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+struct X {
+private:
+  int len;
+  char *ptr;
+public:
+  int GetLen (X* const THIS) {
+    return THIS-&gt;len;
+  }
+  char * GetPtr (X* const THIS) {
+    return THIS-&gt;ptr;
+  }
+  X&amp; Set(X* const, char *);
+  X&amp; Cat(X* const, char *);
+  X&amp; Copy(X* const, X&amp;);
+  void Print(X* const);
+};
+
+X&amp; X::Set(X* const THIS, char *pc) {
+  THIS-&gt;len = strlen(pc);
+  THIS-&gt;ptr =  new char[THIS-&gt;len];
+  strcpy(THIS-&gt;ptr, pc);
+  return *THIS;
+}
+
+X&amp; X::Cat(X* const THIS, char *pc) {
+  THIS-&gt;len += strlen(pc);
+  strcat(THIS-&gt;ptr, pc);
+  return *THIS;
+}
+
+X&amp; X::Copy(X* const THIS, X&amp; x) {
+  THIS-&gt;Set(THIS, x.GetPtr(&amp;x));
+  return *THIS;
+}
+
+void X::Print(X* const THIS) {
+  cout &lt;&lt; THIS-&gt;ptr &lt;&lt; endl;
+}
+
+int main() {
+  X xobj1;
+  xobj1.Set(&amp;xobj1 , "abcd")
+       .Cat(&amp;xobj1 , "efgh");
+
+  xobj1.Print(&amp;xobj1);
+  X xobj2;
+  xobj2.Copy(&amp;xobj2 , xobj1)
+       .Cat(&amp;xobj2 , "ijkl");
+
+  xobj2.Print(&amp;xobj2);
+}</pre></td>
+</tr>
+</tbody>
+</table><p class="indatacontent">Both examples produce the following output: </p>
+<pre class="xmp">abcdefgh
+abcdefghijkl</pre>
+<p><span class="bold">Related information</span> </p>
+<ul>
+<li><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr326.htm#cplr326">Overloading assignments<span> (C++ only)</span></a></li>
+<li><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr390.htm#cplr390">Copy constructors<span> (C++ only)</span></a></li></ul>
+<a id="Bot_Of_Page" name="Bot_Of_Page"></a>
+
+
+</body></html>

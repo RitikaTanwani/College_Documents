@@ -1,0 +1,13 @@
+[autorun]
+open=Install_Nokia_Ovi_Suite.exe
+icon=Install_Nokia_Ovi_Suite.exe,0
+label=Nokia Ovi Suite
+;!!! disabled because Vista shows "Run Install_Nokia_Ovi_Suite.exe which is at least partly localized" 
+action=Install Nokia Ovi Suite
+
+SHELL=OPEN
+[InstallerShim]
+workingFolder=Nokia_Ovi_Suite_install_files\
+run=Nokia_Ovi_Suite_install_files\NokiaInstaller.exe
+runWorkingFolder=Nokia_Ovi_Suite_install_files\
+deleteAfterInstall=Nokia_Ovi_Suite_install_files\;autorun.inf;Install_Nokia_Ovi_Suite.exe

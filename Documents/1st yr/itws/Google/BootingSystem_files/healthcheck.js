@@ -1,0 +1,1 @@
+YUI.CS.checkHealth({enable:1,blacklist:[]});

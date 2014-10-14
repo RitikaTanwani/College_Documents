@@ -1,0 +1,2567 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="client-js" dir="ltr" lang="en"><head>
+
+
+<title>LaTeX/Mathematics - Wikibooks, open books for an open world</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="generator" content="MediaWiki 1.18wmf1">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit">
+<link rel="edit" title="Edit" href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit">
+<link rel="shortcut icon" href="http://en.wikibooks.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://en.wikibooks.org/w/opensearch_desc.php" title="Wikibooks (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikibooks.org/w/api.php?action=rsd">
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="alternate" type="application/atom+xml" title="Wikibooks Atom feed" href="http://en.wikibooks.org/w/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="Mathematics_files/load.css" type="text/css" media="all">
+<link rel="stylesheet" href="Mathematics_files/readerfeedback.css" type="text/css" media="all"><style type="text/css" media="all">.mw-collapsible-toggle{float:right} li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+
+/* cache key: enwikibooks:resourceloader:filter:minify-css:4:4250852ed2349a0d4d0fc6509a3e7d4c */</style><style type="text/css" media="all">.js-messagebox{margin:1em 5%;padding:0.5em 2.5%;border:1px solid #ccc;background-color:#fcfcfc;font-size:0.8em}.js-messagebox .js-messagebox-group{margin:1px;padding:0.5em 2.5%;border-bottom:1px solid #ddd}.js-messagebox .js-messagebox-group:last-child{border-bottom:thin none transparent}
+
+/* cache key: enwikibooks:resourceloader:filter:minify-css:4:8b08bdc91c52a9ffba396dccfb5b473c */</style><style type="text/css" media="all">.suggestions{overflow:hidden;position:absolute;top:0px;left:0px;width:0px;border:none;z-index:1099;padding:0;margin:-1px -1px 0 0} html > body .suggestions{margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:Window;font-size:0.8em;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;background-color:Window;font-size:0.8em;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;color:WindowText;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left}.suggestions-result-current{background-color:#4C59A6;background-color:Highlight;color:white;color:HighlightText}.suggestions-special .special-label{font-size:0.8em;color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white;color:HighlightText}.autoellipsis-matched,.highlight{font-weight:bold}
+
+/* cache key: enwikibooks:resourceloader:filter:minify-css:4:1421bbe1922a44daa3fbb100d858b3d8 */</style><style type="text/css" media="all">#mw-panel.collapsible-nav div.portal{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAABCAMAAAA7MLYKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAEtQTFRF29vb2tra4ODg6urq5OTk4uLi6+vr7e3t7Ozs8PDw5+fn4+Pj4eHh3d3d39/f6Ojo5eXl6enp8fHx8/Pz8vLy7+/v3Nzc2dnZ2NjYnErj7QAAAD1JREFUeNq0wQUBACAMALDj7hf6JyUFGxzEnYhC9GaNPG1xVffGDErk/iCigLl1XV2xM49lfAxEaSM+AQYA9HMKuv4liFQAAAAASUVORK5CYII=);background-image:url(//bits.wikimedia.org/w/extensions-1.18/Vector/modules/images/portal-break.png?2011-09-19T16:38:20Z)!ie;background-position:left top;background-repeat:no-repeat;padding:0.25em 0 !important;margin:-11px 9px 10px 11px}#mw-panel.collapsible-nav div.portal h5{color:#4D4D4D;font-weight:normal;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA9QTFRFeXl53d3dmpqasbGx////GU0iEgAAAAV0Uk5T/////wD7tg5TAAAAK0lEQVQI12NwgQIG0hhCDAwMTCJAhqMCA4MiWEoIJABiOCooQhULi5BqMgB2bh4svs8t+QAAAABJRU5ErkJggg==) left center no-repeat;background:url(//bits.wikimedia.org/w/extensions-1.18/Vector/modules/images/open.png?2011-09-19T16:38:20Z) left center no-repeat!ie;padding:4px 0 3px 1.5em;margin-bottom:0px}#mw-panel.collapsible-nav div.collapsed h5{color:#0645AD;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAxQTFRF3d3deXl5////nZ2dQA6SoAAAAAN0Uk5T//8A18oNQQAAADNJREFUeNpiYEIDDMQKMKALMDOgCTDCRWACcBG4AEwEIcDITEAFuhnotmC4g4EEzwEEGAADqgHmQSPJKgAAAABJRU5ErkJggg==) left center no-repeat;background:url(//bits.wikimedia.org/w/extensions-1.18/Vector/modules/images/closed-ltr.png?2011-09-19T16:38:20Z) left center no-repeat!ie;margin-bottom:0px}#mw-panel.collapsible-nav div h5:hover{cursor:pointer;text-decoration:none}#mw-panel.collapsible-nav div.collapsed h5:hover{text-decoration:underline}#mw-panel.collapsible-nav div.portal div.body{background:none !important;padding-top:0px;display:none}#mw-panel.collapsible-nav div.persistent div.body{display:block}#mw-panel.collapsible-nav div.first h5{display:none}#mw-panel.collapsible-nav div.persistent h5{background:none !important;padding-left:0.7em;cursor:default}#mw-panel.collapsible-nav div.portal div.body ul li{padding:0.25em 0}#mw-panel.collapsible-nav div.first{background-image:none;margin-top:0px}#mw-panel.collapsible-nav div.persistent div.body{margin-left:0.5em}
+
+/* cache key: enwikibooks:resourceloader:filter:minify-css:4:c8be98782f5923ebff49ad2985ebc275 */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="Mathematics_files/load_002.css" type="text/css" media="all">
+<style type="text/css" media="all">a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}a.new,#quickbar a.new{color:#ba0000}
+
+/* cache key: enwikibooks:resourceloader:filter:minify-css:4:c88e2bcd56513749bec09a7e29cb3ffa */</style>
+<script src="Mathematics_files/load.php" type="text/javascript"></script><script src="Mathematics_files/load_007.php" type="text/javascript"></script>
+<script type="text/javascript">if ( window.mediaWiki ) {
+	mw.config.set({"wgCanonicalNamespace": "", "wgCanonicalSpecialPageName": false, "wgNamespaceNumber": 0, "wgPageName": "LaTeX/Mathematics", "wgTitle": "LaTeX/Mathematics", "wgCurRevisionId": 2257476, "wgArticleId": 42442, "wgIsArticle": true, "wgAction": "view", "wgUserName": null, "wgUserGroups": ["*"], "wgCategories": ["LaTeX"], "wgBreakFrames": false, "wgRestrictionEdit": [], "wgRestrictionMove": [], "wgSearchNamespaces": [0, 4, 112], "wgFlaggedRevsParams": {"tags": {"value": {"levels": 3, "quality": 2, "pristine": 3}}}, "wgStableRevisionId": 2249624, "wgVectorEnabledModules": {"collapsiblenav": true, "collapsibletabs": true, "editwarning": true, "expandablesearch": false, "footercleanup": false, "sectioneditlinks": false, "simplesearch": true, "experiments": true}, "wgWikiEditorEnabledModules": {"toolbar": true, "dialogs": true, "hidesig": true, "templateEditor": false, "templates": false, "preview": false, "previewDialog": false, "publish": false, "toc": false}, "wgFeedbackParams": {"tags": {"reliability": 3, "completeness": 2, "npov": 2, "presentation": 1}}, "wgAjaxFeedback": {"sendingMsg": "Submitting …", "sentMsg": "Thank you!"}, "Geo": {"city": "", "country": ""}, "wgNoticeProject": "wikibooks"});
+}
+</script><script type="text/javascript">if ( window.mediaWiki ) {
+	mw.loader.load(["mediawiki.page.startup"]);
+}
+</script><script type="text/javascript" src="Mathematics_files/load_004.php"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-latex {line-height: normal;}
+.source-latex li, .source-latex pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for latex
+ * CSS class: source-latex, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.latex.source-latex .de1, .latex.source-latex .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.latex.source-latex  {font-family:monospace;}
+.latex.source-latex .imp {font-weight: bold; color: red;}
+.latex.source-latex li, .latex.source-latex .li1 {font-weight: normal; vertical-align:top;}
+.latex.source-latex .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.latex.source-latex .li2 {font-weight: bold; vertical-align:top;}
+.latex.source-latex .kw1 {color: #800000;}
+.latex.source-latex .co1 {color: #2C922C; font-style: italic;}
+.latex.source-latex .es0 {color: #000000; font-weight: bold;}
+.latex.source-latex .sy0 {color: #E02020; }
+.latex.source-latex .st0 {color: #000000;}
+.latex.source-latex .re1 {color: #8020E0; font-weight: normal;}
+.latex.source-latex .re2 {color: #C08020; font-weight: normal;}
+.latex.source-latex .re3 {color: #8020E0; font-weight: normal;}
+.latex.source-latex .re4 {color: #800000; font-weight: normal;}
+.latex.source-latex .re5 {color: #00008B; font-weight: bold;}
+.latex.source-latex .re6 {color: #800000; font-weight: normal;}
+.latex.source-latex .re7 {color: #0000D0; font-weight: normal;}
+.latex.source-latex .re8 {color: #C00000; font-weight: normal;}
+.latex.source-latex .re9 {color: #2020C0; font-weight: normal;}
+.latex.source-latex .re10 {color: #800000; font-weight: normal;}
+.latex.source-latex .re11 {color: #E00000; font-weight: normal;}
+.latex.source-latex .re12 {color: #800000; font-weight: normal;}
+.latex.source-latex .ln-xtra, .latex.source-latex li.ln-xtra, .latex.source-latex div.ln-xtra {background-color: #ffc;}
+.latex.source-latex span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins-1.18/vector/csshover.min.htc")}</style><![endif]--><link href="Mathematics_files/index_002.css" rel="stylesheet" type="text/css"><script type="text/javascript" src="Mathematics_files/index_003.php"></script><script type="text/javascript" src="Mathematics_files/index_005.php"></script><script type="text/javascript" src="Mathematics_files/index_002.php"></script><script type="text/javascript" src="Mathematics_files/index_015.php"></script><script type="text/javascript" src="Mathematics_files/index_011.php"></script><script type="text/javascript" src="Mathematics_files/index_013.php"></script><script type="text/javascript" src="Mathematics_files/index_014.php"></script><script type="text/javascript" src="Mathematics_files/index_016.php"></script><script type="text/javascript" src="Mathematics_files/index.php"></script><script type="text/javascript" src="Mathematics_files/index_009.php"></script><script type="text/javascript" src="Mathematics_files/index_004.php"></script><script type="text/javascript" src="Mathematics_files/index_007.php"></script><link href="Mathematics_files/index.css" rel="stylesheet" type="text/css"><script type="text/javascript" src="Mathematics_files/index_012.php"></script></head><body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-LaTeX_Mathematics action-view skin-vector">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div class="js-messagebox" id="mw-js-message" style="display: none;"></div>
+						<!-- sitenotice -->
+			<div id="siteNotice"><!-- centralNotice loads here --></div>
+			<!-- /sitenotice -->
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">LaTeX/Mathematics</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+								<!-- tagline -->
+				<div id="siteSub">From Wikibooks, open books for an open world</div>
+				<!-- /tagline -->
+								<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="http://en.wikibooks.org/wiki/LaTeX" title="LaTeX">LaTeX</a></span><div id="mw-fr-revisiontag" class="flaggedrevs_basic plainlinks noprint"><img class="flaggedrevs-icon" src="Mathematics_files/1.png" alt="Unreviewed changes are displayed on this page" title="Unreviewed changes are displayed on this page">The <a class="external text" href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;stable=1">latest reviewed version</a> was <a class="external text" href="http://en.wikibooks.org/w/index.php?title=Special:Log&amp;type=review&amp;page=LaTeX/Mathematics">checked</a> on <i>13 January 2012</i>. There is <a class="external text" href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;oldid=2249624&amp;diff=cur&amp;diffonly=0">1 pending change</a> awaiting review.</div>
+</div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodycontent -->
+				<div dir="ltr" class="mw-content-ltr" lang="en"><div class="noprint" style="background-color: rgb(238, 255, 238); border: 1px solid rgb(136, 187, 136); padding: 0.5em; font-size: small; text-align: left; float: right; clear: right; width: 20%; margin: 0.5em;">
+<div class="floatright"><a href="http://commons.wikimedia.org/wiki/File:LaTeX_logo.svg" class="image"><img alt="LaTeX logo.svg" src="Mathematics_files/60px-LaTeX_logo.png" height="25" width="60"></a></div>
+<p><b><a href="http://en.wikibooks.org/wiki/LaTeX" title="LaTeX">LaTeX</a></b><br></p>
+<hr>
+<p>Getting Started</p>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Introduction" title="LaTeX/Introduction">Introduction</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Absolute_Beginners" title="LaTeX/Absolute Beginners">Absolute Beginners</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Basics" title="LaTeX/Basics">Basics</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Document_Structure" title="LaTeX/Document Structure">Document Structure</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Errors_and_Warnings" title="LaTeX/Errors and Warnings">Errors and Warnings</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management" title="LaTeX/Bibliography Management">Bibliography Management</a></li>
+</ol>
+<p>Formatting</p>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/List_Structures" title="LaTeX/List Structures">List Structures</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Tables" title="LaTeX/Tables">Tables</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Formatting" title="LaTeX/Formatting">Formatting</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Title_Creation" title="LaTeX/Title Creation">Titles</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Page_Layout" title="LaTeX/Page Layout">Page Layout</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Importing_Graphics" title="LaTeX/Importing Graphics">Importing Graphics and PDF files</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Creating_Graphics" title="LaTeX/Creating Graphics">Creating Graphics</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions" title="LaTeX/Floats, Figures and Captions">Floats, Figures and Captions</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks" title="LaTeX/Hyperlinks">Hyperlinks</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Colors" title="LaTeX/Colors">Colors</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Fonts" title="LaTeX/Fonts">Fonts</a></li>
+</ol>
+<p>Technical Texts</p>
+<ol>
+<li><strong class="selflink">Mathematics</strong></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics" title="LaTeX/Advanced Mathematics">Advanced Mathematics</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing" title="LaTeX/Labels and Cross-referencing">Labels and Cross-referencing</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Theorems" title="LaTeX/Theorems">Theorems</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Algorithms_and_Pseudocode" title="LaTeX/Algorithms and Pseudocode">Algorithms and Pseudocode</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Linguistics" title="LaTeX/Linguistics">Linguistics</a></li>
+</ol>
+<p>Special Documents and Pages</p>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Indexing" title="LaTeX/Indexing">Indexing</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Glossary" title="LaTeX/Glossary">Glossary</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Letters" title="LaTeX/Letters">Letters</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Presentations" title="LaTeX/Presentations">Presentations</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Teacher%27s_Corner" title="LaTeX/Teacher's Corner">Teacher's Corner</a></li>
+</ol>
+<p>Advanced Topics</p>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/General_Guidelines" title="LaTeX/General Guidelines">General Guidelines</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Customizing_LaTeX" title="LaTeX/Customizing LaTeX">Customizing LaTeX</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Packages" title="LaTeX/Packages">Packages</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Package_Reference" title="LaTeX/Package Reference">Package Reference</a>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Packages/Installing_Extra_Packages" title="LaTeX/Packages/Installing Extra Packages">Extra Packages</a></li>
+</ol>
+</li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Advanced_Topics" title="LaTeX/Advanced Topics">Advanced Topics</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Multiple_files" title="LaTeX/Multiple files">Multiple files</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Collaborative_Writing_of_LaTeX_Documents" title="LaTeX/Collaborative Writing of LaTeX Documents">Collaborative Writing</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Export_To_Other_Formats" title="LaTeX/Export To Other Formats">Export To Other Formats</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Internationalization" title="LaTeX/Internationalization">Internationalization</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Accents" title="LaTeX/Accents">Accents and Special Characters</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Tips_and_Tricks" title="LaTeX/Tips and Tricks">Tips / Tricks</a></li>
+</ol>
+<p>Appendices</p>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Authors" title="LaTeX/Authors">Authors</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Links" title="LaTeX/Links">Useful Links</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Installation" title="LaTeX/Installation">Installation</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Useful_Measurement_Macros" title="LaTeX/Useful Measurement Macros">Useful Measurement Macros</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Useful_Size_Commands" title="LaTeX/Useful Size Commands">Useful Size Commands</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Sample_LaTeX_documents" title="LaTeX/Sample LaTeX documents">Sample LaTeX documents</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Index" title="LaTeX/Index">Index</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Command_Glossary" title="LaTeX/Command Glossary">Command Glossary</a></li>
+</ol>
+<p><a href="http://en.wikibooks.org/wiki/LaTeX/More_Bibliographies" title="LaTeX/More Bibliographies">More Bibliographies</a></p>
+<p><br></p>
+<hr>
+<p><small><a class="external text" href="http://en.wikibooks.org/w/index.php?title=Template:LaTeX/Top&amp;action=edit">edit this box</a></small></p>
+</div>
+<p>One of the greatest motivating forces for Donald Knuth when he began 
+developing the original TeX system was to create something that allowed 
+simple construction of mathematical formulas, whilst looking 
+professional when printed. The fact that he succeeded was most probably 
+why TeX (and later on, LaTeX) became so popular within the scientific 
+community. Typesetting mathematics is one of LaTeX's greatest strengths.
+ It is also a large topic due to the existence of so much mathematical 
+notation.</p>
+<p>If your document requires only a few simple mathematical formulas, 
+plain LaTeX has most of the tools that you will need. If you are writing
+ a scientific document that contains numerous complicated formulas, the <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">amsmath</span> package<sup id="cite_ref-0" class="reference"><a href="#cite_note-0">[1]</a></sup> introduces several new commands that are more powerful and flexible than the ones provided by LaTeX. The <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">mathtools</span> package fixes some <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">amsmath</span> quirks and adds some useful settings, symbols, and environments to amsmath.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[2]</a></sup> To use either package, include:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="latex source-latex">
+<pre class="de1"><span class="sy0">\</span><span class="kw1">usepackage</span><span class="sy0">{</span><span class="re9">amsmath</span><span class="sy0">}</span>
+</pre></div>
+</div>
+<p>or</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="latex source-latex">
+<pre class="de1"><span class="sy0">\</span><span class="kw1">usepackage</span><span class="sy0">{</span><span class="re9">mathtools</span><span class="sy0">}</span>
+</pre></div>
+</div>
+<p>in the preamble of the document.</p>
+<table id="toc" class="toc">
+<tbody><tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+<span class="toctoggle">&nbsp;[<a href="#" class="internal" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Mathematics_environments"><span class="tocnumber">1</span> <span class="toctext">Mathematics environments</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Inserting_.22Displayed.22_maths_inside_blocks_of_text"><span class="tocnumber">1.1</span> <span class="toctext">Inserting "Displayed" maths inside blocks of text</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Symbols"><span class="tocnumber">2</span> <span class="toctext">Symbols</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Greek_letters"><span class="tocnumber">3</span> <span class="toctext">Greek letters</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Operators"><span class="tocnumber">4</span> <span class="toctext">Operators</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Powers_and_indices"><span class="tocnumber">5</span> <span class="toctext">Powers and indices</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Fractions_and_Binomials"><span class="tocnumber">6</span> <span class="toctext">Fractions and Binomials</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Continued_fractions"><span class="tocnumber">6.1</span> <span class="toctext">Continued fractions</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Multiplication_of_two_numbers"><span class="tocnumber">6.2</span> <span class="toctext">Multiplication of two numbers</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Roots"><span class="tocnumber">7</span> <span class="toctext">Roots</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Sums_and_integrals"><span class="tocnumber">8</span> <span class="toctext">Sums and integrals</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Brackets.2C_braces_and_delimiters"><span class="tocnumber">9</span> <span class="toctext">Brackets, braces and delimiters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#Automatic_sizing"><span class="tocnumber">9.1</span> <span class="toctext">Automatic sizing</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Manual_sizing"><span class="tocnumber">9.2</span> <span class="toctext">Manual sizing</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#Matrices_and_arrays"><span class="tocnumber">10</span> <span class="toctext">Matrices and arrays</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="#Matrices_in_running_text"><span class="tocnumber">10.1</span> <span class="toctext">Matrices in running text</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="#Adding_text_to_equations"><span class="tocnumber">11</span> <span class="toctext">Adding text to equations</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="#Formatted_text"><span class="tocnumber">11.1</span> <span class="toctext">Formatted text</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="#Formatting_mathematics_symbols"><span class="tocnumber">12</span> <span class="toctext">Formatting mathematics symbols</span></a>
+<ul>
+<li class="toclevel-2 tocsection-20"><a href="#Accents"><span class="tocnumber">12.1</span> <span class="toctext">Accents</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-21"><a href="#Plus_and_minus_signs"><span class="tocnumber">13</span> <span class="toctext">Plus and minus signs</span></a></li>
+<li class="toclevel-1 tocsection-22"><a href="#Controlling_horizontal_spacing"><span class="tocnumber">14</span> <span class="toctext">Controlling horizontal spacing</span></a></li>
+<li class="toclevel-1 tocsection-23"><a href="#Advanced_Mathematics:_AMS_Math_package"><span class="tocnumber">15</span> <span class="toctext">Advanced Mathematics: AMS Math package</span></a>
+<ul>
+<li class="toclevel-2 tocsection-24"><a href="#Introducing_text_and_dots_in_formulas"><span class="tocnumber">15.1</span> <span class="toctext">Introducing text and dots in formulas</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#Dots"><span class="tocnumber">15.2</span> <span class="toctext">Dots</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-26"><a href="#List_of_Mathematical_Symbols"><span class="tocnumber">16</span> <span class="toctext">List of Mathematical Symbols</span></a></li>
+<li class="toclevel-1 tocsection-27"><a href="#Summary"><span class="tocnumber">17</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-28"><a href="#Notes"><span class="tocnumber">18</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-29"><a href="#Further_reading"><span class="tocnumber">19</span> <span class="toctext">Further reading</span></a></li>
+<li class="toclevel-1 tocsection-30"><a href="#External_links"><span class="tocnumber">20</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=1" title="Edit section: Mathematics environments">edit</a>]</span> <span class="mw-headline" id="Mathematics_environments">Mathematics environments</span></h2>
+<p>LaTeX needs to know beforehand that the subsequent text does in fact 
+contain mathematical elements. This is because LaTeX typesets maths 
+notation differently than normal text. Therefore, special environments 
+have been declared for this purpose. They can be distinguished into two 
+categories depending on how they are presented:</p>
+<ul>
+<li><i>text</i> - text formulas are displayed in-line, that is, within the body of text where it is declared. e.g., I can say that <i>a</i> + <i>a</i> = 2<i>a</i> within this sentence.</li>
+<li><i>displayed</i> - displayed formulas are separate from the main text.</li>
+</ul>
+<p>As maths require special environments, there are naturally the 
+appropriate environment names you can use in the standard way. Unlike 
+most other environments, however, there are some handy shorthands to 
+declaring your formulas. The following table summarizes them:</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Type</th>
+<th>Environment</th>
+<th>LaTeX shorthand</th>
+<th>TeX shorthand</th>
+</tr>
+<tr>
+<td>Text</td>
+<td><span class="mw-geshi latex source-latex"><span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">math</span><span class="sy0">}</span><span class="re1">...</span><span class="re8">\end</span><span class="sy0">{</span><span class="re7">math</span></span><span class="sy0">}</span></span></td>
+<td><span class="mw-geshi latex source-latex"><span class="sy0">\</span>(...<span class="sy0">\</span>)</span></td>
+<td><span class="mw-geshi latex source-latex"><span class="re3">$...$</span></span></td>
+</tr>
+<tr>
+<td>Displayed</td>
+<td><span class="mw-geshi latex source-latex"><span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">displaymath</span><span class="sy0">}</span><span class="re1">...</span><span class="re8">\end</span><span class="sy0">{</span><span class="re7">displaymath</span></span><span class="sy0">}</span></span> or
+<p><span class="mw-geshi latex source-latex"><span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">equation*</span><span class="sy0">}</span>...<span class="re8">\end</span><span class="sy0">{</span><span class="re7">equation*</span></span><span class="sy0">}</span></span><sup id="cite_ref-amsmath_2-0" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup></p>
+</td>
+<td><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2">...\</span><span class="sy0">]</span></span></td>
+<td><span class="mw-geshi latex source-latex"><span class="re3">$$...$</span>$</span></td>
+</tr>
+</tbody></table>
+<p><b>Note:</b> Using the <span class="mw-geshi latex source-latex"><span class="re3">$$...$</span>$</span>
+ should be avoided, as it may cause problems, particularly with the 
+AMS-LaTeX macros. Furthermore, should a problem occur, the error 
+messages may not be helpful.</p>
+<p>Additionally, there is a second possible environment for the <i>displayed</i> type of formulas: <span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">equation</span>. The difference between this and <span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">displaymath</span> is that <span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">equation</span> also adds sequential equation numbers by the side.</p>
+<p>If you are typing text normally, you are said to be in <i>text mode</i>, while you are typing within one of those mathematical environments, you are said to be in <i>math mode</i>, that has some differences compared to the <i>text mode</i>:</p>
+<ol>
+<li>Most spaces and line breaks do not have any significance, as all 
+spaces are either derived logically from the mathematical expressions, 
+or have to be specified with special commands such as <span class="mw-geshi latex source-latex"><span class="re12">\quad</span></span></li>
+<li>Empty lines are not allowed. Only one paragraph per formula.</li>
+<li>Each letter is considered to be the name of a variable and will be 
+typeset as such. If you want to typeset normal text within a formula 
+(normal upright font and normal spacing) then you have to enter the text
+ using <a href="#Adding_text_to_equations">dedicated commands.</a></li>
+</ol>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=2" title="Edit section: Inserting &quot;Displayed&quot; maths inside blocks of text">edit</a>]</span> <span class="mw-headline" id="Inserting_.22Displayed.22_maths_inside_blocks_of_text">Inserting "Displayed" maths inside blocks of text</span></h3>
+<p>In order for some operators, such as <span class="mw-geshi latex source-latex"><span class="re12">\lim</span></span> or <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">sum</span></span> to be displayed correctly inside some math environments (read <span class="mw-geshi latex source-latex"><span class="re3">$......$</span></span>), it might be convenient to write the <span class="mw-geshi latex source-latex"><span class="re12">\displaystyle</span></span>
+ class inside the environment. Doing so might cause the line to be 
+taller, but will cause exponents and indices to be displayed correctly 
+for some math operators. For example, the $\sum$ will print a smaller Σ 
+and $\displaystyle \sum$ will print a bigger one <img class="tex" alt="\displaystyle \sum" src="Mathematics_files/425770d1131464ba5ce707532b201618.png">, like in equation (This only works with AMSMATH package).</p>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=3" title="Edit section: Symbols">edit</a>]</span> <span class="mw-headline" id="Symbols">Symbols</span></h2>
+<p>Mathematics has lots and lots of symbols! If there is one aspect of 
+maths that is difficult in LaTeX it is trying to remember how to produce
+ them. There are of course a set of symbols that can be accessed 
+directly from the keyboard:</p>
+<pre>+ - = ! / ( ) [ ] &lt; &gt; | ' :
+</pre>
+<p>Beyond those listed above, distinct commands must be issued in order to display the desired symbols. And there are <i>a lot!</i> of Greek letters, set and relations symbols, arrows, binary operators, etc. For example:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="re12">\forall</span> x <span class="re12">\in</span> X, <span class="re12">\quad</span> <span class="re12">\exists</span> y <span class="re12">\leq</span> <span class="re12">\epsilon</span><br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\forall x \in X, \quad \exists y \leq \epsilon
+ \," src="Mathematics_files/94d056ba917dfdc2ec672ff5b115f59f.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>Fortunately, there's a tool that can greatly simplify the search for 
+the command for a specific symbol. Look for "Detexify" in the <a href="#External_links">external links</a> section below. Another option would be to look in the "The Comprehensive LaTeX Symbol List" in the <a href="#External_links">external links</a> section below.</p>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=4" title="Edit section: Greek letters">edit</a>]</span> <span class="mw-headline" id="Greek_letters">Greek letters</span></h2>
+<p>Greek letters are commonly used in mathematics, and they are very easy to type in <i>math mode</i>.
+ You just have to type the name of the letter after a backslash: if the 
+first letter is lowercase, you will get a lowercase Greek letter, if the
+ first letter is uppercase (and only the first letter), then you will 
+get an uppercase letter. Note that some uppercase Greek letters look 
+like Latin ones, so they are not provided by LaTeX (e.g. uppercase <i>Alpha</i> and <i>Beta</i>
+ are just "A" and "B" respectively). Lowercase epsilon, theta, phi, pi, 
+rho, and sigma are provided in two different versions. The alternate, or
+ <i>var</i>iant, version is created by adding "var" before the name of the letter:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp; <span class="re12">\alpha</span>, <span class="re12">\Alpha</span>, <span class="re12">\beta</span>, <span class="re12">\Beta</span>, <span class="re12">\gamma</span>, <span class="re12">\Gamma</span>,<br>
+&nbsp; <span class="re12">\pi</span>, <span class="re12">\Pi</span>, <span class="re12">\phi</span>, <span class="re12">\varphi</span>, <span class="re12">\Phi</span><br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><span class="texhtml" dir="ltr">α,Α,β,Β,γ,Γ,π,Π,ϕ,φ,Φ</span></p>
+</td>
+</tr>
+</tbody></table>
+<p>Scroll down to <a href="#List_of_Mathematical_Symbols">#List of Mathematical Symbols</a> for a complete list of Greek symbols.</p>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=5" title="Edit section: Operators">edit</a>]</span> <span class="mw-headline" id="Operators">Operators</span></h2>
+<p>An operator is a function that is written as a word: e.g. 
+trigonometric functions (sin, cos, tan), logarithms and exponentials 
+(log, exp). LaTeX has many of these defined as commands:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="re12">\cos</span> (2<span class="re12">\theta</span>) = <span class="re12">\cos</span>^2 <span class="re12">\theta</span> - <span class="re12">\sin</span>^2 <span class="re12">\theta</span><br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\cos (2\theta) = \cos^2 \theta - \sin^2 \theta \," src="Mathematics_files/5cc83df986dd2872cf5a81ad5f46ae2e.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>For certain operators such as <a href="http://en.wikipedia.org/wiki/Limit_%28mathematics%29" class="extiw" title="w:Limit (mathematics)">limits</a>, the subscript is placed underneath the operator:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="re12">\lim</span>_<span class="sy0">{</span><span class="re9">x <span class="re12">\to</span> <span class="sy0">\</span><span class="kw1">infty</span></span><span class="sy0">}</span> <span class="re12">\exp</span>(-x) = 0<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\lim_{x \to \infty} \exp(-x) = 0" src="Mathematics_files/97c90f0e742f76f8ed62d8afa0f58f7a.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>For the <a href="http://en.wikipedia.org/wiki/Modular_arithmetic" class="extiw" title="w:Modular arithmetic">modular operator</a> there are two commands: <span class="mw-geshi latex source-latex"><span class="re12">\bmod</span></span> and <span class="mw-geshi latex source-latex"><span class="re12">\pmod</span></span>:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;a <span class="re12">\bmod</span> b<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt=" a \, \bmod \, b
+\," src="Mathematics_files/0259c7c0fb653850fd8cdbd80ecde59c.png"></p>
+</td>
+</tr>
+</tbody></table>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;x <span class="re12">\equiv</span> a <span class="re12">\pmod</span> b<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt=" x \equiv a \pmod b
+\," src="Mathematics_files/4ce54bfc1b57207e85b1e94b884ceede.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>To use operators which are not pre-defined, such as <a href="http://en.wikipedia.org/wiki/argmax" class="extiw" title="w:argmax">argmax</a>, see <a href="http://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#Custom_operators" title="LaTeX/Advanced Mathematics">custom operators</a></p>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=6" title="Edit section: Powers and indices">edit</a>]</span> <span class="mw-headline" id="Powers_and_indices">Powers and indices</span></h2>
+<p>Powers and indices are equivalent to superscripts and subscripts in normal text mode. The caret (<code>^</code>) character is used to raise something, and the underscore (<code>_</code>) is for lowering. If more than one expression is raised or lowered, they should be grouped using curly braces (<code>{</code> and <code>}</code>).</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;k_<span class="sy0">{</span><span class="re9">n+1} = n^2 + k_n^2 - k_{n-1</span>}<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="k_{n+1} = n^2 + k_n^2 - k_{n-1}
+ \," src="Mathematics_files/117bc3c664a8ca4ea1595d398b2d4328.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>An underscore (<code>_</code>) can be used with a vertical bar ( <span class="texhtml" dir="ltr">|</span> ) to denote evaluation using subscript notation in mathematics:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;f(n) = n^5 + 4n^2 + 2 |_<span class="sy0">{</span><span class="re9">n=17</span>}<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt=" f(n) = n^5 + 4n^2 + 2 |_{n=17}
+ \," src="Mathematics_files/9b795c286cb5de3b70836d07224c363f.png"></p>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=7" title="Edit section: Fractions and Binomials">edit</a>]</span> <span class="mw-headline" id="Fractions_and_Binomials">Fractions and Binomials</span></h2>
+<p>A fraction is created using the <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">frac</span><span class="sy0">{</span><span class="re9">numerator}{denominator</span><span class="sy0">}</span></span> command. (for those who need their memories refreshed, that's the <i>top</i> and <i>bottom</i> respectively!). Likewise, the <a href="http://en.wikipedia.org/wiki/Binomial_coefficient" class="extiw" title="w:Binomial coefficient">binomial coefficient</a> (aka the Choose function) may be written using the <span class="mw-geshi latex source-latex"><span class="re12">\binom</span></span> command<sup id="cite_ref-amsmath_2-1" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup>:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="sy0">\</span><span class="kw1">frac</span><span class="sy0">{</span><span class="re9">n!}{k!(n-k)!} = <span class="re12">\binom</span>{n}{k</span>}<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\frac{n!}{k!(n-k)!} = \binom{n}{k}" src="Mathematics_files/d1ede6b38a10a1cbbe2c4d47ba138fe1.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>It is also possible to use the <span class="mw-geshi latex source-latex"><span class="re12">\choose</span></span> command without the <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">amsmath</span> package:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="sy0">\</span><span class="kw1">frac</span><span class="sy0">{</span><span class="re9">n!}{k!(n-k)!} = {n <span class="re12">\choose</span> k</span>}<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt=" \frac{n!}{k!(n-k)!} = {n \choose k}" src="Mathematics_files/9f472497b660576f077796386431199e.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>You can embed fractions within fractions:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="sy0">\</span><span class="kw1">frac</span><span class="sy0">{</span><span class="re9">\<span class="kw1">frac</span><span class="sy0">{</span>1<span class="sy0">}{</span>x<span class="sy0">}</span>+<span class="sy0">\</span><span class="kw1">frac</span>{1}{y}}{y-z</span>}<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\frac{\frac{1}{x}+\frac{1}{y}}{y-z}" src="Mathematics_files/99201a181b1c0a721f13351f1940afb1.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>Note that when appearing inside another fraction, or in inline text <img class="tex" alt="\tfrac{a}{b}" src="Mathematics_files/ec3e447b2dcda3eb68860a5cb3780bf7.png">, a fraction is noticeably smaller than in displayed mathematics. The <span class="mw-geshi latex source-latex"><span class="re12">\tfrac</span></span> and <span class="mw-geshi latex source-latex"><span class="re12">\dfrac</span></span> commands<sup id="cite_ref-amsmath_2-2" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup> force the use of the respective styles, <span class="mw-geshi latex source-latex"><span class="re12">\textstyle</span></span> and <span class="mw-geshi latex source-latex"><span class="re12">\displaystyle</span></span>. Similarly, the <span class="mw-geshi latex source-latex"><span class="re12">\tbinom</span></span> and <span class="mw-geshi latex source-latex"><span class="re12">\dbinom</span></span> commands typeset the binomial coefficient.</p>
+<p>Another way to write fractions is to use the <span class="mw-geshi latex source-latex"><span class="re12">\over</span></span> command without the <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">amsmath</span> package:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="sy0">{</span><span class="re9">n! <span class="re12">\over</span> k!(n-k)!<span class="sy0">}</span> = <span class="sy0">{</span>n <span class="re12">\choose</span> k</span>}<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt=" {n! \over k!(n-k)!} = {n \choose k}" src="Mathematics_files/e57229cefcec3e016bf362701584e868.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>For relatively simple fractions, it may be more aesthetically pleasing to use <a href="#Powers_and_indices">powers and indices</a>:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;^3/_7<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="^3/_7
+ \," src="Mathematics_files/d1d67bb74273403b6b645d5d84722198.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>If you use them throughout the document, usage of <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">xfrac</span> package is recommended. This package provides <span class="mw-geshi latex source-latex"><span class="re12">\sfrac</span></span> command to create slanted fractions. Usage:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex">Take <span class="re12">\sfrac</span><span class="sy0">{</span><span class="re9">1}{2} cup of sugar, <span class="re12">\dots</span><br>
+&nbsp;<span class="sy0">\[</span><span class="re2"><br>
+&nbsp; 3<span class="re12">\times</span><span class="re12">\sfrac</span><span class="sy0">{</span>1<span class="sy0">}{</span>2<span class="sy0">}</span>=1<span class="re12">\sfrac</span>{1}{2}<br>
+&nbsp;\</span><span class="sy0">]</span><br>
+<br>
+Take <span class="re3">${}^1/_2$</span> cup of sugar, <span class="re12">\dots</span><br>
+&nbsp;<span class="sy0">\[</span><span class="re2"><br>
+&nbsp; 3<span class="re12">\times</span>{}^1/_2=1{</span>}^1/_2<br>
+&nbsp;\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><a href="http://commons.wikimedia.org/wiki/File:LaTeX-xfrac-example.png" class="image"><img alt="LaTeX-xfrac-example.png" src="Mathematics_files/400px-LaTeX-xfrac-example.png" height="131" width="400"></a></p>
+</td>
+</tr>
+</tbody></table>
+<p>Alternatively, the <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">nicefrac</span> package provides the <span class="mw-geshi latex source-latex"><span class="re12">\nicefrac</span></span> command, whose usage is similar to <span class="mw-geshi latex source-latex"><span class="re12">\sfrac</span></span>.</p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=8" title="Edit section: Continued fractions">edit</a>]</span> <span class="mw-headline" id="Continued_fractions">Continued fractions</span></h3>
+<p>Continued fractions should be written using <span class="mw-geshi latex source-latex"><span class="re12">\cfrac</span></span> command<sup id="cite_ref-amsmath_2-3" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup>:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">equation</span><span class="sy0">}</span><span class="re1"><br>
+&nbsp; x = a_0 + <span class="re12">\cfrac</span><span class="sy0">{</span>1<span class="sy0">}{</span>a_1<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; + <span class="re12">\cfrac</span><span class="sy0">{</span>1<span class="sy0">}{</span>a_2<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; + <span class="re12">\cfrac</span>{1}{a_3 + a_4}}}<br></span><span class="re8">\end</span><span class="sy0">{</span><span class="re7">equation</span></span><span class="sy0">}</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="   x = a_0 + \cfrac{1}{a_1 
+           + \cfrac{1}{a_2 
+           + \cfrac{1}{a_3 + a_4}}}" src="Mathematics_files/9c1c7ffc490759dcc01d2827d75aca06.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p><br></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=9" title="Edit section: Multiplication of two numbers">edit</a>]</span> <span class="mw-headline" id="Multiplication_of_two_numbers">Multiplication of two numbers</span></h3>
+<p>To make multiplication visually similar to a fraction, you can use 
+nested array. Multiplication of numbers written one behalf other.</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">equation</span><span class="sy0">}</span><span class="re1"><br>
+<span class="sy0">\</span><span class="kw1">frac</span><span class="sy0">{</span><br>
+&nbsp; &nbsp; <span class="re8">\begin</span><span class="sy0">{</span><span class="re7">array</span><span class="sy0">}[</span><span class="re2">b</span><span class="sy0">]{</span>r<span class="sy0">}</span><br>
+&nbsp; &nbsp; &nbsp; <span class="sy0">\</span><span class="kw1">left</span>( x_1 x_2 <span class="sy0">\</span><span class="kw1">right</span>)<span class="sy0">\\</span><br>
+&nbsp; &nbsp; &nbsp; <span class="re12">\times</span> <span class="sy0">\</span><span class="kw1">left</span>( x'_1 x'_2 <span class="sy0">\</span><span class="kw1">right</span>)<br>
+&nbsp; &nbsp; <span class="re8">\end</span><span class="sy0">{</span><span class="re7">array</span><span class="sy0">}</span><br>
+&nbsp; <span class="sy0">}{</span><br>
+&nbsp; &nbsp; <span class="sy0">\</span><span class="kw1">left</span>( y_1y_2y_3y_4 <span class="sy0">\</span><span class="kw1">right</span>)<br>
+&nbsp; }<br></span><span class="re8">\end</span><span class="sy0">{</span><span class="re7">equation</span></span><span class="sy0">}</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\frac{
+    \begin{array}[b]{r}
+      \left( x_1 x_2 \right)\\
+      \times \left( x'_1 x'_2 \right)
+    \end{array}
+  }{
+    \left( y_1y_2y_3y_4 \right)
+  }" src="Mathematics_files/01e8112dcec7fa9471c1cfaaa4e7cddd.png"></p>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=10" title="Edit section: Roots">edit</a>]</span> <span class="mw-headline" id="Roots">Roots</span></h2>
+<p>The <span class="mw-geshi latex source-latex"><span class="re12">\sqrt</span></span> command creates a square root surrounding an expression. It accepts an optional argument specified in square brackets (<code>[</code> and <code>]</code>) to change magnitude:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+<span class="re12">\sqrt</span><span class="sy0">{</span><span class="re9">\<span class="kw1">frac</span>{a}{b}</span>}<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\sqrt{\frac{a}{b}}" src="Mathematics_files/0769425080dad1b01104bb392c641d36.png"></p>
+</td>
+</tr>
+</tbody></table>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+<span class="re12">\sqrt</span>[n</span><span class="sy0">]{</span><span class="re9">1+x+x^2+x^3+<span class="re12">\ldots</span></span><span class="sy0">}</span><br>
+<span class="sy0">\]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\sqrt[n]{1+x+x^2+x^3+\ldots}" src="Mathematics_files/9ac55c571b112fba4b527b8b1eb19e17.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p><br>
+Some people prefer writing the square root "closing" it over its 
+content. This method arguably makes it more clear what is in the scope 
+of the root sign. This habit is not normally used while writing with the
+ computer, but if you still want to change the output of the square 
+root, LaTeX gives you this possibility. Just add the following code in 
+the preamble of your document:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="co1">% New definition of square root:</span><br>
+<span class="co1">% it renames \sqrt as \oldsqrt</span><br>
+<span class="sy0">\</span><span class="kw1">let</span><span class="re12">\oldsqrt</span><span class="re12">\sqrt</span><br>
+<span class="co1">% it defines the new \sqrt in terms of the old one</span><br>
+<span class="sy0">\</span><span class="kw1">def</span><span class="re12">\sqrt</span><span class="sy0">{</span><span class="re9"><span class="re12">\mathpalette</span><span class="re12">\DHLhksqrt</span></span><span class="sy0">}</span><br>
+<span class="sy0">\</span><span class="kw1">def</span><span class="re12">\DHLhksqrt</span>#1#2<span class="sy0">{</span><span class="co1">%</span><br>
+<span class="re12">\setbox</span>0=<span class="re12">\hbox</span><span class="sy0">{</span><span class="re9"><span class="re3">$#1<span class="re12">\oldsqrt</span>{#2\,}$</span><span class="sy0">}</span><span class="re12">\dimen</span>0=<span class="re12">\ht</span>0<br>
+<span class="re12">\advance</span><span class="re12">\dimen</span>0-0.2<span class="re12">\ht</span>0<br>
+<span class="re12">\setbox</span>2=<span class="re12">\hbox</span><span class="sy0">{</span><span class="re12">\vrule</span> height<span class="re12">\ht</span>0 depth -<span class="re12">\dimen</span>0</span><span class="sy0">}</span><span class="co1">%</span><br>
+<span class="sy0">{</span><span class="re9"><span class="re12">\box</span>0<span class="re12">\lower</span>0.4pt<span class="re12">\box</span>2}</span><span class="sy0">}</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<div class="thumb tright">
+<div class="thumbinner" style="width: 252px;"><a href="http://commons.wikimedia.org/wiki/File:Latex_new_squareroot.png" class="image"><img alt="" src="Mathematics_files/250px-Latex_new_squareroot.png" class="thumbimage" height="101" width="250"></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="http://en.wikibooks.org/wiki/File:Latex_new_squareroot.png" class="internal" title="Enlarge"><img src="Mathematics_files/magnify-clip.png" alt="" height="11" width="15"></a></div>
+The new style is on left, the old one on right</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+<p>This TeX code first renames the <span class="mw-geshi latex source-latex"><span class="re12">\sqrt</span></span> command as <span class="mw-geshi latex source-latex"><span class="re12">\oldsqrt</span></span>, then redefines <span class="mw-geshi latex source-latex"><span class="re12">\sqrt</span></span>
+ in terms of the old one, adding something more. The new square root can
+ be seen in the picture on the left, compared to the old one on the 
+right. Unfortunately this code won't work if you want to use multiple 
+roots: if you try to write <img class="tex" alt="\sqrt[b]{a}" src="Mathematics_files/e001d537da149e5ceb715383a72b0f02.png"> as <span class="mw-geshi latex source-latex"><span class="re12">\sqrt</span><span class="sy0">[</span><span class="re2">b</span><span class="sy0">]{</span><span class="re9">a</span><span class="sy0">}</span></span>
+ after you used the code above, you'll just get a wrong output. In other
+ words, you can redefine the square root this way only if you are not 
+going to use multiple roots in the whole document.</p>
+<p>An alternative piece of TeX code that does allow multiple toots is this:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\LetLtxMacro</span><span class="sy0">{</span><span class="re9"><span class="re12">\oldsqrt</span><span class="sy0">}{</span><span class="re12">\sqrt</span></span><span class="sy0">}</span> <span class="co1">% makes all sqrts closed</span><br>
+<span class="sy0">\</span><span class="kw1">renewcommand</span><span class="sy0">{</span><span class="re9"><span class="re12">\sqrt</span></span><span class="sy0">}[</span><span class="re2">1</span><span class="sy0">][</span><span class="sy0">]{</span><span class="co1">%</span><br>
+&nbsp; <span class="sy0">\</span><span class="kw1">def</span><span class="re12">\DHLindex</span><span class="sy0">{</span><span class="re9">#1}<span class="re12">\mathpalette</span><span class="re12">\DHLhksqrt</span></span><span class="sy0">}</span><br>
+<span class="sy0">\</span><span class="kw1">def</span><span class="re12">\DHLhksqrt</span>#1#2<span class="sy0">{</span><span class="co1">%</span><br>
+&nbsp; <span class="re12">\setbox</span>0=<span class="re12">\hbox</span><span class="sy0">{</span><span class="re9"><span class="re3">$#1<span class="re12">\oldsqrt</span><span class="sy0">[</span><span class="re2"><span class="re12">\DHLindex</span></span>]{#2\,}$</span><span class="sy0">}</span><span class="re12">\dimen</span>0=<span class="re12">\ht</span>0<br>
+&nbsp; <span class="re12">\advance</span><span class="re12">\dimen</span>0-0.2<span class="re12">\ht</span>0<br>
+&nbsp; <span class="re12">\setbox</span>2=<span class="re12">\hbox</span><span class="sy0">{</span><span class="re12">\vrule</span> height<span class="re12">\ht</span>0 depth -<span class="re12">\dimen</span>0</span><span class="sy0">}</span><span class="co1">%</span><br>
+&nbsp; <span class="sy0">{</span><span class="re9"><span class="re12">\box</span>0<span class="re12">\lower</span>0.71pt<span class="re12">\box</span>2}</span><span class="sy0">}</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p>Rendering missing!</p>
+</td>
+</tr>
+</tbody></table>
+<p>However this requires the <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">usepackage</span><span class="sy0">{</span><span class="re9">letltxmacro</span><span class="sy0">}</span></span> package</p>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=11" title="Edit section: Sums and integrals">edit</a>]</span> <span class="mw-headline" id="Sums_and_integrals">Sums and integrals</span></h2>
+<p>The <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">sum</span></span> and <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">int</span></span> commands insert the sum and integral symbols respectively, with limits specified using the caret (<code>^</code>) and underscore (<code>_</code>). The typical notation for sums is:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="sy0">\</span><span class="kw1">sum</span>_<span class="sy0">{</span><span class="re9">i=1}^{10</span>} t_i<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\sum_{i=1}^{10} t_i 
+ \," src="Mathematics_files/19bdd0f3e1802e2895d8368bdd2f0247.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>The limits for the integrals follow the same notation. It's also 
+important to represent the integration variables with an upright d, 
+which in math mode is obtained through the \mathrm{} command, and with a
+ small space separating it from the integrand, which is attained with 
+the \, command.</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="sy0">\</span><span class="kw1">int</span>_0^<span class="sy0">\</span><span class="kw1">infty</span> e^<span class="sy0">{</span><span class="re9">-x}\,<span class="re12">\mathrm</span>{d</span>}x<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\int_0^\infty e^{-x}\,\mathrm{d}x
+ \," src="Mathematics_files/91cb03cf86dfb8d853bfdb0a96b3c127.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>There are many other "big" commands which operate in a similar manner:</p>
+<table>
+<tbody><tr>
+<td><code>\sum</code></td>
+<td><img class="tex" alt="\sum \," src="Mathematics_files/ac7f09b38dcca23ed4d3114e54492f16.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\prod</code></td>
+<td><img class="tex" alt="\prod" src="Mathematics_files/b4a80aa62086eef9a69f3a6807455458.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\coprod</code></td>
+<td><img class="tex" alt="\coprod" src="Mathematics_files/13701d9b28b21d0b161ae95377ba5446.png"></td>
+</tr>
+<tr>
+<td><code>\bigoplus</code></td>
+<td><img class="tex" alt="\bigoplus" src="Mathematics_files/17e0badeeb2a6501df77203521a6501d.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\bigotimes</code></td>
+<td><img class="tex" alt="\bigotimes" src="Mathematics_files/9f3cab49d684e7498a965b3e9d3c1524.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\bigodot</code></td>
+<td><img class="tex" alt="\bigodot" src="Mathematics_files/96a7b9d0ce387adfe7c6f3b873a0b76a.png"></td>
+</tr>
+<tr>
+<td><code>\bigcup</code></td>
+<td><img class="tex" alt="\bigcup" src="Mathematics_files/8d50523fd64ca129ae09c7ae73e1385f.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\bigcap</code></td>
+<td><img class="tex" alt="\bigcap" src="Mathematics_files/ddf86464dcc2190258c76ddc1da7032a.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\biguplus</code></td>
+<td><img class="tex" alt="\biguplus" src="Mathematics_files/902effd4844ae7dbd71f9f3cecec25f0.png"></td>
+</tr>
+<tr>
+<td><code>\bigsqcup</code></td>
+<td><img class="tex" alt="\bigsqcup" src="Mathematics_files/bf60615860b12ad8b31cc27645fc5224.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\bigvee</code></td>
+<td><img class="tex" alt="\bigvee" src="Mathematics_files/af2beebc69c64f6a9a59db61113e14a0.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\bigwedge</code></td>
+<td><img class="tex" alt="\bigwedge" src="Mathematics_files/6c1357f344d79b14bbd6a43c112f36db.png"></td>
+</tr>
+<tr>
+<td><code>\int</code></td>
+<td><img class="tex" alt="\int" src="Mathematics_files/fe8609fc395704f6ba0420eb485cd0f6.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\oint</code></td>
+<td><img class="tex" alt="\oint" src="Mathematics_files/058bf10c50ba4ee074da24c60a590314.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\iint</code><sup id="cite_ref-amsmath_2-4" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup></td>
+<td><img class="tex" alt="\iint" src="Mathematics_files/0e66f8f6b272ca5db6f0b3f1c63a7560.png"></td>
+</tr>
+<tr>
+<td><code>\iiint</code><sup id="cite_ref-amsmath_2-5" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup></td>
+<td><img class="tex" alt="\iiint" src="Mathematics_files/2b16b3df11903f404b3d454f8c51cf78.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\iiiint</code><sup id="cite_ref-amsmath_2-6" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup></td>
+<td><img class="tex" alt="\iiiint" src="Mathematics_files/c3ab63707fd179b198cf72c9ef4c7051.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\idotsint</code><sup id="cite_ref-amsmath_2-7" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup></td>
+<td><img class="tex" alt="\int \! \cdots \! \int" src="Mathematics_files/63fe46019f9aa7c23b58467f02793ae2.png"></td>
+</tr>
+</tbody></table>
+<p>For more integral symbols, including those not included by default in the Computer Modern font, try the <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">esint</span> package.</p>
+<p>The <span class="mw-geshi latex source-latex"><span class="re12">\substack</span></span> command<sup id="cite_ref-amsmath_2-8" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup> allows the use of <span class="mw-geshi latex source-latex"><span class="sy0">\\</span></span> to write the limits over multiple lines:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="sy0">\</span><span class="kw1">sum</span>_<span class="sy0">{</span><span class="re9"><span class="re12">\substack</span>{<br>
+&nbsp; &nbsp;0&lt;i&lt;m \\<br>
+&nbsp; &nbsp;0&lt;j&lt;n<br>
+&nbsp; }</span>}<br>
+&nbsp;P(i,j)<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\sum_{\overset{\scriptstyle 0&lt;i&lt;m} {\scriptstyle 0&lt;j&lt;n}} P(i,j)
+ \," src="Mathematics_files/e3f49d6c4820a1773b3ca95f794127a4.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>If you want the limits of an integral to be specified above and below the symbol (like the sum), use the <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">limits</span></span> command:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="sy0">\</span><span class="kw1">int</span><span class="sy0">\</span><span class="kw1">limits</span>_a^b<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\int\limits_a^b
+ \," src="Mathematics_files/4998cdd35dc5dcbe37c1351aa060d4ac.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>However if you want this to apply to ALL integrals, it is preferable to specify the <span style="font-family: monospace; color: rgb(192, 128, 32); font-weight: normal;">intlimits</span> option when loading the <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">amsmath</span> package:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="padding-left: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">usepackage</span><span class="sy0">[</span><span class="re2">intlimits</span><span class="sy0">]{</span><span class="re9">amsmath</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>Subscripts and superscripts in other contexts as well as other parameters to <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">amsmath</span> package related to them are described in <a href="http://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#Advanced_formatting" title="LaTeX/Advanced Mathematics">Advanced Mathematics</a> chapter.</p>
+<p>For bigger integrals, you may use personal declarations, or the <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">bigints</span> package <sup id="cite_ref-LM_3-0" class="reference"><a href="#cite_note-LM-3">[4]</a></sup>.</p>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=12" title="Edit section: Brackets, braces and delimiters">edit</a>]</span> <span class="mw-headline" id="Brackets.2C_braces_and_delimiters">Brackets, braces and delimiters</span></h2>
+<p><small><i>How to use braces in multi line equations is described in the <a href="http://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#Braces_spanning_multiple_lines" title="LaTeX/Advanced Mathematics">Advanced Mathematics</a> chapter.</i></small></p>
+<p>The use of delimiters such as brackets soon becomes important when 
+dealing with anything but the most trivial equations. Without them, 
+formulas can become ambiguous. Also, special types of mathematical 
+structures, such as matrices, typically rely on delimiters to enclose 
+them.</p>
+<p>There are a variety of delimiters available for use in LaTeX:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+( a ), [ b</span> <span class="sy0">]</span>, <span class="sy0">\{</span> <span class="re9">c \</span><span class="sy0">}</span>, | d |, <span class="sy0">\</span>| e <span class="sy0">\</span>|,<br>
+<span class="re12">\langle</span> f <span class="re12">\rangle</span>, <span class="re12">\lfloor</span> g <span class="re12">\rfloor</span>,<br>
+<span class="re12">\lceil</span> h <span class="re12">\rceil</span><br>
+<span class="sy0">\]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="( a ), [ b ], \{ c \}, | d |, \| e \|, \langle f \rangle, \lfloor g \rfloor, \lceil h \rceil" src="Mathematics_files/a83ed1babd3bfbca150503918c6f8ac9.png"></p>
+</td>
+</tr>
+</tbody></table>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=13" title="Edit section: Automatic sizing">edit</a>]</span> <span class="mw-headline" id="Automatic_sizing">Automatic sizing</span></h3>
+<p>Very often mathematical features will differ in size, in which case 
+the delimiters surrounding the expression should vary accordingly. This 
+can be done automatically using the <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">left</span></span> and <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">right</span></span> commands. Any of the previous delimiters may be used in combination with these:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="sy0">\</span><span class="kw1">left</span>(<span class="sy0">\</span><span class="kw1">frac</span><span class="sy0">{</span><span class="re9">x^2}{y^3</span><span class="sy0">}\</span><span class="kw1">right</span>)<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\left(\frac{x^2}{y^3}\right)
+ \," src="Mathematics_files/7faa7405e3d22ac3fd2f0159ca4ea1c7.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>Curly braces are defined differently by using <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">left</span><span class="sy0">\{</span></span> and <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">right</span><span class="sy0">\}</span></span>,</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="sy0">\</span><span class="kw1">left</span><span class="sy0">\{</span><span class="re9">\<span class="kw1">frac</span><span class="sy0">{</span>x^2<span class="sy0">}{</span>y^3<span class="sy0">}\</span><span class="kw1">right</span>\</span>}<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\left\{\frac{x^2}{y^3}\right\}
+ \," src="Mathematics_files/dc405bf772586c41ff3b410c54f642bf.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>If a delimiter on only one side of an expression is required, then an
+ invisible delimiter on the other side may be denoted using a period (<code>.</code>).</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="sy0">\</span><span class="kw1">left</span>.<span class="sy0">\</span><span class="kw1">frac</span><span class="sy0">{</span><span class="re9">x^3}{3</span><span class="sy0">}\</span><span class="kw1">right</span>|_0^1<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt=" \left.\frac{x^3}{3}\right|_0^1
+ \," src="Mathematics_files/93c3221905e10133f7fdcc75920fd7a6.png"></p>
+</td>
+</tr>
+</tbody></table>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=14" title="Edit section: Manual sizing">edit</a>]</span> <span class="mw-headline" id="Manual_sizing">Manual sizing</span></h3>
+<p>In certain cases, the sizing produced by the <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">left</span></span> and <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">right</span></span> commands may not be desirable, or you may simply want finer control over the delimiter sizes. In this case, the <span class="mw-geshi latex source-latex"><span class="re12">\big</span></span>, <span class="mw-geshi latex source-latex"><span class="re12">\Big</span></span>, <span class="mw-geshi latex source-latex"><span class="re12">\bigg</span></span> and <span class="mw-geshi latex source-latex"><span class="re12">\Bigg</span></span> modifier commands may be used:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;( <span class="re12">\big</span>( <span class="re12">\Big</span>( <span class="re12">\bigg</span>( <span class="re12">\Bigg</span>(<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="( \big( \Big( \bigg( \Bigg( 
+ \," src="Mathematics_files/e5037877caa94a31b7ae244ca1bc78bf.png"></p>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=15" title="Edit section: Matrices and arrays">edit</a>]</span> <span class="mw-headline" id="Matrices_and_arrays">Matrices and arrays</span></h2>
+<p>A basic matrix may be created using the <span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">matrix</span> environment<sup id="cite_ref-amsmath_2-9" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup>: in common with other table-like structures, entries are specified by row, with columns separated using an ampersand (<span class="mw-geshi latex source-latex"><span class="sy0">&amp;</span></span>) and a new rows separated with a double backslash (<span class="mw-geshi latex source-latex"><span class="sy0">\\</span></span>)</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">matrix</span><span class="sy0">}</span><br>
+&nbsp; a <span class="sy0">&amp;</span> b <span class="sy0">&amp;</span> c <span class="sy0">\\</span><br>
+&nbsp; d <span class="sy0">&amp;</span> e <span class="sy0">&amp;</span> f <span class="sy0">\\</span><br>
+&nbsp; g <span class="sy0">&amp;</span> h <span class="sy0">&amp;</span> i<br>
+&nbsp;<span class="re8">\end</span><span class="sy0">{</span><span class="re7">matrix</span></span>}<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\begin{matrix}
+a &amp; b &amp; c \\
+d &amp; e &amp; f \\
+g &amp; h &amp; i
+\end{matrix}" src="Mathematics_files/f0959a5db35e2f9e6a81dc88aa4d11a0.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>To specify alignment of columns in the table, use starred version<sup id="cite_ref-mathtools_4-0" class="reference"><a href="#cite_note-mathtools-4">[5]</a></sup>:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">matrix</span><span class="sy0">}</span><br>
+&nbsp; -1 <span class="sy0">&amp;</span> 3 <span class="sy0">\\</span><br>
+&nbsp; 2 <span class="sy0">&amp;</span> -4<br>
+&nbsp;<span class="re8">\end</span><span class="sy0">{</span><span class="re7">matrix</span><span class="sy0">}</span><br>
+&nbsp;=<br>
+&nbsp;<span class="re8">\begin</span><span class="sy0">{</span><span class="re7">matrix*</span>}[r</span><span class="sy0">]</span><br>
+&nbsp; -1 <span class="sy0">&amp;</span> 3 <span class="sy0">\\</span><br>
+&nbsp; 2 <span class="sy0">&amp;</span> -4<br>
+&nbsp;<span class="re8">\end</span><span class="sy0">{</span><span class="re7">matrix*</span></span><span class="sy0">}</span><br>
+<span class="sy0">\]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt=" \begin{matrix}
+  -1 &amp; 3 \\
+  2 &amp; -4
+ \end{matrix}
+ =
+ \begin{matrix}
+  -1 &amp; \,\;\;3 \\
+  \,\;\;2 &amp; -4
+ \end{matrix}" src="Mathematics_files/08ad03f3f81ec1b2e160b30c9e8f2c0b.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>The alignment by default is <span style="font-family: monospace; color: rgb(192, 128, 32); font-weight: normal;">c</span> but it can be any column type valid in <span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">array</span> environment.</p>
+<p>However matrices are usually enclosed in delimiters of some kind, and while it is possible to use the <a href="#Automatic_sizing"><tt>\left</tt> and <tt>\right</tt> commands</a>, there are various other predefined environments which automatically include delimiters:</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Environment name</th>
+<th>Surrounding delimiter</th>
+<th>Notes</th>
+</tr>
+<tr>
+<td><span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">pmatrix</span><sup id="cite_ref-amsmath_2-10" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup></td>
+<td><img class="tex" alt="( \, ) " src="Mathematics_files/605324340e268dbe00e529b97e84f289.png"></td>
+<td>centers columns by default</td>
+</tr>
+<tr>
+<td><span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">pmatrix*</span><sup id="cite_ref-mathtools_4-1" class="reference"><a href="#cite_note-mathtools-4">[5]</a></sup></td>
+<td><img class="tex" alt="( \, ) " src="Mathematics_files/605324340e268dbe00e529b97e84f289.png"></td>
+<td>allows to specify alignment of columns in optional parameter</td>
+</tr>
+<tr>
+<td><span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">bmatrix</span><sup id="cite_ref-amsmath_2-11" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup></td>
+<td><img class="tex" alt="[ \, ] " src="Mathematics_files/3b12bb11542226fbabbed444e20f4110.png"></td>
+<td>centers columns by default</td>
+</tr>
+<tr>
+<td><span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">bmatrix*</span><sup id="cite_ref-mathtools_4-2" class="reference"><a href="#cite_note-mathtools-4">[5]</a></sup></td>
+<td><img class="tex" alt="[ \, ] " src="Mathematics_files/3b12bb11542226fbabbed444e20f4110.png"></td>
+<td>allows to specify alignment of columns in optional parameter</td>
+</tr>
+<tr>
+<td><span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">Bmatrix</span><sup id="cite_ref-amsmath_2-12" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup></td>
+<td><img class="tex" alt="\{ \, \} " src="Mathematics_files/2898316e65a5f0fd486100d5206f4d60.png"></td>
+<td>centers columns by default</td>
+</tr>
+<tr>
+<td><span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">Bmatrix*</span><sup id="cite_ref-mathtools_4-3" class="reference"><a href="#cite_note-mathtools-4">[5]</a></sup></td>
+<td><img class="tex" alt="\{ \, \} " src="Mathematics_files/2898316e65a5f0fd486100d5206f4d60.png"></td>
+<td>allows to specify alignment of columns in optional parameter</td>
+</tr>
+<tr>
+<td><span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">vmatrix</span><sup id="cite_ref-amsmath_2-13" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup></td>
+<td><img class="tex" alt="| \, | " src="Mathematics_files/e253f9e73e5ea697fb4d8cc44998da15.png"></td>
+<td>centers columns by default</td>
+</tr>
+<tr>
+<td><span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">vmatrix*</span><sup id="cite_ref-mathtools_4-4" class="reference"><a href="#cite_note-mathtools-4">[5]</a></sup></td>
+<td><img class="tex" alt="| \, | " src="Mathematics_files/e253f9e73e5ea697fb4d8cc44998da15.png"></td>
+<td>allows to specify alignment of columns in optional parameter</td>
+</tr>
+<tr>
+<td><span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">Vmatrix</span><sup id="cite_ref-amsmath_2-14" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup></td>
+<td><img class="tex" alt="\| \, \| " src="Mathematics_files/e41240e481c800ebad799cc736b7b759.png"></td>
+<td>centers columns by default</td>
+</tr>
+<tr>
+<td><span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">Vmatrix*</span><sup id="cite_ref-mathtools_4-5" class="reference"><a href="#cite_note-mathtools-4">[5]</a></sup></td>
+<td><img class="tex" alt="\| \, \| " src="Mathematics_files/e41240e481c800ebad799cc736b7b759.png"></td>
+<td>allows to specify alignment of colums in optional parameter</td>
+</tr>
+</tbody></table>
+<p>When writing down arbitrary sized matrices, it is common to use horizontal, vertical and diagonal triplets of dots (known as <a href="http://en.wikipedia.org/wiki/ellipsis" class="extiw" title="w:ellipsis">ellipses</a>) to fill in certain columns and rows. These can be specified using the <span class="mw-geshi latex source-latex"><span class="re12">\cdots</span></span>, <span class="mw-geshi latex source-latex"><span class="re12">\vdots</span></span> and <span class="mw-geshi latex source-latex"><span class="re12">\ddots</span></span> respectively:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;A_<span class="sy0">{</span><span class="re9">m,n<span class="sy0">}</span> =<br>
+&nbsp;<span class="re8">\begin</span><span class="sy0">{</span><span class="re7">pmatrix</span><span class="sy0">}</span><br>
+&nbsp; a_<span class="sy0">{</span>1,1<span class="sy0">}</span> <span class="sy0">&amp;</span> a_<span class="sy0">{</span>1,2<span class="sy0">}</span> <span class="sy0">&amp;</span> <span class="re12">\cdots</span> <span class="sy0">&amp;</span> a_<span class="sy0">{</span>1,n<span class="sy0">}</span> <span class="sy0">\\</span><br>
+&nbsp; a_<span class="sy0">{</span>2,1<span class="sy0">}</span> <span class="sy0">&amp;</span> a_<span class="sy0">{</span>2,2<span class="sy0">}</span> <span class="sy0">&amp;</span> <span class="re12">\cdots</span> <span class="sy0">&amp;</span> a_<span class="sy0">{</span>2,n<span class="sy0">}</span> <span class="sy0">\\</span><br>
+&nbsp; <span class="re12">\vdots</span> &nbsp;<span class="sy0">&amp;</span> <span class="re12">\vdots</span> &nbsp;<span class="sy0">&amp;</span> <span class="re12">\ddots</span> <span class="sy0">&amp;</span> <span class="re12">\vdots</span> &nbsp;<span class="sy0">\\</span><br>
+&nbsp; a_<span class="sy0">{</span>m,1<span class="sy0">}</span> <span class="sy0">&amp;</span> a_<span class="sy0">{</span>m,2<span class="sy0">}</span> <span class="sy0">&amp;</span> <span class="re12">\cdots</span> <span class="sy0">&amp;</span> a_<span class="sy0">{</span>m,n<span class="sy0">}</span><br>
+&nbsp;<span class="re8">\end</span><span class="sy0">{</span><span class="re7">pmatrix</span></span>}<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="A_{m,n} = 
+\begin{pmatrix}
+a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\
+a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\
+\vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \\
+a_{m,1} &amp; a_{m,2} &amp; \cdots &amp; a_{m,n} 
+\end{pmatrix}" src="Mathematics_files/e36a8361e4f113f49364d09d5bb70fd8.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>In some cases you may want to have finer control of the alignment 
+within each column, or want to insert lines between columns or rows. 
+This can be achieved using the <span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">array</span> environment, which is essentially a math-mode version of the <a href="http://en.wikibooks.org/wiki/LaTeX/Tables#The_tabular_environment" title="LaTeX/Tables"><tt>tabular</tt> environment</a>, which requires that the columns be pre-specified:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">array</span><span class="sy0">}{</span>c|c<span class="sy0">}</span><br>
+&nbsp; 1 <span class="sy0">&amp;</span> 2 <span class="sy0">\\</span><br>
+&nbsp; <span class="sy0">\</span><span class="kw1">hline</span><br>
+&nbsp; 3 <span class="sy0">&amp;</span> 4<br>
+&nbsp;<span class="re8">\end</span><span class="sy0">{</span><span class="re7">array</span></span>}<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\begin{array}{c|c}
+1 &amp; 2 \\ 
+\hline
+3 &amp; 4
+\end{array}" src="Mathematics_files/48d8565436d05c2926e1aca4d74f4bda.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>You may see that the AMS matrix class of environments doesn't leave 
+enough space when used together with fractions resulting in output 
+similar to this:</p>
+<p><img class="tex" alt=" M = \begin{bmatrix}
+       \frac{5}{6} &amp; \frac{1}{6} &amp; 0\\
+       \frac{5}{6} &amp; 0           &amp; \frac{1}{6}\\
+       0           &amp; \frac{5}{6} &amp; \frac{1}{6}
+     \end{bmatrix}" src="Mathematics_files/f4a5b1f44f4720ce28de1443b3a5b94f.png"></p>
+<p>To counteract this problem, add additional leading space with the optional parameter to the <span class="mw-geshi latex source-latex"><span class="sy0">\\</span></span> command:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;M = <span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">bmatrix</span><span class="sy0">}</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">\</span><span class="kw1">frac</span><span class="sy0">{</span>5<span class="sy0">}{</span>6<span class="sy0">}</span> <span class="sy0">&amp;</span> <span class="sy0">\</span><span class="kw1">frac</span>{1}{6} &amp; 0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \\[0.3em</span><span class="sy0">]</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">\</span><span class="kw1">frac</span><span class="sy0">{</span>5<span class="sy0">}{</span>6<span class="sy0">}</span> <span class="sy0">&amp;</span> 0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&amp;</span> <span class="sy0">\</span><span class="kw1">frac</span><span class="sy0">{</span>1<span class="sy0">}{</span>6<span class="sy0">}</span> <span class="sy0">\\[</span><span class="re2">0.3em</span><span class="sy0">]</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">&amp;</span> <span class="sy0">\</span><span class="kw1">frac</span><span class="sy0">{</span>5<span class="sy0">}{</span>6<span class="sy0">}</span> <span class="sy0">&amp;</span> <span class="sy0">\</span><span class="kw1">frac</span><span class="sy0">{</span>1<span class="sy0">}{</span>6<span class="sy0">}</span><br>
+&nbsp; &nbsp; &nbsp;<span class="re8">\end</span><span class="sy0">{</span><span class="re7">bmatrix</span></span><span class="sy0">}</span><br>
+<span class="sy0">\]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt=" M = \begin{bmatrix}
+       \frac{5}{6} &amp; \frac{1}{6} &amp; 0           \\[0.3em]
+       \frac{5}{6} &amp; 0           &amp; \frac{1}{6} \\[0.3em]
+       0           &amp; \frac{5}{6} &amp; \frac{1}{6}
+     \end{bmatrix}" src="Mathematics_files/2898f4774c7df3ad83ad6d31c82c3bf5.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>If you need "border" or "indexes" on your matrix, plain TeX provides the macro <span class="mw-geshi latex source-latex"><span class="re12">\bordermatrix</span></span></p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+M = <span class="re12">\bordermatrix</span><span class="sy0">{</span><span class="re9">~ &amp; x &amp; y <span class="re12">\cr</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; A <span class="sy0">&amp;</span> 1 <span class="sy0">&amp;</span> 0 <span class="re12">\cr</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; B <span class="sy0">&amp;</span> 0 <span class="sy0">&amp;</span> 1 <span class="re12">\cr</span></span>}<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><a href="http://commons.wikimedia.org/wiki/File:Bordermatrix.png" class="image"><img alt="Bordermatrix.png" src="Mathematics_files/150px-Bordermatrix.png" height="70" width="150"></a></p>
+</td>
+</tr>
+</tbody></table>
+<p><br></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=16" title="Edit section: Matrices in running text">edit</a>]</span> <span class="mw-headline" id="Matrices_in_running_text">Matrices in running text</span></h3>
+<p>To insert a small matrix, and not increase leading in the line containing it, use <span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">smallmatrix</span> environment:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex">A matrix in text must be set smaller:<br>
+<span class="re3">$<span class="re12">\bigl</span>(<span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">smallmatrix</span><span class="sy0">}</span><br>
+a<span class="sy0">&amp;</span>b<span class="sy0">\\</span> c<span class="sy0">&amp;</span>d<br>
+<span class="re8">\end</span><span class="sy0">{</span><span class="re7">smallmatrix</span></span><span class="sy0">}</span> <span class="re12">\bigr</span>)$</span><br>
+to not increase leading in a portion of text.</span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><a href="http://commons.wikimedia.org/wiki/File:LaTeX-smallmatrix.png" class="image"><img alt="LaTeX-smallmatrix.png" src="Mathematics_files/370px-LaTeX-smallmatrix.png" height="79" width="370"></a></p>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=17" title="Edit section: Adding text to equations">edit</a>]</span> <span class="mw-headline" id="Adding_text_to_equations">Adding text to equations</span></h2>
+<p>The math environment differs from the text environment in the 
+representation of text. Here is an example of trying to represent text 
+within the math environment:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;50 apples <span class="re12">\times</span> 100 apples = lots of apples^2<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt=" 50 apples \times 100 apples = lots of apples^2
+\," src="Mathematics_files/344927a2e6d69286e33b4a3c9a0aa717.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>There are two noticeable problems: there are no spaces between words 
+or numbers, and the letters are italicized and more spaced out than 
+normal. Both issues are simply artifacts of the maths mode, in that it 
+treats it as a mathematical expression: spaces are ignored (LaTeX spaces
+ mathematics according to its own rules), and each character is a 
+separate element (so are not positioned as closely as normal text).</p>
+<p>There are a number of ways that text can be added properly. The typical way is to wrap the text with the <span class="mw-geshi latex source-latex"><span class="re12">\text</span><span class="sy0">{</span><span class="re9">...</span><span class="sy0">}</span></span> command <sup id="cite_ref-amsmath_2-15" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup> (a similar command is <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">mbox</span><span class="sy0">{</span><span class="re9">...</span><span class="sy0">}</span></span>,
+ though this causes problems with subscripts, and has a less descriptive
+ name). Let's see what happens when the above equation code is adapted:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;50 <span class="re12">\text</span><span class="sy0">{</span><span class="re9">apples} <span class="re12">\times</span> 100 <span class="re12">\text</span><span class="sy0">{</span>apples<span class="sy0">}</span><br>
+&nbsp;= <span class="re12">\text</span>{lots of apples</span>}^2<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt=" 50 \text{apples} \times 100 \text{apples} = \text{lots of apples}^2
+\," src="Mathematics_files/53d978b26ed40b75228be50086987a3c.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>The text looks better. However, there are no gaps between the numbers
+ and the words. Unfortunately, you are required to explicitly add these.
+ There are many ways to add spaces between maths elements, but for the 
+sake of simplicity you may literally add the space character in the 
+affected <span class="mw-geshi latex source-latex"><span class="re12">\text</span></span>(s) itself (just before the text.)</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;50 <span class="re12">\text</span><span class="sy0">{</span> <span class="re9">apples} <span class="re12">\times</span> 100 <span class="re12">\text</span><span class="sy0">{</span> apples<span class="sy0">}</span><br>
+&nbsp;= <span class="re12">\text</span>{lots of apples</span>}^2<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt=" 50 \text{ apples} \times 100 \text{ apples} = \text{lots of apples}^2
+\," src="Mathematics_files/b0611ed0b772be1a262f3838640913d5.png"></p>
+</td>
+</tr>
+</tbody></table>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=18" title="Edit section: Formatted text">edit</a>]</span> <span class="mw-headline" id="Formatted_text">Formatted text</span></h3>
+<p>Using the <span class="mw-geshi latex source-latex"><span class="re12">\text</span></span>
+ is fine and gets the basic result. Yet, there is an alternative that 
+offers a little more flexibility. You may recall the introduction of <a href="http://en.wikibooks.org/wiki/LaTeX/Formatting#Font_Styles" title="LaTeX/Formatting">font formatting commands</a>, such as <span class="mw-geshi latex source-latex"><span class="re12">\textrm</span></span>, <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">textit</span></span>, <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">textbf</span></span>, etc. These commands format the argument accordingly, e.g., <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">textbf</span><span class="sy0">{</span><span class="re9">bold text</span><span class="sy0">}</span></span> gives <b>bold text</b>.
+ These commands are equally valid within a maths environment to include 
+text. The added benefit here is that you can have better control over 
+the font formatting, rather than the standard text achieved with <span class="mw-geshi latex source-latex"><span class="re12">\text</span></span>.</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;50 <span class="re12">\textrm</span><span class="sy0">{</span> <span class="re9">apples} <span class="re12">\times</span> 100<br>
+&nbsp;<span class="sy0">\</span><span class="kw1">textbf</span><span class="sy0">{</span> apples<span class="sy0">}</span> = <span class="sy0">\</span><span class="kw1">textit</span>{lots of apples</span>}^2<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt=" 50 \;\textrm{ apples} \times 100 \;\textbf{ apples} = \textit{lots~of~apples}^2
+\," src="Mathematics_files/a2a10d5ac77f4ed5a11ec9e336a9b512.png"></p>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=19" title="Edit section: Formatting mathematics symbols">edit</a>]</span> <span class="mw-headline" id="Formatting_mathematics_symbols">Formatting mathematics symbols</span></h2>
+<p>So we can format text, what about formatting mathematics? There are a
+ set of formatting commands very similar to the font formatting ones 
+just used, except they are aimed specifically for text in maths mode 
+(requires <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">amsfonts</span>)</p>
+<table class="wikitable">
+<tbody><tr>
+<th>LaTeX command</th>
+<th>Sample</th>
+<th>Description</th>
+<th>Common use</th>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\mathnormal</span><span class="sy0">{</span><span class="re9">…</span><span class="sy0">}</span></span></td>
+<td><img class="tex" alt="ABCDEF abcdef 123456\," src="Mathematics_files/f96f89747ce578f9faddf762f4540448.png"></td>
+<td>the default math font</td>
+<td>most mathematical notation</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\mathrm</span><span class="sy0">{</span><span class="re9">…</span><span class="sy0">}</span></span></td>
+<td><img class="tex" alt="\mathrm{ABCDEF abcdef 123456}\," src="Mathematics_files/3f5e4cf37d1cad448309075952adc0f3.png"></td>
+<td>this is the default or normal font, unitalicised</td>
+<td>units of measurement, one word functions</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\mathit</span><span class="sy0">{</span><span class="re9">…</span><span class="sy0">}</span></span></td>
+<td><img class="tex" alt="\mathit{ABCDEF abcdef 123456}\," src="Mathematics_files/0c47366d3f7af068b58d450571276ae0.png"></td>
+<td>italicised font</td>
+<td></td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\mathbf</span><span class="sy0">{</span><span class="re9">…</span><span class="sy0">}</span></span></td>
+<td><img class="tex" alt="\mathbf{ABCDEF abcdef 123456}\," src="Mathematics_files/9e6f805c51041c922ce10d3cf89570ac.png"></td>
+<td>bold font</td>
+<td>vectors</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\mathsf</span><span class="sy0">{</span><span class="re9">…</span><span class="sy0">}</span></span></td>
+<td><img class="tex" alt="\mathsf{ABCDEF abcdef 123456}\," src="Mathematics_files/c88315590fc3e630596c2d918cd4d64b.png"></td>
+<td><a href="http://en.wikipedia.org/wiki/sans-serif" class="extiw" title="w:sans-serif">Sans-serif</a></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\mathtt</span><span class="sy0">{</span><span class="re9">…</span><span class="sy0">}</span></span></td>
+<td><font style="font-family: monospace;">ABCDEFabcdef123456</font></td>
+<td><a href="http://en.wikipedia.org/wiki/Monospace_font" class="extiw" title="w:Monospace font">Monospace (fixed-width) font</a></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\mathcal</span><span class="sy0">{</span><span class="re9">…</span><span class="sy0">}</span></span></td>
+<td><img class="tex" alt="\mathcal{ABCDEF abcdef 123456}\," src="Mathematics_files/821b76c456422766ac627783c96a9f80.png"></td>
+<td>Calligraphy (uppercase only)</td>
+<td>often used for sheaves/schemes and categories, used to denote <a href="http://en.wikipedia.org/wiki/en:Cryptography" class="extiw" title="w:en:Cryptography">cryptological</a> concepts like an <i>alphabet of definition</i> (<img class="tex" alt="\mathcal{A}" src="Mathematics_files/96dbe073be737bf969a86b27c9f5a01a.png">), <i>message space</i> (<img class="tex" alt="\mathcal{M}" src="Mathematics_files/5dff3d586d9da7348bc8408bdb67fb4c.png">), <i>ciphertext space</i> (<img class="tex" alt="\mathcal{C}" src="Mathematics_files/1923743cb649c1b1f7abfdb2dac3caf2.png">) and <i><a href="http://en.wikipedia.org/wiki/key_space" class="extiw" title="w:key space">key space</a></i> (<img class="tex" alt="\mathcal{K}" src="Mathematics_files/bf85a60d6573950b07c78c3f967d57d4.png">); <a href="http://en.wikipedia.org/wiki/Kleene%27s_O" class="extiw" title="w:Kleene's O">Kleene's <img class="tex" alt="\mathcal{O}" src="Mathematics_files/1dff52add43c7f855eaaf17cc31cf689.png"></a>; <a href="http://en.wikipedia.org/wiki/Description_logic#Naming_Convention" class="extiw" title="w:Description logic">naming convention in description logic</a></td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\mathfrak</span><span class="sy0">{</span><span class="re9">…</span><span class="sy0">}</span></span><sup id="cite_ref-amsfonts_5-0" class="reference"><a href="#cite_note-amsfonts-5">[6]</a></sup></td>
+<td><img class="tex" alt="\mathfrak{ABCDEF abcdef 123456}\," src="Mathematics_files/aa6d435d6157a0b89dafccc4ecad7e58.png"></td>
+<td><a href="http://en.wikipedia.org/wiki/Fraktur_%28script%29" class="extiw" title="w:Fraktur (script)">Fraktur</a></td>
+<td>Almost canonical font for Lie algebras, with superscript used to denote <a href="http://en.wikipedia.org/wiki/List_of_New_Testament_papyri" class="extiw" title="w:List of New Testament papyri">New Testament papyri</a>, <a href="http://en.wikipedia.org/wiki/Ideal_%28ring_theory%29" class="extiw" title="w:Ideal (ring theory)">ideals</a> in ring theory</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\mathbb</span><span class="sy0">{</span><span class="re9">…</span><span class="sy0">}</span></span><sup id="cite_ref-amsfonts_5-1" class="reference"><a href="#cite_note-amsfonts-5">[6]</a></sup></td>
+<td><img class="tex" alt="\mathbb{ABCDEF abcdef 123456}\," src="Mathematics_files/3ddd24d5a53e37eb2b9fcb0c26f91adb.png"></td>
+<td><a href="http://en.wikipedia.org/wiki/Blackboard_bold" class="extiw" title="w:Blackboard bold">Blackboard bold</a></td>
+<td>Used to denote special sets (e.g. real numbers)</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\mathscr</span><span class="sy0">{</span><span class="re9">…</span><span class="sy0">}</span></span><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[7]</a></sup></td>
+<td></td>
+<td><a href="http://en.wikipedia.org/wiki/Script_%28typefaces%29" class="extiw" title="w:Script (typefaces)">Script</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>The maths formatting commands can be wrapped around the entire 
+equation, and not just on the textual elements: they only format 
+letters, numbers, and uppercase Greek, and the rest of the maths syntax 
+is ignored.</p>
+<p>To bold lowercase Greek or other symbols use the <span class="mw-geshi latex source-latex"><span class="re12">\boldsymbol</span></span> command<sup id="cite_ref-amsmath_2-16" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup>; this will only work if there exists a bold version of the symbol in the current font. As a last resort there is the <span class="mw-geshi latex source-latex"><span class="re12">\pmb</span></span> command<sup id="cite_ref-amsmath_2-17" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup> (poor mans bold): this prints multiple versions of the character slightly offset against each other</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="re12">\boldsymbol</span><span class="sy0">{</span><span class="re9"><span class="re12">\beta</span></span><span class="sy0">}</span> = (<span class="re12">\beta</span>_1,<span class="re12">\beta</span>_2,<span class="re12">\ldots</span>,<span class="re12">\beta</span>_n)<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt=" \boldsymbol{\beta} = (\beta_1,\beta_2,\ldots,\beta_n)
+\," src="Mathematics_files/de04de35ad0f2c4b199853e9ce3c7afe.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>To change the size of the fonts in math mode, see <a href="http://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#Changing_font_size" title="LaTeX/Advanced Mathematics">Changing font size</a>.</p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=20" title="Edit section: Accents">edit</a>]</span> <span class="mw-headline" id="Accents">Accents</span></h3>
+<p>So what to do when you run out of symbols and fonts? Well the next step is to use accents:</p>
+<table>
+<tbody><tr>
+<td><code>a'</code></td>
+<td><img class="tex" alt="a'\," src="Mathematics_files/a7ffe3d9a4034ef65e22220256d08af5.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>a''</code></td>
+<td><img class="tex" alt="a''\," src="Mathematics_files/143824ae622ff96c3abc7d85ba225069.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>a'''</code></td>
+<td><img class="tex" alt="a'''\," src="Mathematics_files/45ce692e9265e9932ffc7a19426c8d65.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>a''''</code></td>
+<td><img class="tex" alt="a''''\," src="Mathematics_files/90e6ece186fc343e6833a9cb78241930.png"></td>
+</tr>
+<tr>
+<td><code>\hat{a}</code></td>
+<td><img class="tex" alt="\hat{a} \," src="Mathematics_files/bc79c74bfeeaa0e40a731396ae6742b9.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\bar{a}</code></td>
+<td><img class="tex" alt="\bar{a} \," src="Mathematics_files/e9e993f165f990002ffd18b702516ca6.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\overline{aaa}</code></td>
+<td><img class="tex" alt="\overline{aaa} \," src="Mathematics_files/f4222d4e36d35296c96e43644a340421.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\check{a}</code></td>
+<td><img class="tex" alt="\check{a} \," src="Mathematics_files/25308172af9549ee404ef0edea90d6d6.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\tilde{a}</code></td>
+<td><img class="tex" alt="\tilde{a} \," src="Mathematics_files/11b40cd5c6a9b2c7d1eb3135bab3880d.png"></td>
+</tr>
+<tr>
+<td><code>\grave{a}</code></td>
+<td><img class="tex" alt="\grave{a} \," src="Mathematics_files/d9a24aa10748d7f2257f9d4c02d20b0c.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\acute{a}</code></td>
+<td><img class="tex" alt="\acute{a} \," src="Mathematics_files/994b805864da8af90fe73ac60d48eef3.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\breve{a}</code></td>
+<td><img class="tex" alt="\breve{a} \," src="Mathematics_files/856cdcfc4e0ad90820b1aa94e8538f29.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\vec{a}</code></td>
+<td><img class="tex" alt="\vec{a} \," src="Mathematics_files/9f41f30727a38a4b2df8a0c1410aff01.png"></td>
+</tr>
+<tr>
+<td><code>\dot{a}</code></td>
+<td><img class="tex" alt="\dot{a} \," src="Mathematics_files/02ab02cd99b876ce16003c3ad1ae4201.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\ddot{a}</code></td>
+<td><img class="tex" alt="\ddot{a} \," src="Mathematics_files/4dfeeabe9ca802f40b3fb5a4a57e6bd2.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\dddot{a}</code><sup id="cite_ref-amsmath_2-18" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup></td>
+<td></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\ddddot{a}</code><sup id="cite_ref-amsmath_2-19" class="reference"><a href="#cite_note-amsmath-2">[3]</a></sup></td>
+<td></td>
+</tr>
+<tr>
+<td><code>\not{a}</code></td>
+<td><img class="tex" alt="\not{a} \," src="Mathematics_files/776cd03a32c745fcd9d0748d0c88b6c3.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\mathring{a}</code></td>
+<td></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\widehat{AAA}</code></td>
+<td><img class="tex" alt="\widehat{AAA} \," src="Mathematics_files/6710642e4094b47f82d0d27f9aaeca83.png"></td>
+<td style="padding-left: 20px;"></td>
+<td><code>\widetilde{AAA}</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=21" title="Edit section: Plus and minus signs">edit</a>]</span> <span class="mw-headline" id="Plus_and_minus_signs">Plus and minus signs</span></h2>
+<p>Latex deals with the + and − signs in two possible ways. The most 
+common is as a binary operator. When two maths elements appear either 
+side of the sign, it is assumed to be a binary operator, and as such, 
+allocates some space either side of the sign. The alternative way is a 
+sign designation. This is when you state whether a mathematical quantity
+ is either positive or negative. This is common for the latter, as in 
+maths, such elements are assumed to be positive unless a − is prefixed 
+to it. In this instance, you want the sign to appear close to the 
+appropriate element to show their association. If you put a + or a − 
+with nothing before it but you want it to be handled like a binary 
+operator you can add an <i>invisible</i> character before the operator using <span class="mw-geshi latex source-latex"><span class="sy0">{</span><span class="sy0">}</span></span>.
+ This can be useful if you are writing multiple-line formulas, and a new
+ line could start with a = or a +, for example, then you can fix some 
+strange alignments adding the invisible character where necessary.</p>
+<p>A plus-minus sign used for uncertainty is written as:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp;<span class="re12">\pm</span><br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\pm" src="Mathematics_files/5722e2f6169308b8be3542900c6d6553.png"></p>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=22" title="Edit section: Controlling horizontal spacing">edit</a>]</span> <span class="mw-headline" id="Controlling_horizontal_spacing">Controlling horizontal spacing</span></h2>
+<p>LaTeX is obviously pretty good at typesetting maths—it was one of the
+ chief aims of the core Tex system that LaTeX extends. However, it can't
+ always be relied upon to accurately interpret formulas in the way you 
+did. It has to make certain assumptions when there are ambiguous 
+expressions. The result tends to be slightly incorrect horizontal 
+spacing. In these events, the output is still satisfactory, yet any 
+perfectionists will no doubt wish to <i>fine-tune</i> their formulas to ensure spacing is correct. These are generally very subtle adjustments.</p>
+<p>There are other occasions where LaTeX has done its job correctly, but
+ you just want to add some space, maybe to add a comment of some kind. 
+For example, in the following equation, it is preferable to ensure there
+ is a decent amount of space between the maths and the text.</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp; f(n) = <span class="sy0">\</span><span class="kw1">left</span><span class="sy0">\{</span> <span class="re9"><br>
+&nbsp; <span class="re8">\begin</span><span class="sy0">{</span><span class="re7">array</span><span class="sy0">}{</span>l l<span class="sy0">}</span><br>
+&nbsp; &nbsp; n/2 <span class="sy0">&amp;</span> <span class="re12">\quad</span> <span class="re12">\text</span><span class="sy0">{</span>if <span class="re3">$n$</span> is even<span class="sy0">}\\</span><br>
+&nbsp; &nbsp; -(n+1)/2 <span class="sy0">&amp;</span> <span class="re12">\quad</span> <span class="re12">\text</span><span class="sy0">{</span>if <span class="re3">$n$</span> is odd<span class="sy0">}\\</span><br>
+&nbsp; <span class="re8">\end</span><span class="sy0">{</span><span class="re7">array</span></span><span class="sy0">}</span> <span class="sy0">\</span><span class="kw1">right</span>.<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="f(n) =
+\begin{cases}
+n/2 &amp; \quad \text{if } n \text{ is even} \\
+-(n+1)/2 &amp; \quad \text{if } n \text{ is odd}\\ 
+\end{cases} " src="Mathematics_files/d3492a0b140b9a0a53a0bb9514834488.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>This code produces errors with Miktex 2.9 and does not yield the results seen on the right. Use \textrm instead of just \text.</p>
+<p><br>
+(Note that this particular example can be expressed in more elegant code by the <span style="font-family: monospace; color: rgb(0, 0, 208); font-weight: normal;">cases</span> construct provided by the <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">amsmath</span> package described in <a href="http://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#The_cases_environment" title="LaTeX/Advanced Mathematics">Advanced Mathematics</a> chapter.)</p>
+<p>LaTeX has defined two commands that can be used anywhere in documents
+ (not just maths) to insert some horizontal space. They are <span class="mw-geshi latex source-latex"><span class="re12">\quad</span></span> and <span class="mw-geshi latex source-latex"><span class="re12">\qquad</span></span></p>
+<p>A <span class="mw-geshi latex source-latex"><span class="re12">\quad</span></span> is a space equal to the current font size. So, if you are using an 11pt font, then the space provided by <span class="mw-geshi latex source-latex"><span class="re12">\quad</span></span> will also be 11pt (horizontally, of course.) The <span class="mw-geshi latex source-latex"><span class="re12">\qquad</span></span> gives twice that amount. As you can see from the code from the above example, <span class="mw-geshi latex source-latex"><span class="re12">\quad</span></span>s were used to add some separation between the maths and the text.</p>
+<p>OK, so back to the fine tuning as mentioned at the beginning of the 
+document. A good example would be displaying the simple equation for the
+ indefinite integral of <i>y</i> with respect to <i>x</i>:</p>
+<p><img class="tex" alt="\int y\, \mathrm{d}x" src="Mathematics_files/c80bbc72b9a8663dea0f6f88c740cd69.png"></p>
+<p>If you were to try this, you may write:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span> <span class="re2">\<span class="kw1">int</span> y <span class="re12">\mathrm</span><span class="sy0">{</span><span class="re9">d</span>}x \</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\int y \mathrm{d}x" src="Mathematics_files/1644f8dfb5f4c3108738f90c9a26144b.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>However, this doesn't give the correct result. LaTeX doesn't respect the white-space left in the code to signify that the <i>y</i> and the d<i>x</i> are independent entities. Instead, it lumps them altogether. A <span class="mw-geshi latex source-latex"><span class="re12">\quad</span></span>
+ would clearly be overkill is this situation—what is needed are some 
+small spaces to be utilized in this type of instance, and that's what 
+LaTeX provides:</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Command</th>
+<th>Description</th>
+<th>Size</th>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="sy0">\</span>,</span></td>
+<td>small space</td>
+<td>3/18 of a quad</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="sy0">\</span>:</span></td>
+<td>medium space</td>
+<td>4/18 of a quad</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="sy0">\</span>;</span></td>
+<td>large space</td>
+<td>5/18 of a quad</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="sy0">\</span>!</span></td>
+<td>negative space</td>
+<td>-3/18 of a quad</td>
+</tr>
+</tbody></table>
+<p>NB you can use more than one command in a sequence to achieve a greater space if necessary.</p>
+<p>So, to rectify the current problem:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span> <span class="re2">\<span class="kw1">int</span> y<span class="sy0">\</span>, <span class="re12">\mathrm</span><span class="sy0">{</span><span class="re9">d</span>}x \</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\int y\, \mathrm{d}x" src="Mathematics_files/c80bbc72b9a8663dea0f6f88c740cd69.png"></p>
+</td>
+</tr>
+</tbody></table>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span> <span class="re2">\<span class="kw1">int</span> y<span class="sy0">\</span>: <span class="re12">\mathrm</span><span class="sy0">{</span><span class="re9">d</span>}x \</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\int y\;\;\!\! \mathrm{d}x" src="Mathematics_files/27e1c11b130971f8a91cb8a24f6092be.png"></p>
+</td>
+</tr>
+</tbody></table>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span> <span class="re2">\<span class="kw1">int</span> y<span class="sy0">\</span>; <span class="re12">\mathrm</span><span class="sy0">{</span><span class="re9">d</span>}x \</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\int y\; \mathrm{d}x" src="Mathematics_files/09701f3543995b67e242afd6db7fbb31.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>The negative space may seem like an odd thing to use, however, it wouldn't be there if it didn't have <i>some</i> use! Take the following example:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp; <span class="sy0">\</span><span class="kw1">left</span>(<br>
+&nbsp; &nbsp; <span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">array</span><span class="sy0">}{</span>c<span class="sy0">}</span><br>
+&nbsp; &nbsp; &nbsp; n <span class="sy0">\\</span><br>
+&nbsp; &nbsp; &nbsp; r<br>
+&nbsp; &nbsp; <span class="re8">\end</span><span class="sy0">{</span><span class="re7">array</span><span class="sy0">}</span><br>
+&nbsp; <span class="sy0">\</span><span class="kw1">right</span>) = <span class="sy0">\</span><span class="kw1">frac</span>{n!}{r!(n-r)!</span>}<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\left(
+   \begin{matrix}
+     n \\
+     r
+   \end{matrix}
+   \right) = \frac{n!}{r!(n-r)!}" src="Mathematics_files/351f1fb526d1180c06b3ed522902fadd.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p><br>
+The matrix-like expression for representing binomial coefficients is too
+ padded. There is too much space between the brackets and the actual 
+contents within. This can easily be corrected by adding a few negative 
+spaces after the left bracket and before the right bracket.</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="border-right: 2px solid black; padding-right: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\[</span><span class="re2"><br>
+&nbsp; <span class="sy0">\</span><span class="kw1">left</span>(<span class="sy0">\</span>!<br>
+&nbsp; &nbsp; <span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">array</span><span class="sy0">}{</span>c<span class="sy0">}</span><br>
+&nbsp; &nbsp; &nbsp; n <span class="sy0">\\</span><br>
+&nbsp; &nbsp; &nbsp; r<br>
+&nbsp; &nbsp; <span class="re8">\end</span><span class="sy0">{</span><span class="re7">array</span><span class="sy0">}</span><br>
+&nbsp; <span class="sy0">\</span>!<span class="sy0">\</span><span class="kw1">right</span>) = <span class="sy0">\</span><span class="kw1">frac</span>{n!}{r!(n-r)!</span>}<br>
+\</span><span class="sy0">]</span></span></p>
+</td>
+<td style="padding-left: 3em;">
+<p><img class="tex" alt="\left(\!
+   \begin{matrix}
+     n \\
+     r
+   \end{matrix}
+   \!\right) = \frac{n!}{r!(n-r)!}" src="Mathematics_files/c971af77a490afe050369dae301b3df4.png"></p>
+</td>
+</tr>
+</tbody></table>
+<p>In any case, adding some spaces manually should be avoided whenever 
+possible: it makes the source code more complex and it's against the 
+basic principles of a What You See is What You Mean approach. The best 
+thing to do is to define some commands using all the spaces you want and
+ then, when you use your command, you don't have to add any other space.
+ Later, if you change your mind about the length of the horizontal 
+space, you can easily change it modifying only the command you defined 
+before. Let us use an example: you want the <i>d</i> of a <i>dx</i> in an integral to be in roman font and a small space away from the rest. If you want to type an integral like <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">int</span> x <span class="sy0">\</span>; <span class="re12">\mathrm</span><span class="sy0">{</span><span class="re9">d</span><span class="sy0">}</span> x</span>, you can define a command like this:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="padding-left: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">newcommand</span><span class="sy0">{</span><span class="re9"><span class="re12">\dd</span><span class="sy0">}{\</span>; <span class="re12">\mathrm</span>{d}</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>in the preamble of your document. We have chosen <span class="mw-geshi latex source-latex"><span class="re12">\dd</span></span> just because it reminds the "d" it replaces and it is fast to type. Doing so, the code for your integral becomes <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">int</span> x <span class="re12">\dd</span> x</span>. Now, whenever you write an integral, you just have to use the <span class="mw-geshi latex source-latex"><span class="re12">\dd</span></span>
+ instead of the "d", and all your integrals will have the same style. If
+ you change your mind, you just have to change the definition in the 
+preamble, and all your integrals will be changed accordingly.</p>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=23" title="Edit section: Advanced Mathematics: AMS Math package">edit</a>]</span> <span class="mw-headline" id="Advanced_Mathematics:_AMS_Math_package">Advanced Mathematics: AMS Math package</span></h2>
+<p>The AMS (<a href="http://en.wikipedia.org/wiki/American_Mathematical_Society" class="extiw" title="wikipedia:American Mathematical Society">American Mathematical Society</a>)
+ mathematics package is a powerful package that creates a higher layer 
+of abstraction over mathematical LaTeX language; if you use it it will 
+make your life easier. Some commands <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">amsmath</span> introduces will make other plain LaTeX commands obsolete: in order to keep consistency in the final output you'd better use <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">amsmath</span>
+ commands whenever possible. If you do so, you will get an elegant 
+output without worrying about alignment and other details, keeping your 
+source code readable. If you want to use it, you have to add this in the
+ preamble:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em;">
+<tbody><tr>
+<td style="padding-left: 3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">usepackage</span><span class="sy0">{</span><span class="re9">amsmath</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=24" title="Edit section: Introducing text and dots in formulas">edit</a>]</span> <span class="mw-headline" id="Introducing_text_and_dots_in_formulas">Introducing text and dots in formulas</span></h3>
+<p><span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">amsmath</span> defines also the <span class="mw-geshi latex source-latex"><span class="re12">\dots</span></span> command, that is a generalization of the existing <span class="mw-geshi latex source-latex"><span class="re12">\ldots</span></span>. You can use <span class="mw-geshi latex source-latex"><span class="re12">\dots</span></span>
+ in both text and math mode and LaTeX will replace it with three dots 
+"…" but it will decide according to the context whether to put it on the
+ bottom (like <span class="mw-geshi latex source-latex"><span class="re12">\ldots</span></span>) or centered (like <span class="mw-geshi latex source-latex"><span class="re12">\cdots</span></span>).</p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=25" title="Edit section: Dots">edit</a>]</span> <span class="mw-headline" id="Dots">Dots</span></h3>
+<p>LaTeX gives you several commands to insert dots in your formulas. 
+This can be particularly useful if you have to type big matrices 
+omitting elements. First of all, here are the main dots-related commands
+ LaTeX provides:</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Code</th>
+<th>Output</th>
+<th>Comment</th>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\dots</span></span></td>
+<td><img class="tex" alt="\dots" src="Mathematics_files/63975f390397d0e50d9e6152d7f57799.png"></td>
+<td>generic dots, to be used in text (outside formulas as well). It 
+automatically manages whitespaces before and after itself according to 
+the context, it's a higher level command.</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\ldots</span></span></td>
+<td><img class="tex" alt="\ldots" src="Mathematics_files/065775997fdbcb83ddbe8936e67e4f2c.png"></td>
+<td>the output is similar to the previous one, but there is no automatic whitespace management; it works at a lower level.</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\cdots</span></span></td>
+<td><img class="tex" alt="\cdots" src="Mathematics_files/33ac38248f756c206658df33d70efc31.png"></td>
+<td>These dots are centered relative to the height of a letter. There is also the binary multiplication operator, <tt>\cdot</tt>, mentioned below.</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\vdots</span></span></td>
+<td><img class="tex" alt="\vdots" src="Mathematics_files/70e4c7b983e3bc5849c2cfd6af4a431e.png"></td>
+<td>vertical dots</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\ddots</span></span></td>
+<td><img class="tex" alt="\ddots" src="Mathematics_files/ac466f9a02c5046d6ce085578b6a9e4e.png"></td>
+<td>diagonal dots</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\iddots</span></span></td>
+<td></td>
+<td>inverse diagonal dots (requires the mathdots package)</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="re12">\hdotsfor</span><span class="sy0">{</span><span class="re9">n</span><span class="sy0">}</span></span></td>
+<td><img class="tex" alt="\ldots \ldots" src="Mathematics_files/abec914954d8d8f88433be5556807ebc.png"></td>
+<td>to be used in matrices, it creates a row of dots spanning <i>n</i> columns.</td>
+</tr>
+</tbody></table>
+<p>Instead of using <span class="mw-geshi latex source-latex"><span class="re12">\ldots</span></span> and <span class="mw-geshi latex source-latex"><span class="re12">\cdots</span></span>,
+ you should use the semantically oriented commands. It makes it possible
+ to adapt your document to different conventions on the fly, in case 
+(for example) you have to submit it to a publisher who insists on 
+following house tradition in this respect. The default treatment for the
+ various kinds follows American Mathematical Society conventions.</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Code</th>
+<th>Output</th>
+<th>Comment</th>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex">A_1,A_2,<span class="re12">\dotsc</span>,</span></td>
+<td><a href="http://commons.wikimedia.org/wiki/File:LaTeX_Dotsc.png" class="image"><img alt="LaTeX Dotsc.png" src="Mathematics_files/LaTeX_Dotsc.png" height="20" width="84"></a></td>
+<td>for "dots with commas"</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex">A_1+<span class="re12">\dotsb</span>+A_N</span></td>
+<td><a href="http://commons.wikimedia.org/wiki/File:LaTeX_Dotsb.png" class="image"><img alt="LaTeX Dotsb.png" src="Mathematics_files/LaTeX_Dotsb.png" height="28" width="118"></a></td>
+<td>for "dots with binary operators/relations"</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex">A_1 <span class="re12">\dotsm</span> A_N</span></td>
+<td><a href="http://commons.wikimedia.org/wiki/File:LaTeX_Dotsm.png" class="image"><img alt="LaTeX Dotsm.png" src="Mathematics_files/LaTeX_Dotsm.png" height="24" width="78"></a></td>
+<td>for "multiplication dots"</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">int</span>_a^b <span class="re12">\dotsi</span></span></td>
+<td><a href="http://commons.wikimedia.org/wiki/File:LaTeX_Dotsi.png" class="image"><img alt="LaTeX Dotsi.png" src="Mathematics_files/LaTeX_Dotsi.png" height="50" width="53"></a></td>
+<td>for "dots with integrals"</td>
+</tr>
+<tr>
+<td><span class="mw-geshi latex source-latex">A_1<span class="re12">\dotso</span> A_N</span></td>
+<td><a href="http://commons.wikimedia.org/wiki/File:LaTeX_Dotso.png" class="image"><img alt="LaTeX Dotso.png" src="Mathematics_files/LaTeX_Dotso.png" height="23" width="69"></a></td>
+<td>for "other dots" (none of the above)</td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=26" title="Edit section: List of Mathematical Symbols">edit</a>]</span> <span class="mw-headline" id="List_of_Mathematical_Symbols">List of Mathematical Symbols</span></h2>
+<p>All the pre-defined mathematical symbols from the \TeX\ package are 
+listed below. More symbols are available from extra packages.</p>
+<table class="wikitable">
+<caption>Relation Symbols</caption>
+<tbody><tr>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="9">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="9">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="9">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="9">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+</tr>
+<tr>
+<td><img class="tex" alt="\leq\," src="Mathematics_files/8c7147c5bbb27cb5432bffc3d9bda072.png"></td>
+<td><tt>\leq</tt></td>
+<td><img class="tex" alt="\geq\," src="Mathematics_files/15678237b9dd6859d0ba96f5e33dfaba.png"></td>
+<td><tt>\geq</tt></td>
+<td><img class="tex" alt="\equiv\," src="Mathematics_files/261b94b6098fed9b57c9d0ee0dfedb52.png"></td>
+<td><tt>\equiv</tt></td>
+<td><img class="tex" alt="\models\," src="Mathematics_files/b00bb5501d508e7088668e0eec7d40ee.png"></td>
+<td><tt>\models</tt></td>
+<td><img class="tex" alt="\prec\," src="Mathematics_files/0c36fe3197019e89e693ac31c85e64b0.png"></td>
+<td><tt>\prec</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\succ\," src="Mathematics_files/0de7332392872f3416ec42f8d278d841.png"></td>
+<td><tt>\succ</tt></td>
+<td><img class="tex" alt="\sim\," src="Mathematics_files/4daf2aa0e4a9e0e5e27ee6510025c59a.png"></td>
+<td><tt>\sim</tt></td>
+<td><img class="tex" alt="\perp\," src="Mathematics_files/61dce6af18af1c49bccabaacd9d21c1a.png"></td>
+<td><tt>\perp</tt></td>
+<td><img class="tex" alt="\preceq\," src="Mathematics_files/76b516da9a25e18f2c6e84e2e693ec7c.png"></td>
+<td><tt>\preceq</tt></td>
+<td><img class="tex" alt="\succeq\," src="Mathematics_files/e2ea3e04ee32266f874e1068c4866205.png"></td>
+<td><tt>\succeq</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\simeq\," src="Mathematics_files/df2c7eff8620c8e5c10afd5972ad9d68.png"></td>
+<td><tt>\simeq</tt></td>
+<td><img class="tex" alt="\mid\," src="Mathematics_files/d861a873f13959061119a15e460c9a29.png"></td>
+<td><tt>\mid</tt></td>
+<td><img class="tex" alt="\ll\," src="Mathematics_files/cff6f94a25492cabc7ab55b5afd72973.png"></td>
+<td><tt>\ll</tt></td>
+<td><img class="tex" alt="\gg\," src="Mathematics_files/2e4c1b444076fb6d7707cf6809337f77.png"></td>
+<td><tt>\gg</tt></td>
+<td><img class="tex" alt="\asymp\," src="Mathematics_files/3fd8c3c9aed17cab2e347764f77f837d.png"></td>
+<td><tt>\asymp</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\parallel\," src="Mathematics_files/031664f13b29cb4e1745368d3306272b.png"></td>
+<td><tt>\parallel</tt></td>
+<td><img class="tex" alt="\subset\," src="Mathematics_files/17268969d9c4650417525d6a8b20eeac.png"></td>
+<td><tt>\subset</tt></td>
+<td><img class="tex" alt="\supset\," src="Mathematics_files/564cc9011f91831dcb0c00f72c049ee3.png"></td>
+<td><tt>\supset</tt></td>
+<td><img class="tex" alt="\approx\," src="Mathematics_files/3d3357c79bf774818018fae94c14598e.png"></td>
+<td><tt>\approx</tt></td>
+<td><img class="tex" alt="\bowtie\," src="Mathematics_files/fa47f4374acd2783ef771bb013cc1847.png"></td>
+<td><tt>\bowtie</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\subseteq\," src="Mathematics_files/37c768ca1077595d0fd7f97ec34420d5.png"></td>
+<td><tt>\subseteq</tt></td>
+<td><img class="tex" alt="\supseteq\," src="Mathematics_files/dfdd13d8d439b784d7198aa2bc88fdd9.png"></td>
+<td><tt>\supseteq</tt></td>
+<td><img class="tex" alt="\cong\," src="Mathematics_files/2e71765ed6e908e1a35a8872bb8ba89c.png"></td>
+<td><tt>\cong</tt></td>
+<td><img class="tex" alt="\sqsubset\," src="Mathematics_files/a34217102835eaae0721a083741f1161.png"></td>
+<td><tt>\sqsubset</tt></td>
+<td><img class="tex" alt="\sqsupset\," src="Mathematics_files/e16c25e9d920b8df9e167ef8470ca755.png"></td>
+<td><tt>\sqsupset</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\neq\," src="Mathematics_files/40700b9d788445f50b3481963a68f0ff.png"></td>
+<td><tt>\neq</tt></td>
+<td><img class="tex" alt="\smile\," src="Mathematics_files/dcc2237e0ce89eda2acaa0e9754f968b.png"></td>
+<td><tt>\smile</tt></td>
+<td><img class="tex" alt="\sqsubseteq\," src="Mathematics_files/ee5c5d71d912c548b072753cb8d9d382.png"></td>
+<td><tt>\sqsubseteq</tt></td>
+<td><img class="tex" alt="\sqsupseteq\," src="Mathematics_files/02ad69f52045ed7e5a1764102b4bc96b.png"></td>
+<td><tt>\sqsupseteq</tt></td>
+<td><img class="tex" alt="\doteq\," src="Mathematics_files/eb93fc212235a32b83a6d43f6f3e8b78.png"></td>
+<td><tt>\doteq</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\frown\," src="Mathematics_files/cfcaa16282ab13198bb5ed80fb1f0750.png"></td>
+<td><tt>\frown</tt></td>
+<td><img class="tex" alt="\in\," src="Mathematics_files/32b4b4b012306df2469d7bb39e083545.png"></td>
+<td><tt>\in</tt></td>
+<td><img class="tex" alt="\ni\," src="Mathematics_files/3a9fc8991e3755f7d914f4900d6f883b.png"></td>
+<td><tt>\ni</tt></td>
+<td><img class="tex" alt="\notin\," src="Mathematics_files/357202c36cae0761cc5eb49db517f65f.png"></td>
+<td><tt>\notin</tt></td>
+<td><img class="tex" alt="\propto\," src="Mathematics_files/32f9c668dbb801e705d2459c7036b86a.png"></td>
+<td><tt>\propto</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\vdash\," src="Mathematics_files/c5f9d1771eaf6151149c5cd350a43f98.png"></td>
+<td><tt>\vdash</tt></td>
+<td><img class="tex" alt="\dashv\," src="Mathematics_files/5a5608ccea6dfeb711acc20f96f4f48b.png"></td>
+<td><tt>\dashv</tt></td>
+<td><img class="tex" alt="&lt;\," src="Mathematics_files/0164cc2c31c906d9d775037410cc195c.png"></td>
+<td><tt>&lt;</tt></td>
+<td><img class="tex" alt="&gt;\," src="Mathematics_files/114529aa81593e4dfb2279a9b594c779.png"></td>
+<td><tt>&gt;</tt></td>
+<td><img class="tex" alt="=\," src="Mathematics_files/4488ba5f7e82e2d8c136b559d95283d5.png"></td>
+<td><tt>=</tt></td>
+</tr>
+</tbody></table>
+<table class="wikitable">
+<caption>Binary Operations</caption>
+<tbody><tr>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="9">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="9">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="9">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+</tr>
+<tr>
+<td><img class="tex" alt="\pm\," src="Mathematics_files/4bf3bbcfc996bee052449673b4ca3b96.png"></td>
+<td><tt>\pm</tt></td>
+<td><img class="tex" alt="\cap\," src="Mathematics_files/b05b05dc430d3b2b2c6d1a50480c8197.png"></td>
+<td><tt>\cap</tt></td>
+<td><img class="tex" alt="\diamond\," src="Mathematics_files/99062cc784acdc3856fa59d20287acea.png"></td>
+<td><tt>\diamond</tt></td>
+<td><img class="tex" alt="\oplus\," src="Mathematics_files/f8560028e5aa307b2e02ba588343dc16.png"></td>
+<td><tt>\oplus</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\mp\," src="Mathematics_files/9fed2bba17f60d038caf9b85ad6230b1.png"></td>
+<td><tt>\mp</tt></td>
+<td><img class="tex" alt="\cup\," src="Mathematics_files/59ceb51d08020a945ad6ef3f2077bbae.png"></td>
+<td><tt>\cup</tt></td>
+<td><img class="tex" alt="\bigtriangleup\," src="Mathematics_files/256e7d6c8714e98a1f1296abff515bfd.png"></td>
+<td><tt>\bigtriangleup</tt></td>
+<td><img class="tex" alt="\ominus\," src="Mathematics_files/38270688cbafcd12b05c10c48e8af726.png"></td>
+<td><tt>\ominus</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\times\," src="Mathematics_files/e247817e14c769ef3b9bdf7ed364364d.png"></td>
+<td><tt>\times</tt></td>
+<td><img class="tex" alt="\uplus\," src="Mathematics_files/b84a5f15763fa7ae6acb5a96407a8d35.png"></td>
+<td><tt>\uplus</tt></td>
+<td><img class="tex" alt="\bigtriangledown\," src="Mathematics_files/6830fc50dfed0e1b4e3e4bef4ffe3d6e.png"></td>
+<td><tt>\bigtriangledown</tt></td>
+<td><img class="tex" alt="\otimes\," src="Mathematics_files/ca660c0ffa4e34045b5b92d9bd086351.png"></td>
+<td><tt>\otimes</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\div\," src="Mathematics_files/6307d3d6c20c9473365217fa32634085.png"></td>
+<td><tt>\div</tt></td>
+<td><img class="tex" alt="\sqcap\," src="Mathematics_files/f189ef4aa0d1049338b16dc2615c04ab.png"></td>
+<td><tt>\sqcap</tt></td>
+<td><img class="tex" alt="\triangleleft\," src="Mathematics_files/39dc4ac3f1bbec0e928a3def213fbfab.png"></td>
+<td><tt>\triangleleft</tt></td>
+<td><img class="tex" alt="\oslash\," src="Mathematics_files/195196e00c8ba901bde0081775ec559c.png"></td>
+<td><tt>\oslash</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\ast\," src="Mathematics_files/c91bfbf81b7479a37876826bd624f6c6.png"></td>
+<td><tt>\ast</tt></td>
+<td><img class="tex" alt="\sqcup\," src="Mathematics_files/1cd2360ef81789814d9582a42b7a471e.png"></td>
+<td><tt>\sqcup</tt></td>
+<td><img class="tex" alt="\triangleright\," src="Mathematics_files/9b6fcdac9f099d536f4390dbe69863ae.png"></td>
+<td><tt>\triangleright</tt></td>
+<td><img class="tex" alt="\odot\," src="Mathematics_files/3f22c053d7439726c9ffb669c1f39e34.png"></td>
+<td><tt>\odot</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\star\," src="Mathematics_files/197241a1e984b2b29476e0105b9fa854.png"></td>
+<td><tt>\star</tt></td>
+<td><img class="tex" alt="\vee\," src="Mathematics_files/665a0d4215a86f7caeda8396bbd9470e.png"></td>
+<td><tt>\vee</tt></td>
+<td><img class="tex" alt="\bigcirc\," src="Mathematics_files/3175af3e545e0a8312aee2b190e8fcdd.png"></td>
+<td><tt>\bigcirc</tt></td>
+<td><img class="tex" alt="\circ\," src="Mathematics_files/81613c81a41b61ed6e5a825838153d72.png"></td>
+<td><tt>\circ</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\dagger\," src="Mathematics_files/859f2b20085060800b9e4ce4e181c890.png"></td>
+<td><tt>\dagger</tt></td>
+<td><img class="tex" alt="\wedge\," src="Mathematics_files/9a82902b5e18ff22fa94875285229869.png"></td>
+<td><tt>\wedge</tt></td>
+<td><img class="tex" alt="\bullet\," src="Mathematics_files/d5fdf7f7688faf2b8790689653328b6a.png"></td>
+<td><tt>\bullet</tt></td>
+<td><img class="tex" alt="\setminus\," src="Mathematics_files/36724baba25343e4f45318f1e77664c3.png"></td>
+<td><tt>\setminus</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\ddagger\," src="Mathematics_files/f72262c660cd12d086833c9476c0c75e.png"></td>
+<td><tt>\ddagger</tt></td>
+<td><img class="tex" alt="\cdot\," src="Mathematics_files/a9ba6d6c071b16acda3b8b39fffd7aa5.png"></td>
+<td><tt>\cdot</tt></td>
+<td><img class="tex" alt="\wr\," src="Mathematics_files/d66ec968fc5707851466599b0b879574.png"></td>
+<td><tt>\wr</tt></td>
+<td><img class="tex" alt="\amalg\," src="Mathematics_files/1fc35fd9329f872fc99e71b01b5edcb8.png"></td>
+<td><tt>\amalg</tt></td>
+</tr>
+</tbody></table>
+<table class="wikitable">
+<caption>Set and/or Logic Notation</caption>
+<tbody><tr>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="10">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+</tr>
+<tr>
+<td><img class="tex" alt="\exists\," src="Mathematics_files/ff73dca6223b1eb4c36089baf3cc1b96.png"></td>
+<td><tt>\exists</tt></td>
+<td><img class="tex" alt="\rightarrow\," src="Mathematics_files/8558a668c3dd3fe346c448d980f33d6c.png"></td>
+<td><tt>\rightarrow</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\nexists\," src="Mathematics_files/53dc78bf4a608fa62d7805c096ada82d.png"></td>
+<td><tt>\nexists</tt></td>
+<td><img class="tex" alt="\implies\," src="Mathematics_files/7965d4b99568fd2cdfe1dab0ebbe7e80.png"></td>
+<td><tt>\implies</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\forall\," src="Mathematics_files/71a682de227582a7134c80c457c1316f.png"></td>
+<td><tt>\forall</tt></td>
+<td><img class="tex" alt="\Rightarrow\," src="Mathematics_files/7f180bb36536d7074465f93ddb2449c0.png"></td>
+<td><tt>\Rightarrow</tt> (preferred for implication)</td>
+</tr>
+<tr>
+<td><img class="tex" alt="\neg\," src="Mathematics_files/22c59c685f41912d4486b1eef51befc8.png"></td>
+<td><tt>\neg</tt></td>
+<td><img class="tex" alt="\leftrightarrow\," src="Mathematics_files/8b3ae320ba2bb1a6322b3d9b9f947508.png"></td>
+<td><tt>\leftrightarrow</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\in\," src="Mathematics_files/32b4b4b012306df2469d7bb39e083545.png"></td>
+<td><tt>\in</tt></td>
+<td><img class="tex" alt="\iff\," src="Mathematics_files/f9f579d6890c866df6b8531786df61ed.png"></td>
+<td><tt>\iff</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\notin\," src="Mathematics_files/357202c36cae0761cc5eb49db517f65f.png"></td>
+<td><tt>\notin</tt></td>
+<td><img class="tex" alt="\Leftrightarrow\," src="Mathematics_files/f242967c3e06ca72fce0862aee8aed54.png"></td>
+<td><tt>\Leftrightarrow</tt> (preferred for equivalence (iff))</td>
+</tr>
+<tr>
+<td><img class="tex" alt="\ni\," src="Mathematics_files/3a9fc8991e3755f7d914f4900d6f883b.png"></td>
+<td><tt>\ni</tt></td>
+<td><img class="tex" alt="\top\," src="Mathematics_files/f4d119518cd989578bb7c1359c9052d3.png"></td>
+<td><tt>\top</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\land\," src="Mathematics_files/6d5d716d855d45a17d5dbaa9cb522f43.png"></td>
+<td><tt>\land</tt></td>
+<td><img class="tex" alt="\bot\," src="Mathematics_files/429da5bfb3fe86950a1d37b581f1cad7.png"></td>
+<td><tt>\bot</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\lor\," src="Mathematics_files/3399e64b18fc2268b6c34e4157db0385.png"></td>
+<td><tt>\lor</tt></td>
+<td><img class="tex" alt="\emptyset\," src="Mathematics_files/a155a23891d0f8d745030d9dac4258a8.png"> and <img class="tex" alt="\varnothing\," src="Mathematics_files/41742966a5e1e0274f5372ecad89d2a0.png"></td>
+<td><tt>\emptyset</tt> and <tt>\varnothing</tt></td>
+</tr>
+</tbody></table>
+<table class="wikitable">
+<caption>Delimiters</caption>
+<tbody><tr>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="5">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="5">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="5">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+</tr>
+<tr>
+<td><img class="tex" alt="|\," src="Mathematics_files/25f2c517edfb6f7d8f3f2d10650c20f6.png"></td>
+<td><tt>|</tt></td>
+<td><img class="tex" alt="\|\," src="Mathematics_files/9729e94ab9dacaa8de180c61b69b0767.png"></td>
+<td><tt>\|</tt></td>
+<td><img class="tex" alt="/\," src="Mathematics_files/e84e2ca1e89595062c0ac7beb52df42a.png"></td>
+<td><tt>/</tt></td>
+<td><img class="tex" alt="\backslash\," src="Mathematics_files/cd14900980ddb892ed83c67f0aa6c907.png"></td>
+<td><tt>\backslash</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\{\," src="Mathematics_files/69b3f95ebb53ab73dc89a39639392f86.png"></td>
+<td><tt>\{</tt></td>
+<td><img class="tex" alt="\}\," src="Mathematics_files/b752132764734448b12a5a3dd2cda51c.png"></td>
+<td><tt>\}</tt></td>
+<td><img class="tex" alt="\langle\," src="Mathematics_files/742a76a30b6f422e4cbe82282e4aeb34.png"></td>
+<td><tt>\langle</tt></td>
+<td><img class="tex" alt="\rangle\," src="Mathematics_files/98cc0274f93f2ea767a4a84142b27828.png"></td>
+<td><tt>\rangle</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\uparrow\," src="Mathematics_files/804fc679b0314267145d1a3842be66be.png"></td>
+<td><tt>\uparrow</tt></td>
+<td><img class="tex" alt="\Uparrow\," src="Mathematics_files/8fd6e5f3112d3dc73c7b66ea16aa9697.png"></td>
+<td><tt>\Uparrow</tt></td>
+<td><img class="tex" alt="\lceil\," src="Mathematics_files/b11d91f3491a624900302f4a166ca7fb.png"></td>
+<td><tt>\lceil</tt></td>
+<td><img class="tex" alt="\rceil\," src="Mathematics_files/3ac8047c97bc00bde571ba115147db17.png"></td>
+<td><tt>\rceil</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\downarrow\," src="Mathematics_files/4d2ce6da475e1adf37df26d42616a753.png"></td>
+<td><tt>\downarrow</tt></td>
+<td><img class="tex" alt="\Downarrow\," src="Mathematics_files/27cb0d6c1945c36513832648906e0a02.png"></td>
+<td><tt>\Downarrow</tt></td>
+<td><img class="tex" alt="\lfloor\," src="Mathematics_files/08b872687f39621fdcfc8065d17bfdee.png"></td>
+<td><tt>\lfloor</tt></td>
+<td><img class="tex" alt="\rfloor\," src="Mathematics_files/3f313eabe08ce2054e61730ab0029b4e.png"></td>
+<td><tt>\rfloor</tt></td>
+</tr>
+</tbody></table>
+<table class="wikitable">
+<caption>Greek Letters</caption>
+<tbody><tr>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="13">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+</tr>
+<tr>
+<td><img class="tex" alt="\Alpha\," src="Mathematics_files/61425e663966b2cc0fa5b5e5ed2b73ad.png"> and <img class="tex" alt="\alpha\," src="Mathematics_files/b27abc434a11d07b390df859d7aa782a.png"></td>
+<td><tt>\Alpha</tt> and <tt>\alpha</tt></td>
+<td><img class="tex" alt="\Nu\," src="Mathematics_files/6e39ff4cd4145353b7367f8c399680b0.png"> and <img class="tex" alt="\nu\," src="Mathematics_files/cf4f7eb5c35f2e655ab334ebf57a7abb.png"></td>
+<td><tt>\Nu</tt> and <tt>\nu</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\Beta\," src="Mathematics_files/d2701c9e552a6a67ce971a67818935c5.png"> and <img class="tex" alt="\beta\," src="Mathematics_files/81b4c8dd7cbec41cae5ef37da5644e99.png"></td>
+<td><tt>\Beta</tt> and <tt>\beta</tt></td>
+<td><img class="tex" alt="\Xi\," src="Mathematics_files/e4b6cee6322c13c434f387e69f27d385.png"> and <img class="tex" alt="\xi\," src="Mathematics_files/0a647fdd7aa9d6bbb8633f8f034bb50e.png"></td>
+<td><tt>\Xi</tt> and <tt>\xi</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\Gamma\," src="Mathematics_files/9c057f7e7e7e8a781beff7d4a3f30980.png"> and <img class="tex" alt="\gamma\," src="Mathematics_files/44ddf6e825ef5a1ea521e708af7deb73.png"></td>
+<td><tt>\Gamma</tt> and <tt>\gamma</tt></td>
+<td><img class="tex" alt="\Omicron\," src="Mathematics_files/1fd3fa0d1c02c4693770f0200a82846b.png"> and <img class="tex" alt="\omicron\," src="Mathematics_files/5bd6265d88ffaabdb3415a013994fe05.png"></td>
+<td><tt>\Omicron</tt> and <tt>\omicron</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\Delta\," src="Mathematics_files/6bd3412f8b7f05a3530debe117d3fe11.png"> and <img class="tex" alt="\delta\," src="Mathematics_files/a68e4937717b9d4097848fd51077ca72.png"></td>
+<td><tt>\Delta</tt> and <tt>\delta</tt></td>
+<td><img class="tex" alt="\Pi\," src="Mathematics_files/206932cf05272e53cc4b051c110e58f0.png">, <img class="tex" alt="\pi\," src="Mathematics_files/eadbf26e3cb9eae366fbb8c8593ac9e9.png"> and <img class="tex" alt="\varpi" src="Mathematics_files/58f07d7c83fe18c437ba3b47b089ef77.png"></td>
+<td><tt>\Pi</tt>, <tt>\pi</tt> and <tt>\varpi</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\Epsilon\," src="Mathematics_files/a0ad3f554d4e2790deed8569c6a92f6a.png">, <img class="tex" alt="\epsilon\," src="Mathematics_files/ab4a44edf45f22ea595d23054c8fc853.png"> and <img class="tex" alt="\varepsilon\," src="Mathematics_files/cfdb64c3b87ac533d812eba2b0dcd6d2.png"></td>
+<td><tt>\Epsilon</tt>, <tt>\epsilon</tt> and <tt>\varepsilon</tt></td>
+<td><img class="tex" alt="\Rho\," src="Mathematics_files/f962d4cb5594f34b07245dc9ef43f2b1.png">, <img class="tex" alt="\rho\," src="Mathematics_files/ab4c699d5daae16f90abf620d960811a.png"> and <img class="tex" alt="\varrho\," src="Mathematics_files/8f4206249a40129b7d455dd481abb607.png"></td>
+<td><tt>\Rho</tt>, <tt>\rho</tt> and <tt>\varrho</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\Zeta\," src="Mathematics_files/a58df15ecd657bbe5726a1e2110b263a.png"> and <img class="tex" alt="\zeta\," src="Mathematics_files/f0b183831ebfa8e586a748401c99df57.png"></td>
+<td><tt>\Zeta</tt> and <tt>\zeta</tt></td>
+<td><img class="tex" alt="\Sigma\," src="Mathematics_files/cb4efae84f23aaf41fa73a2bf19e9068.png">, <img class="tex" alt="\sigma\," src="Mathematics_files/312418a7fcf9d47adc8e5683e89c58cd.png"> and <img class="tex" alt="\varsigma\," src="Mathematics_files/f0558ec346e9ba8fb83ebba5aabb1e9d.png"></td>
+<td><tt>\Sigma</tt>, <tt>\sigma</tt> and <tt>\varsigma</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\Eta\," src="Mathematics_files/3fdf027ab10415409548309807e20b1a.png"> and <img class="tex" alt="\eta\," src="Mathematics_files/d770ed7061d0265e8cac05d7418a76e6.png"></td>
+<td><tt>\Eta</tt> and <tt>\eta</tt></td>
+<td><img class="tex" alt="\Tau\," src="Mathematics_files/201bac85e3c0a501e55d06eef39bab77.png"> and <img class="tex" alt="\tau\," src="Mathematics_files/d95fd1519e587418ebe3da8fb081701f.png"></td>
+<td><tt>\Tau</tt> and <tt>\tau</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\Theta\," src="Mathematics_files/3e4d48245176c594bcb6abd4163d0c14.png">, <img class="tex" alt="\theta\," src="Mathematics_files/1f09c25c5247c1eaf121df644ca42f8c.png"> and <img class="tex" alt="\vartheta\," src="Mathematics_files/0c79b45fa36a2dd560ef3b4d18f238de.png"></td>
+<td><tt>\Theta</tt>, <tt>\theta</tt> and <tt>\vartheta</tt></td>
+<td><img class="tex" alt="\Upsilon\," src="Mathematics_files/6ca039702328bec8bbe4cc2ee5bdb234.png"> and <img class="tex" alt="\upsilon\," src="Mathematics_files/ce5587a3e0b383f4f3f462a64f6f3179.png"></td>
+<td><tt>\Upsilon</tt> and <tt>\upsilon</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\Iota\," src="Mathematics_files/3cd5010cfdde640396f0f8c041f45eeb.png"> and <img class="tex" alt="\iota\," src="Mathematics_files/bf2d997a510488c07de7221abf65c6d3.png"></td>
+<td><tt>\Iota</tt> and <tt>\iota</tt></td>
+<td><img class="tex" alt="\Phi\," src="Mathematics_files/ce20a96e27e0ab27104fd0982088f344.png">, <img class="tex" alt="\phi\," src="Mathematics_files/cd014731964c742c274df08d7cc238fb.png">, and <img class="tex" alt="\varphi\," src="Mathematics_files/c7c24a63210a2d7a68ca205e55f47391.png"></td>
+<td><tt>\Phi</tt>, <tt>\phi</tt> and <tt>\varphi</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\Kappa\," src="Mathematics_files/fb13861d7754d18953e6dc9a8ce8b818.png"> and <img class="tex" alt="\kappa\," src="Mathematics_files/48fefce592fdd80866caffb846a657bb.png"></td>
+<td><tt>\Kappa</tt> and <tt>\kappa</tt></td>
+<td><img class="tex" alt="\Chi\," src="Mathematics_files/f30c6838e2acade7b2d8ba0f6a75ff04.png"> and <img class="tex" alt="\chi\," src="Mathematics_files/a24251a8311e1e142582c1dd34750e74.png"></td>
+<td><tt>\Chi</tt> and <tt>\chi</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\Lambda\," src="Mathematics_files/60d25297bc0ea8a83f9cf58edec8e72b.png"> and <img class="tex" alt="\lambda\," src="Mathematics_files/07110254746dcae91bc441539c119e0e.png"></td>
+<td><tt>\Lambda</tt> and <tt>\lambda</tt></td>
+<td><img class="tex" alt="\Psi\," src="Mathematics_files/71122cff2b8174ae337ecf3907a75a5d.png"> and <img class="tex" alt="\psi\," src="Mathematics_files/7bd3df974219dcf8a390bfa9b79565d1.png"></td>
+<td><tt>\Psi</tt> and <tt>\psi</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\Mu\," src="Mathematics_files/9d546426bd283fbd307f89cea34d6a5a.png"> and <img class="tex" alt="\mu\," src="Mathematics_files/939974a71dda1b83cce5ab82a2d2cec1.png"></td>
+<td><tt>\Mu</tt> and <tt>\mu</tt></td>
+<td><img class="tex" alt="\Omega\," src="Mathematics_files/8bde45b59aab63ce696ccac425309190.png"> and <img class="tex" alt="\omega\," src="Mathematics_files/a70d0c9b2e529c999ec05569e1638668.png"></td>
+<td><tt>\Omega</tt> and <tt>\omega</tt></td>
+</tr>
+</tbody></table>
+<table class="wikitable">
+<caption>Other symbols</caption>
+<tbody><tr>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="4">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="4">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="4">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="4">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+</tr>
+<tr>
+<td><img class="tex" alt="\partial\," src="Mathematics_files/efd88b6bd73493a001050c916fa3fffc.png"></td>
+<td><tt>\partial</tt></td>
+<td><img class="tex" alt="\imath\," src="Mathematics_files/6e21206c34176a07ee6421ec35121a2c.png"></td>
+<td><tt>\imath</tt></td>
+<td><img class="tex" alt="\Re\," src="Mathematics_files/b62a735ee4327e16f53e69e0384cb18d.png"></td>
+<td><tt>\Re</tt></td>
+<td><img class="tex" alt="\nabla\," src="Mathematics_files/638316a5e06877478a625b73e270b945.png"></td>
+<td><tt>\nabla</tt></td>
+<td><img class="tex" alt="\aleph\," src="Mathematics_files/1995b6ca48541bae3e58c898562478ba.png"></td>
+<td><tt>\aleph</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\eth\," src="Mathematics_files/077771321b4987d1401e8237c0420b63.png"></td>
+<td><tt>\eth</tt></td>
+<td><img class="tex" alt="\jmath\," src="Mathematics_files/920c76039c5583f5c1d33aa8e038a2b1.png"></td>
+<td><tt>\jmath</tt></td>
+<td><img class="tex" alt="\Im\," src="Mathematics_files/3be69842e46d9c1cf6c7947c4fdab525.png"></td>
+<td><tt>\Im</tt></td>
+<td><img class="tex" alt="\Box\," src="Mathematics_files/5d5105c61439bf59d05f68fb7df6407d.png"></td>
+<td><tt>\Box</tt></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\hbar\," src="Mathematics_files/e80b6166f071147991a67f95738a90d6.png"></td>
+<td><tt>\hbar</tt></td>
+<td><img class="tex" alt="\ell\," src="Mathematics_files/5e3053de958787d091659909a0aeacee.png"></td>
+<td><tt>\ell</tt></td>
+<td><img class="tex" alt="\wp\," src="Mathematics_files/f487f770db43336abf23ce9f82dba85c.png"></td>
+<td><tt>\wp</tt></td>
+<td><img class="tex" alt="\infty\," src="Mathematics_files/7d6f1ad0b6fbc722c4f44e7a7a8d8dc8.png"></td>
+<td><tt>\infty</tt></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table class="wikitable">
+<caption>Trigonometric Functions</caption>
+<tbody><tr>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="5">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="5">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+<td rowspan="5">&nbsp;</td>
+<th scope="col">Symbol</th>
+<th scope="col">Script</th>
+</tr>
+<tr>
+<td><img class="tex" alt="\sin\," src="Mathematics_files/9f88d77b326f4df312c17ff174b629ec.png"></td>
+<td><tt>\sin</tt></td>
+<td><img class="tex" alt="\arcsin\," src="Mathematics_files/8cafed357c753e1684a91625fd13a1ac.png"></td>
+<td><tt>\arcsin</tt></td>
+<td><img class="tex" alt="\sinh\," src="Mathematics_files/3e06f73ceda29b705c310567ab1340e1.png"></td>
+<td><tt>\sinh</tt></td>
+<td><img class="tex" alt="\sec\," src="Mathematics_files/574d26240d20c01ecf15eee3e0f4ed24.png"></td>
+<td><tt>\sec</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\cos\," src="Mathematics_files/f5cfd4e5e69cce4f50d0e8e348926ee6.png"></td>
+<td><tt>\cos</tt></td>
+<td><img class="tex" alt="\arccos\," src="Mathematics_files/f622c534c4534286a3b2691e15177616.png"></td>
+<td><tt>\arccos</tt></td>
+<td><img class="tex" alt="\cosh\," src="Mathematics_files/b395b6ca4f79246b260f17c061e009f9.png"></td>
+<td><tt>\cosh</tt></td>
+<td><img class="tex" alt="\csc\," src="Mathematics_files/e133eb224f68e0c39960908ef3bfe534.png"></td>
+<td><tt>\csc</tt></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\tan\," src="Mathematics_files/8fd3fa602ab5c2cc4681626ec2869740.png"></td>
+<td><tt>\tan</tt></td>
+<td><img class="tex" alt="\arctan\," src="Mathematics_files/093b8c7de02c48ee7ba94080c3f3c9f3.png"></td>
+<td><tt>\arctan</tt></td>
+<td><img class="tex" alt="\tanh\," src="Mathematics_files/84802196f9b4b6d6602cb19879007b33.png"></td>
+<td><tt>\tanh</tt></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img class="tex" alt="\cot\," src="Mathematics_files/cb9995960ac58b9837ec524b35b2c4f4.png"></td>
+<td><tt>\cot</tt></td>
+<td><img class="tex" alt="\arccot\," src="Mathematics_files/fd8e577ce1e0e4ff0dc22077dd378ff1.png"></td>
+<td><tt>\arccot</tt></td>
+<td><img class="tex" alt="\coth\," src="Mathematics_files/d23dd53ce7c12e5ebb63145165d55392.png"></td>
+<td><tt>\coth</tt></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><br></p>
+<div style="clear: both;"></div>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=27" title="Edit section: Summary">edit</a>]</span> <span class="mw-headline" id="Summary">Summary</span></h2>
+<p>As you begin to see, typesetting math can be tricky at times. 
+However, because Latex provides so much control, you can get 
+professional quality mathematics typesetting with relatively little 
+effort (once you've had a bit of practice, of course!). It would be 
+possible to keep going and going with math topics because it seems 
+potentially limitless. However, with this tutorial, you should be able 
+to get along sufficiently.</p>
+<div style="clear: both;"></div>
+<table style="background: none repeat scroll 0% 0% rgb(255, 255, 221); border: 1px solid rgb(170, 170, 170); padding: 6pt; width: 60%; margin: auto;" class="notice noprint notice-todo">
+<tbody><tr>
+<td style="width: 58px;">
+<div class="floatleft"><img alt="" src="Mathematics_files/45px-Clipboard.png" height="45" width="45"></div>
+</td>
+<td>
+<p><b>To do:</b><br></p>
+<ul>
+<li>introduce symbols from <a rel="nofollow" class="external autonumber" href="http://www.andy-roberts.net/misc/latex/tutorial9/symbols.pdf">[1]</a></li>
+<li>add symbols from <a rel="nofollow" class="external autonumber" href="http://www.ctan.org/tex-archive/macros/latex/contrib/wasysym/wasysym.pdf">[2]</a></li>
+<li>consider adding symbols from <a rel="nofollow" class="external autonumber" href="http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-letter.pdf">[3]</a> -- the list of nearly all symbols available for LaTeX</li>
+<li>Consider, instead of using the symbols from the above mentioned, using what has already been introduced in <a class="external autonumber" href="http://en.wikipedia.org/wiki/Math_markup">[4]</a> instead of retyping the tables</li>
+<li>How to box an equation within an align environment</li>
+<li>Color in equations</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<div style="clear: both;"></div>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=28" title="Edit section: Notes">edit</a>]</span> <span class="mw-headline" id="Notes">Notes</span></h2>
+<ol class="references">
+<li id="cite_note-0"><a href="#cite_ref-0">↑</a> <a rel="nofollow" class="external free" href="http://www.ams.org/publications/authors/tex/amslatex">http://www.ams.org/publications/authors/tex/amslatex</a></li>
+<li id="cite_note-1"><a href="#cite_ref-1">↑</a> <a rel="nofollow" class="external free" href="http://www.tex.ac.uk/ctan/macros/latex/contrib/mh/mathtools.pdf">http://www.tex.ac.uk/ctan/macros/latex/contrib/mh/mathtools.pdf</a></li>
+<li id="cite_note-amsmath-2">↑ <sup><a href="#cite_ref-amsmath_2-0"><i><b>a</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-1"><i><b>b</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-2"><i><b>c</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-3"><i><b>d</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-4"><i><b>e</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-5"><i><b>f</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-6"><i><b>g</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-7"><i><b>h</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-8"><i><b>i</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-9"><i><b>j</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-10"><i><b>k</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-11"><i><b>l</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-12"><i><b>m</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-13"><i><b>n</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-14"><i><b>o</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-15"><i><b>p</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-16"><i><b>q</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-17"><i><b>r</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-18"><i><b>s</b></i></a></sup> <sup><a href="#cite_ref-amsmath_2-19"><i><b>t</b></i></a></sup> requires the <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">amsmath</span> package</li>
+<li id="cite_note-LM-3"><a href="#cite_ref-LM_3-0">↑</a> <a rel="nofollow" class="external free" href="http://hdl.handle.net/2268/6219">http://hdl.handle.net/2268/6219</a></li>
+<li id="cite_note-mathtools-4">↑ <sup><a href="#cite_ref-mathtools_4-0"><i><b>a</b></i></a></sup> <sup><a href="#cite_ref-mathtools_4-1"><i><b>b</b></i></a></sup> <sup><a href="#cite_ref-mathtools_4-2"><i><b>c</b></i></a></sup> <sup><a href="#cite_ref-mathtools_4-3"><i><b>d</b></i></a></sup> <sup><a href="#cite_ref-mathtools_4-4"><i><b>e</b></i></a></sup> <sup><a href="#cite_ref-mathtools_4-5"><i><b>f</b></i></a></sup> requires the <span style="font-family: monospace; color: rgb(32, 32, 192); font-weight: normal;">mathtools</span> package</li>
+<li id="cite_note-amsfonts-5">↑ <sup><a href="#cite_ref-amsfonts_5-0"><i><b>a</b></i></a></sup> <sup><a href="#cite_ref-amsfonts_5-1"><i><b>b</b></i></a></sup> requires <tt>amsfonts</tt> or <tt>amssymb</tt> packages</li>
+<li id="cite_note-6"><a href="#cite_ref-6">↑</a> require <tt>mathrsfs</tt> package</li>
+</ol>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=29" title="Edit section: Further reading">edit</a>]</span> <span class="mw-headline" id="Further_reading">Further reading</span></h2>
+<ul>
+<li><a href="http://meta.wikimedia.org/wiki/Help:Displaying_a_formula" class="extiw" title="meta:Help:Displaying a formula">meta:Help:Displaying a formula</a>: Wikimedia uses a subset of LaTeX commands.</li>
+</ul>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit&amp;section=30" title="Edit section: External links">edit</a>]</span> <span class="mw-headline" id="External_links">External links</span></h2>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://www.artofproblemsolving.com/Wiki/index.php/LaTeX:Symbols">LaTeX maths symbols</a></li>
+<li><a rel="nofollow" class="external text" href="http://detexify.kirelabs.org/">detexify</a>: applet for looking up LaTeX symbols by handwriting them</li>
+<li><a rel="nofollow" class="external text" href="ftp://ftp.ams.org/pub/tex/doc/amsmath/amsldoc.pdf"><tt>amsmath</tt> documentation</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.thestudentroom.co.uk/wiki/LaTeX">LaTeX - The Student Room</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-letter.pdf">The Comprehensive LaTeX Symbol List</a></li>
+</ul>
+<p><br></p>
+<table style="border: 1px solid black;" class="noprint" width="100%" cellpadding="2" cellspacing="0">
+<tbody><tr>
+<td width="33%" bgcolor="#ffffe0"><a href="http://en.wikibooks.org/wiki/LaTeX/Fonts" title="LaTeX/Fonts">Previous: Fonts</a></td>
+<td width="33%" align="center" bgcolor="#ffffe0"><a href="http://en.wikibooks.org/wiki/LaTeX" title="LaTeX">Index</a></td>
+<td width="33%" align="right" bgcolor="#ffffe0"><a href="http://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics" title="LaTeX/Advanced Mathematics">Next: Advanced Mathematics</a></td>
+</tr>
+</tbody></table>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 6714/1000000
+Post-expand include size: 50536/2048000 bytes
+Template argument size: 14660/2048000 bytes
+Expensive parser function count: 0/500
+-->
+
+<!-- Saved in parser cache with key enwikibooks:pcache:idhash:42442-0!1!0!default!!en!4!* and timestamp 20120127161930 generated by srv265 -->
+</div>				<!-- /bodycontent -->
+								<!-- printfooter -->
+				<div class="printfooter">
+				Retrieved from "<a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;oldid=2257476">http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;oldid=2257476</a>"				</div>
+				<!-- /printfooter -->
+												<!-- catlinks -->
+				<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://en.wikibooks.org/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="http://en.wikibooks.org/wiki/Category:LaTeX" title="Category:LaTeX">LaTeX</a></li></ul></div></div>				<!-- /catlinks -->
+												<!-- dataAfterContent -->
+				<div id="mw-data-after-content">
+	<form method="post" action="/w/index.php?title=Special:ReaderFeedback&amp;action=submit" id="mw-feedbackform"><fieldset class="feedback_reviewform noprint"><legend><strong>What do you think of this page?</strong></legend>
+<p><i>Please take a moment to rate this page below. Your feedback is valuable and helps us improve our website.</i>
+</p><span id="mw-feedbackselects"><b><label for="wpreliability">Reliability</label>:</b>&nbsp;<select class="rfb-rating-option--1" name="wpreliability" id="wpreliability" onchange="updateFeedbackForm()"><option class="rfb-rating-option-4" value="4">Excellent</option>
+<option class="rfb-rating-option-3" value="3">High</option>
+<option class="rfb-rating-option-2" value="2">Fair</option>
+<option class="rfb-rating-option-1" value="1">Low</option>
+<option class="rfb-rating-option-0" value="0">Poor</option>
+<option value="-1" selected="selected">(unsure)</option>
+</select>
+<b><label for="wpcompleteness">Completeness</label>:</b>&nbsp;<select class="rfb-rating-option--1" name="wpcompleteness" id="wpcompleteness" onchange="updateFeedbackForm()"><option class="rfb-rating-option-4" value="4">Excellent</option>
+<option class="rfb-rating-option-3" value="3">High</option>
+<option class="rfb-rating-option-2" value="2">Fair</option>
+<option class="rfb-rating-option-1" value="1">Low</option>
+<option class="rfb-rating-option-0" value="0">Poor</option>
+<option value="-1" selected="selected">(unsure)</option>
+</select>
+<b><label for="wpnpov">Neutrality</label>:</b>&nbsp;<select class="rfb-rating-option--1" name="wpnpov" id="wpnpov" onchange="updateFeedbackForm()"><option class="rfb-rating-option-4" value="4">Excellent</option>
+<option class="rfb-rating-option-3" value="3">High</option>
+<option class="rfb-rating-option-2" value="2">Fair</option>
+<option class="rfb-rating-option-1" value="1">Low</option>
+<option class="rfb-rating-option-0" value="0">Poor</option>
+<option value="-1" selected="selected">(unsure)</option>
+</select>
+<b><label for="wppresentation">Presentation</label>:</b>&nbsp;<select class="rfb-rating-option--1" name="wppresentation" id="wppresentation" onchange="updateFeedbackForm()"><option class="rfb-rating-option-4" value="4">Excellent</option>
+<option class="rfb-rating-option-3" value="3">High</option>
+<option class="rfb-rating-option-2" value="2">Fair</option>
+<option class="rfb-rating-option-1" value="1">Low</option>
+<option class="rfb-rating-option-0" value="0">Poor</option>
+<option value="-1" selected="selected">(unsure)</option>
+</select>
+</span><input disabled="disabled" value="Submit" id="submitfeedback" accesskey="b" title="Submit review [alt-shift-b]" type="submit"><input value="Special:ReaderFeedback" name="title" type="hidden">
+<input value="LaTeX/Mathematics" name="target" type="hidden">
+<input value="2257476" name="oldid" type="hidden">
+<input value="d6f3a71619784aa5efe00e7424289ba1" name="validatedParams" type="hidden"><input value="submit" name="action" type="hidden">
+<input value="+\" name="wpEditToken" type="hidden">
+<input name="commentary" size="12" style="display: none;">
+</fieldset></form>
+</div>
+				<!-- /dataAfterContent -->
+								<div class="visualClear"></div>
+				<!-- debughtml -->
+								<!-- /debughtml -->
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		<div id="mw-head" class="noprint">
+			
+<!-- 0 -->
+<div id="p-personal" class="">
+	<h5>Personal tools</h5>
+	<ul>
+		<li id="pt-login"><a href="http://en.wikibooks.org/w/index.php?title=Special:UserLogin&amp;returnto=LaTeX%2FMathematics" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Log in / create account</a></li>
+	</ul>
+</div>
+
+<!-- /0 -->
+			<div id="left-navigation">
+				
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Namespaces</h5>
+	<ul>
+					<li id="ca-nstab-main" class="selected"><span><a href="http://en.wikibooks.org/wiki/LaTeX/Mathematics" title="View the content page [alt-shift-c]" accesskey="c">Book</a></span></li>
+					<li id="ca-talk"><span><a href="http://en.wikibooks.org/wiki/Talk:LaTeX/Mathematics" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+		<h5><span>Variants</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+			</div>
+			<div id="right-navigation">
+				
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Views</h5>
+	<ul>
+					<li id="ca-view" class="collapsible"><span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;stable=1">Read</a></span></li>
+					<li id="ca-current" class="collapsible collapsible selected"><span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;stable=0&amp;redirect=no" title="View this page with the pending changes [alt-shift-v]" accesskey="v">Latest draft</a></span></li>
+					<li id="ca-edit"><span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=edit" title="You can edit this page. Please use the preview button before saving [alt-shift-e]" accesskey="e">Edit</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h">View history</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Actions</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search">
+	<h5><label for="searchInput">Search</label></h5>
+	<form action="/w/index.php" id="searchform">
+		<input name="title" value="Special:Search" type="hidden">
+				<div id="simpleSearch">
+						<input autocomplete="off" class="placeholder" placeholder="Search" tabindex="1" name="search" value="Search" title="Search Wikibooks [alt-shift-f]" accesskey="f" id="searchInput" type="text">						<button type="submit" name="button" title="Search the pages for this text" id="searchButton"><img src="Mathematics_files/search-ltr.png" alt="Search"></button>					</div>
+			</form>
+</div>
+
+<!-- /2 -->
+			</div>
+		</div>
+		<!-- /header -->
+		<!-- panel -->
+			<div id="mw-panel" class="noprint collapsible-nav">
+				<!-- logo -->
+					<div id="p-logo"><a style="background-image: url(&quot;//upload.wikimedia.org/wikibooks/en/b/bc/Wiki.png&quot;);" href="http://en.wikibooks.org/wiki/Main_Page" title="Visit the main page"></a></div>
+				<!-- /logo -->
+				
+<!-- Navigation -->
+<div class="portal first persistent" id="p-Navigation">
+	<h5>Navigation</h5>
+	<div class="body">
+		<ul>
+			<li id="n-mainpage"><a href="http://en.wikibooks.org/wiki/Main_Page" title="Visit the main page [alt-shift-z]" accesskey="z">Main Page</a></li>
+			<li id="n-help"><a href="http://en.wikibooks.org/wiki/Help:Contents" title="Find help on how to use and edit Wikibooks">Help</a></li>
+			<li id="n-Browse"><a href="http://en.wikibooks.org/wiki/Wikibooks:Card_Catalog_Office" title="Check out what Wikibooks has to offer">Browse</a></li>
+			<li id="n-Cookbook"><a href="http://en.wikibooks.org/wiki/Cookbook:Table_of_Contents" title="Learn recipes from around the world">Cookbook</a></li>
+			<li id="n-Wikijunior"><a href="http://en.wikibooks.org/wiki/Wikijunior" title="Books for children">Wikijunior</a></li>
+			<li id="n-Featured-books"><a href="http://en.wikibooks.org/wiki/Wikibooks:Featured_books" title="The best of Wikibooks">Featured books</a></li>
+			<li id="n-recentchanges"><a href="http://en.wikibooks.org/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent changes</a></li>
+			<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Special:Landingcheck?landing_page=WMFJA085&amp;language=en&amp;utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=20101204SB002" title="Support Wikibooks">Donations</a></li>
+		<li id="n-randbook"><a accesskey="x" title="Show me a random book [alt-shift-x]" href="#">Random book</a></li></ul>
+	</div>
+</div>
+
+<!-- /Navigation -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- Community -->
+<div class="portal expanded" id="p-Community">
+	<h5 tabindex="2">Community</h5>
+	<div style="display: block;" class="body">
+		<ul>
+			<li id="n-Reading-room"><a href="http://en.wikibooks.org/wiki/Wikibooks:Reading_room" title="Discuss Wikibooks-related questions and concerns with others">Reading room</a></li>
+			<li id="n-portal"><a href="http://en.wikibooks.org/wiki/Wikibooks:Community_Portal" title="Find your way around the Wikibooks community">Community portal</a></li>
+			<li id="n-currentevents"><a href="http://en.wikibooks.org/wiki/Wikibooks:Reading_room/Bulletin_Board" title="Important community news">Bulletin Board</a></li>
+			<li id="n-maintenance"><a href="http://en.wikibooks.org/wiki/Wikibooks:Maintenance" title="Frequent tasks that you can help with">Help out!</a></li>
+			<li id="n-Policies-and-guidelines"><a href="http://en.wikibooks.org/wiki/Wikibooks:Policies_and_guidelines" title="Pages detailing important rules and procedures">Policies and guidelines</a></li>
+			<li id="n-contact"><a href="http://en.wikibooks.org/wiki/Wikibooks:Contact_us" title="Alternative methods of communication">Contact us</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /Community -->
+
+<!-- TOOLBOX -->
+<div class="portal collapsed" id="p-tb">
+	<h5 tabindex="3">Toolbox</h5>
+	<div class="body">
+		<ul>
+			<li id="t-whatlinkshere"><a href="http://en.wikibooks.org/wiki/Special:WhatLinksHere/LaTeX/Mathematics" title="A list of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li>
+			<li id="t-recentchangeslinked"><a href="http://en.wikibooks.org/wiki/Special:RecentChangesLinked/LaTeX/Mathematics" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li>
+			<li id="t-upload"><a href="http://commons.wikimedia.org/wiki/Commons:Upload" title="Upload files [alt-shift-u]" accesskey="u">Upload file</a></li>
+			<li id="t-specialpages"><a href="http://en.wikibooks.org/wiki/Special:SpecialPages" title="A list of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li>
+			<li id="t-permalink"><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;oldid=2257476" title="Permanent link to this revision of the page">Permanent link</a></li>
+<li id="t-rating"><a href="http://en.wikibooks.org/w/index.php?title=Special:RatingHistory&amp;target=LaTeX/Mathematics">Page rating</a></li>		</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- LANGUAGES -->
+<div class="portal expanded" id="p-lang">
+	<h5 tabindex="4">In other languages</h5>
+	<div style="display: block;" class="body">
+		<ul>
+			<li class="interwiki-pl"><a href="http://pl.wikibooks.org/wiki/LaTeX/Matematyka">Polski</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /LANGUAGES -->
+
+<!-- Sister projects -->
+<div class="portal collapsed" id="p-Sister_projects">
+	<h5 tabindex="5">Sister projects</h5>
+	<div class="body">
+		<ul>
+			<li id="n-Wikipedia"><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></li>
+			<li id="n-Wikiversity"><a href="http://en.wikiversity.org/wiki/Wikiversity:Main_Page">Wikiversity</a></li>
+			<li id="n-Wiktionary"><a href="http://en.wiktionary.org/wiki/Wiktionary:Main_Page">Wiktionary</a></li>
+			<li id="n-Wikiquote"><a href="http://en.wikiquote.org/wiki/Main_Page">Wikiquote</a></li>
+			<li id="n-Wikisource"><a href="http://en.wikisource.org/wiki/Main_Page">Wikisource</a></li>
+			<li id="n-Wikinews"><a href="http://en.wikinews.org/wiki/Main_Page">Wikinews</a></li>
+			<li id="n-Commons"><a href="http://commons.wikimedia.org/wiki/Main_Page">Commons</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /Sister projects -->
+
+<!-- coll-print_export -->
+<div class="portal collapsed" id="p-coll-print_export">
+	<h5 tabindex="6">Print/export</h5>
+	<div class="body">
+		<ul id="collectionPortletList"><li id="coll-create_a_book"><a href="http://en.wikibooks.org/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=LaTeX%2FMathematics" title="Create a book or page collection" rel="nofollow">Create a collection</a></li><li id="coll-download-as-rl"><a href="http://en.wikibooks.org/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=LaTeX%2FMathematics&amp;oldid=2257476&amp;writer=rl" title="Download a PDF version of this wiki page" rel="nofollow">Download as PDF</a></li><li id="t-print"><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;printable=yes" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li></ul>	</div>
+</div>
+
+<!-- /coll-print_export -->
+			</div>
+		<!-- /panel -->
+		<!-- footer -->
+		<div id="footer">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 27 January 2012, at 16:19.</li>
+											<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikibooks.org/wiki/Wikibooks:Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display: none;"></a>;
+additional terms may apply. See <a href="http://wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> for details.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="http://en.wikibooks.org/wiki/Wikibooks:Welcome" title="Wikibooks:Welcome">About Wikibooks</a></li>
+											<li id="footer-places-disclaimer"><a href="http://en.wikibooks.org/wiki/Wikibooks:General_disclaimer" title="Wikibooks:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-mobileview"><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Mathematics&amp;useformat=mobile" class="noprint">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+					<li id="footer-copyrightico">
+						<a href="http://wikimediafoundation.org/"><img src="Mathematics_files/wikimedia-button.png" alt="Wikimedia Foundation" height="31" width="88"></a>
+					</li>
+					<li id="footer-poweredbyico">
+						<a href="http://www.mediawiki.org/"><img src="Mathematics_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" height="31" width="88"></a>
+					</li>
+				</ul>
+						<div style="clear: both;"></div>
+		</div>
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+		<!-- /fixalpha -->
+		<script src="Mathematics_files/load_002.php" type="text/javascript"></script>
+<script type="text/javascript">if ( window.mediaWiki ) {
+	mw.loader.load(["mediawiki.user", "mediawiki.util", "mediawiki.page.ready", "mediawiki.legacy.wikibits", "mediawiki.legacy.ajax", "mediawiki.legacy.mwsuggest", "ext.flaggedRevs.advanced", "ext.vector.collapsibleNav", "ext.vector.collapsibleTabs", "ext.vector.editWarning", "ext.vector.simpleSearch"]);
+}
+</script><script type="text/javascript" src="Mathematics_files/load_006.php"></script><script type="text/javascript" src="Mathematics_files/load_003.php"></script>
+<script src="Mathematics_files/index_008.php" type="text/javascript"></script>
+<script src="Mathematics_files/index_006.php" type="text/javascript"></script>
+<script src="Mathematics_files/readerfeedback.js" type="text/javascript"></script>
+<script src="Mathematics_files/index_010.php" type="text/javascript"></script>
+<script src="Mathematics_files/load_005.php" type="text/javascript"></script>
+<script type="text/javascript">if ( window.mediaWiki ) {
+	mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":false,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":4,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,
+	"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"flaggedrevssimpleui":0,"flaggedrevsstable":0,"flaggedrevseditdiffs":true,"flaggedrevsviewdiffs":false,"vector-simplesearch":1,"useeditwarning":1,"vector-collapsiblenav":1,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":true,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs102":false,"searchNs103":false,"searchNs108":false,"searchNs109":false,"searchNs110":false,"searchNs111":false,"searchNs112":true,"searchNs113":false,"gadget-commons-file":1,"gadget-toolboxcompat":1});;mw.user.tokens.set({"editToken":"+\\","watchToken":false});;mw.loader.state({"user.options":"ready",
+	"user.tokens":"ready"});
+	
+	/* cache key: enwikibooks:resourceloader:filter:minify-js:4:83778bc807080b87840f8e0267f5e0ae */
+}
+</script><script src="Mathematics_files/a" type="text/javascript"></script><!-- Served by srv289 in 0.094 secs. -->
+	<div class="suggestions" style="top: 70px; width: 204px; display: none; left: auto; right: 29px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

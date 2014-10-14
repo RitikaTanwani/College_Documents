@@ -1,0 +1,174 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"> 
+<title>LaTeX Lesson 4: Mathematics in LaTeX</title></head><body> 
+<h1 align="CENTER">LaTeX Lesson 4 <br> Mathematics in LaTeX</h1>
+<p>
+</p><h2>Mathematical Formulas</h2>
+
+
+<p>
+There are three commonly used environments in the math mode:  
+ <!--List Tag -->
+</p><ol>
+<li><a href="#Math">the <code>math </code> environment:</a>  Used for
+formulas in running text 
+</li><li><a href="#Display">the <code>displaymath </code> environment:</a>
+Used to display longer formulas 
+</li><li><a href="#Equation">the <code>equation </code>environment:</a>
+Used for displaying equations for numbering and cross reference  
+</li></ol> 
+<p> 
+
+
+</p><h3>
+<a name="Math">math environment</a>
+</h3>
+The <code>math</code> environment is used to typeset short formulas in
+the running text.  Such formulas are called in-line or in-text
+formulas.   You can use this environment in any of the following
+forms:  <!-- List Tag --> 
+<ul>
+<li><code>\begin{math} . . . \end{math}</code>
+</li><li>\( . . . \)
+</li><li>$ . . . $
+</li></ul>
+
+<p>
+Thus, you could have a line of LaTeX source code  like this:   <br>
+<code>A circle in the $x$--$y$--plane has equation \( x^2 + y^2 = 1
+\)  ...</code>.  <br>
+Since there is usually no problem with matching the begin and end of
+the math environments, you'll most often see $ . . . $.  It is
+best to avoid using this environment for long formulas.   </p>
+
+
+<h3>
+<a name="Display">displaymath environment</a>
+</h3>
+<p>
+The <code>displaymath</code> environment is used to typeset longer
+formulas.   It is better to have long formulas or equations displayed,
+that is, indented and with whitespace above and below. 
+You can use this environment in any of the following forms:  <!-- List Tag -->
+</p><ul>
+<li><code>\begin{displaymath} . . . \end{displaymath}</code>
+</li><li><code>\[ . . . \]</code>
+</li><li><code>$$ . . . $$</code>;  however, this last is not recommend in LaTeX2e.
+</li></ul>
+<p>
+The standard usage here is <code>\[ . . . \]</code>, and it is a good
+idea to put the opening <code>\[</code> and closing <code> \]</code>
+on separate lines.
+
+</p><h3>
+<a name="Equation">equation environment</a>
+</h3>
+<p>
+The equation environment can be used by typing <br>
+\<code>begin{equation} . . . \end{equation}</code>. 
+</p><p> 
+The equations are numbered by LaTeX during the actual processing of the source file,
+so the number that LaTeX assigns to a given equation can change if we insert other 
+equations before it. Later on we will see how to create a label for an equation 
+ so that we can refer to the equation in the paper 
+without having to know which number will be assigned to it during typesetting. 
+That makes it easy to change our document without having to change all the cross
+references --- one extremely handy feature of LaTeX.
+<br> </p><hr>
+<h2>Typesetting Simple Formulas</h2>
+<p>
+We now look at some easy formulas.  It turns out that even the most complicated
+formula can be built up systematically in LaTeX from simpler pieces, so that it
+is not extremely difficult to type complicated formulas.  
+</p><p>
+It is important to keep in mind that LaTeX has its own way of handling spacing in
+mathematics mode.  It distinguishes between <em>binary operators</em>, like the +
+sign in  the expression "3 + 5 = 8", and unary operators, like the -
+sign in the formula   "x + 5 = -3".  For example, consider the spacing
+of symbols in the typeset version of the formula
+</p><pre>   \[
+       x + 5 = -3
+   \]
+</pre>
+Here is how LaTeX typesets it.
+<img src="class4_files/operators.jpeg" align="CENTER">
+<br>  <hr>
+
+Note the difference between the spacing around the + sign and that around the
+- sign.
+<p>
+</p><h3>The amsmath package</h3>
+<p>
+If you want to typeset equations beyond the very simplest ones, you will want
+to use the <code>amsmath</code> package, one of the many packages that you can
+use with LaTeX.  This package provides features for aligning several equations,
+for handling multiline equations, compound symbols and certain kinds of diagrams.
+</p><p>
+The package is loaded into LaTeX by the command <code>\usepackage{amsmath}</code>,
+which goes in the preamble of the LaTeX source file (that is, between the 
+<code>documentclass</code> line and the  <code>begin{document}</code>  line).
+</p><p>
+Here's an example of using the package to make some aligned equations.
+
+</p><pre>   \documentclass[12pt]{article}
+   \usepackage{amsmath}
+       \begin{document}
+          \begin{align*}
+          \sin A \cos B &amp;= \frac{1}{2}\left[ \sin(A-B)+\sin(A+B) \right] \\
+          \sin A \sin B &amp;= \frac{1}{2}\left[ \sin(A-B)-\cos(A+B) \right] \\
+          \cos A \cos B &amp;= \frac{1}{2}\left[ \cos(A-B)+\cos(A+B) \right] \\
+          \end{align*}
+       \end{document}
+</pre>
+<p>
+The <code>align</code> environment is a souped up version of the 
+<code>equation</code> environment.  It uses the &amp; symbol for
+alignment, much like the <code>tabular</code> environment.  The
+<code>align*</code> version is the same as <code>align</code> except
+that it doesn't produce equation numbers.
+</p><p>
+Here is how LaTeX typesets the above source file.
+<img src="class4_files/align-nonumber.jpeg" align="center">
+<br>  </p><hr>
+<h3>Warning  </h3>
+Notice that the exact placement of curly brackets is important:
+       \begin{equation}
+       \sqrt2x \text{ is not the same as } \sqrt{2x}.
+       \end{equation}
+The typeset version: 
+<img src="class4_files/sqrt.jpeg" align="CENTER">
+<br> <hr>
+
+<h3>Symbols and Maple V </h3>
+<p>
+One can easily produce fractions, symbols for differentiation and
+integration, and so on.  For example:
+</p><pre>     \[
+        \frac{d}{dx}\left( \int_{0}^{x} f(u)\,du\right)=f(x).
+     \]
+</pre>
+This typesets: <img src="class4_files/ftc1.jpeg" align="CENTER">
+<p>
+Moreover, if you know how to use the symbolic algebra package Maple V,
+you can get it to produce LaTeX code.  The following LaTeX formula
+</p><pre>\[
+{\frac {d}{dx}}\arctan(\sin({x}^{2}))=-2\,{\frac {\cos({x}^{2})x}{-2+
+\left (\cos({x}^{2})\right )^{2}}}
+\]
+</pre>
+
+is produced by the Maple V instruction:
+<pre>latex(Diff(arctan(sin(x^2)),x)=simplify(diff(arctan(sin(x^2)),x)));
+</pre>
+<p>
+I just copied the output into this document by using the mouse, and added
+the lines <kbd>\[</kbd> and <kbd>\]</kbd> for math mode.
+</p><p>
+Here is the typeset version: 
+<img src="class4_files/maple-latex.jpeg" align="CENTER">  
+<br>  </p><hr>
+<address>email: <a href="mailto:karel@crab.rutgers.edu">Martin Karel</a></address>
+
+ 
+
+</body></html>

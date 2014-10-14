@@ -1,0 +1,179 @@
+
+;; This buffer is for notes you don't want to save, and for Lisp evaluation.
+;; If you want to create a file, visit that file with C-x C-f,
+;; then enter the text in that file's own buffer.
+
+(find-file "foo")
+#<buffer foo>
+(system-name)
+"chanakya"
+
+(defun add7 (n)
+  "adds 7 to its argument"
+  (interactive "n")
+  (read-minibuffer "enter the number: ")
+  (message "the answer is %d" (+ 7 n)))
+
+
+(let ((a (read)))
+  (message "the value read is %d" a))
+"the value read is 5"
+
+add7
+
+add7
+
+add7
+
+(add7 5)
+"the answer is 12"
+
+
+
+
+
+(lexical-let ((a 5))
+  a)
+5
+x4f
+(defvar x 5)
+
+(defvar x 3)
+x
+3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+E-LISP
+
+5
+5.45809
+5.45809
+
+
+'(1 2 3)
+(1 2 3)
+
+(1 2 3)
+
+'(+ 2 3)
+(+ 2 3)
+
+
+
+
+"hello"
+"hello"
+
+
+(+ 2 3)  ; a comment
+5
+
+(< 2.0 7.0)
+t
+
+nil
+
+0.2857142857142857
+
+
+
+(defconst x 5)
+
+
+
+
+
+;;; List operations
+
+
+
+nil
+
+(cons 1 '(2 3))
+(1 2 3)
+
+
+;; Basic data types
+
+34  ;; numbers
+t   ;; true
+nil ;; false
+"a" ;; string
+'a  ;; symbol
+
+;; lists
+
+'(1 2 3)
+'(a b c)
+
+;; Operations on lists
+;; cons
+;; car
+;; cdr
+;; list
+;; 
+cons  ;; takes an element and a list and returns a new list
+      ;; with the new element in front
+
+;; examples:
+
+(cons 2 '(3 4)) ;; =>   (2 3 4)
+
+(cons 2 nil)   ;; => (2) 
+
+;; extractor functions
+(car '(2  3 4)) ;; => 2
+(cdr '(2 3 4))  ;; => (3 4)
+
+(car '(2)) ;; => 2
+
+(cdr '(2)) ;; => nil
+
+(cdr nil) ;; => nil
+
+
+;; temporary binding
+(let ((x '(1 2 3)))
+  (+ (car x) (car (cdr x))))
+
+;; function definition
+
+(defun add2 (x)
+  (interactive "p")
+  (message "the answer is %d" (+ x 2)))
+add2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

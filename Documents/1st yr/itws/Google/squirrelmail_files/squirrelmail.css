@@ -1,0 +1,60 @@
+A, B, P, TABLE, SMALL, BODY, TD, OL, UL, MENU, BLOCKQUOTE, DIV {
+    font-family: Helvetica,Arial,sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+PRE, TT, INPUT, TEXTAREA {
+    font-family: Courier,monospace;
+}
+div.menusearch {
+    font-size: x-small;
+}
+p.right {
+    text-align: right;
+}
+table.diff { 
+  width: 95%;
+}
+td.diff-added {
+  background-color: #cfffcf;
+  color:            #000000;
+}
+td.diff-removed { 
+  background-color: #ffffaf;
+  color:            #000000;
+}
+table.codephr {float: right}
+td.codephr {font-size: 7px}
+td.codehdr {vertical-align: top}
+td.menutop {
+    background-image: url("/images/menu_top.gif");
+}
+td.stripedbg {
+    background-image: url("/images/striped_bg.gif");
+}
+
+hr {
+    border: 0; height: 1px;
+    color: gray; background-color: gray;
+}
+
+table.sectable {
+    font-size: smaller;
+}
+tr.secrow_rg1, .secrow_rg1 a:link, .secrow_rg1 a:visited {
+    color: gray;
+}
+
+code {
+	background-color: #d9d9d9;
+}
+pre {
+	padding: 1em;
+	border: 1px dashed #2f6fab;
+	color: black;
+	background-color: #d9d9d9;
+	font-size: 0.6em;
+}

@@ -1,0 +1,762 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!------------------------------------------------------------------------------
+ ! Copyright (c) 2000, 2004 IBM Corporation and others.
+ ! All rights reserved. This program and the accompanying materials 
+ ! are made available under the terms of the Common Public License v1.0
+ ! which accompanies this distribution, and is available at
+ ! http://www.eclipse.org/legal/cpl-v10.html
+ ! 
+ ! Contributors:
+ !     IBM Corporation - initial API and implementation
+ ------------------------------------------------------------------------------->
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Contents</title>
+
+<style type="text/css">
+/*******************************************************************************
+ * Copyright (c) 2000, 2004 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials 
+ * are made available under the terms of the Common Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/cpl-v10.html
+ * 
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+ *******************************************************************************/
+
+BODY {
+	background-color: Window;
+	font: icon;
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+UL { 
+	border-width:0; 
+	margin-left:20px; 
+}
+
+#root {
+	margin-top:5px;
+	margin-left:5px;
+}
+  
+UL.expanded {
+	display:block; 
+}
+
+UL.collapsed { 
+	display: none;
+}
+
+LI { 
+	margin-top:3px; 
+	list-style-image:none;
+	list-style-type:none;
+		white-space: nowrap;
+}
+
+IMG {
+	border:0px;
+	margin:0px;
+	padding:0px;
+	margin-right:4px;
+}
+
+
+A {
+	text-decoration:none; 
+	color:WindowText;
+	padding-right:2px;
+	/* this works in ie5.5, but not in ie5.0  */
+	white-space: nowrap;
+}
+
+A:hover{
+	text-decoration:underline; 
+}
+
+A.active{ 
+	background:Highlight;
+	color:HighlightText;
+	width:100%;
+}
+
+A.active:hover{
+	text-decoration:underline; 
+	background:Highlight;
+	color:HighlightText;
+	width:100%;
+}
+
+
+UL { 
+	margin-left:-20px;
+} 
+#root{ 
+	margin-left:-35px; 
+	margin-top:5px;
+} 
+ 
+
+
+.h {
+	visibility:hidden;
+}
+ 
+</style>  
+    
+<!-- base href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/advanced/tocView.jsp?view=toc&topic=/com.ibm.xlcpp8a.doc/language/ref/cplr035.htm" -->
+<script language="JavaScript">
+
+// Preload images
+minus = new Image();
+minus.src = "images"+"/minus.gif";
+plus = new Image();
+plus.src = "images"+"/plus.gif";
+toc_open_img = new Image();
+toc_open_img.src = "images"+"/toc_open.gif";
+toc_closed_img = new Image();
+toc_closed_img.src = "images"+"/toc_closed.gif";
+folder_img = new Image();
+folder_img.src = "images"+"/container_obj.gif";
+topic_img = new Image();
+topic_img.src = "images"+"/topic.gif";
+altTopicClosed = "Topic\u0020closed";
+altTopicOpen = "Topic\u0020open";
+</script>
+
+<script language="JavaScript" src="tocView_data/toc.js"></script>
+<script language="JavaScript"> 
+ 
+/**
+ * Loads the specified table of contents
+ */                
+function loadTOC(tocHref)
+{
+        // navigate to this toc, if not already loaded
+        if (window.location.href.indexOf("tocView.jsp?toc="+tocHref) != -1)
+                return;
+        window.location.replace("tocView.jsp?toc="+tocHref);
+}
+
+var tocTitle = "";
+var tocId = "";
+        
+function onloadHandler()
+{
+
+        tocTitle = 'XL\u0020C\u002FC\u002B\u002B\u0020V\u0038\u002E\u0030\u0020for\u0020AIX';
+        var tocTopic = "about:blank";
+        
+        // set title on the content toolbar
+        parent.parent.parent.setContentToolbarTitle(tocTitle);
+                
+        var topicSelected=false;
+        // select specified topic, or else the book
+
+		//HPSYS00000181
+        var topic = "../topic/com.ibm.xlcpp8a.doc/language/ref/cplr035.htm";
+        //HPSYS00000252
+        if (parent.parent.parent.parent.ContentFrame.ContentViewFrame.window.location.href.indexOf(topic)!=-1)
+        	topic=parent.parent.parent.parent.ContentFrame.ContentViewFrame.window.location.href;
+        //end HPSYS00000252
+		//end of HPSYS00000181
+        if (topic != "about:blank" && topic != tocTopic) {
+                if (topic.indexOf(window.location.protocol) != 0 && topic.length > 2) {
+                        // remove the .. from topic
+                        topic = topic.substring(2);
+                        // remove advanced/tocView.jsp from path to obtain contextPath
+                        var contextPath = window.location.pathname;
+                        var slash = contextPath.lastIndexOf('/');
+                        if(slash > 0) {
+                                slash = contextPath.lastIndexOf('/', slash-1);
+                                if(slash >= 0) {
+                                        contextPath = contextPath.substr(0, slash);
+                                        topic = window.location.protocol + "//" +window.location.host + contextPath + topic;
+                                }
+                        }                        
+                }
+                topicSelected = selectTopic(topic);
+        } else {
+                topicSelected = selectTopicById(tocId);
+        }
+        // if topic failed to be selected, but we know it exist in some book,
+        // offer to turn on "show all"
+
+        if(!topicSelected){
+                if(parent.parent.activityFiltering){
+                        askShowAll();
+                }
+        }
+
+
+        //HPSYS00000140,155,141,139 
+        focusHandler(null); 
+        //end HPSYS00000140,155,141,139 
+}
+
+var askShowAllDialog;
+var w = 470;
+var h = 270;
+
+function askShowAll(){
+
+        var l = top.screenX + (top.innerWidth - w) / 2;
+        var t = top.screenY + (top.innerHeight - h) / 2;
+
+        // move the dialog just a bit higher than the middle
+        if (t-50 > 0) t = t-50;
+        
+        window.location="javascript://needModal";
+        askShowAllDialog = window.open("askShowAll.jsp", "askShowAllDialog", "resizeable=no,height="+h+",width="+w+",left="+l+",top="+t );
+        askShowAllDialog.focus(); 
+}
+
+function yesShowAll(){
+        window.parent.parent.showAll();
+}
+
+function closeAskShowAllDialog(){
+        try {
+                if (askShowAllDialog){
+                        askShowAllDialog.close();
+                }
+        }
+        catch(e) {}
+}
+
+function onunloadHandler() {
+        closeAskShowAllDialog();
+
+}
+
+</script>
+</head>
+
+
+<body dir="ltr" onload="onloadHandler()" onunload="onunloadHandler()">
+<!--  HPSYS00000088  -->
+        <ul dir="ltr" class="expanded" id="root">
+<!--  end of HPSYS00000088  -->
+
+                <li>
+                <!--HPSYS00000137 part 2 of 2-->
+                <img src="tocView_data/toc_closed.gif" alt="Book closed"><a id="b0" name="/com.ibm.compilers.doc/toc.xml" style="font-weight: bold;" href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.compilers.doc/welcome.htm" onclick='loadTOC("%2f%63%6f%6d%2e%69%62%6d%2e%63%6f%6d%70%69%6c%65%72%73%2e%64%6f%63%2f%74%6f%63%2e%78%6d%6c")'>Using this information center</a>
+                <!--end HPSYS00000137 part 2 of 2-->
+
+                </li>        
+
+                <li>
+                <!--HPSYS00000137 part 1 of 2-->
+                <img src="tocView_data/toc_open.gif" alt="Book open"><a id="b1" name="opened" style="font-weight: bold;" href="about:blank" onclick="">XL C/C++ V8.0 for AIX</a>
+                <!--end HPSYS00000137 part 1 of 2-->
+</li><li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="about:blank"><img src="tocView_data/container_obj.gif" alt="">Getting Started</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_preface.htm#preface"><img src="tocView_data/container_obj.gif" alt="">About this document</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_preface.htm#audience"><img src="tocView_data/topic.gif" alt="">Who should read this document</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_preface.htm#use"><img src="tocView_data/topic.gif" alt="">How to use this document</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_preface.htm#structure"><img src="tocView_data/topic.gif" alt="">How this document is organized</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_preface.htm#conventions"><img src="tocView_data/container_obj.gif" alt="">Conventions and terminology used in this document</a><ul class="collapsed" id="0_0_3">
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_ovr.htm#ovrvw"><img src="tocView_data/container_obj.gif" alt="">Overview of XL C/C++ features</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_ovr.htm#xl_common"><img src="tocView_data/topic.gif" alt="">Commonality with other XL compilers</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_ovr.htm#onlinehelp"><img src="tocView_data/topic.gif" alt="">Documentation, online help, and technical support</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_ovr.htm#ossup"><img src="tocView_data/topic.gif" alt="">Hardware and operating system support</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_ovr.htm#configrcomp"><img src="tocView_data/topic.gif" alt="">Highly configurable compiler</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_ovr.htm#langsup"><img src="tocView_data/container_obj.gif" alt="">Language standards compliance</a><ul class="collapsed" id="0_1_4">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_ovr.htm#comp_libraries"><img src="tocView_data/container_obj.gif" alt="">Libraries</a><ul class="collapsed" id="0_1_5">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_ovr.htm#tools"><img src="tocView_data/topic.gif" alt="">Tools and utilities</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_ovr.htm#progoptzn"><img src="tocView_data/topic.gif" alt="">Program optimization</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_ovr.htm#bit64"><img src="tocView_data/topic.gif" alt="">64-bit object capability</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_ovr.htm#smp_port_main"><img src="tocView_data/container_obj.gif" alt="">Shared memory parallelization</a><ul class="collapsed" id="0_1_9">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_ovr.htm#listsup"><img src="tocView_data/topic.gif" alt="">Diagnostic listings</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_ovr.htm#debugsupp"><img src="tocView_data/topic.gif" alt="">Symbolic debugger support</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_new.htm#new_features"><img src="tocView_data/container_obj.gif" alt="">What's new for V8.0</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_new.htm#new_perf"><img src="tocView_data/container_obj.gif" alt="">Performance and optimization</a><ul class="collapsed" id="0_2_0">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_new.htm#new_stdconf"><img src="tocView_data/container_obj.gif" alt="">Support for language enhancements and APIs</a><ul class="collapsed" id="0_2_1">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_new.htm#new_usab"><img src="tocView_data/container_obj.gif" alt="">Ease of use</a><ul class="collapsed" id="0_2_2">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_new.htm#new_options"><img src="tocView_data/container_obj.gif" alt="">New compiler options</a><ul class="collapsed" id="0_2_3">
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_setup.htm#setupch"><img src="tocView_data/container_obj.gif" alt="">Setting up and customizing XL C/C++</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_setup.htm#setenvvars"><img src="tocView_data/container_obj.gif" alt="">Environment variables and XL C/C++</a><ul class="collapsed" id="0_3_0">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_setup.htm#custzcfgfile"><img src="tocView_data/topic.gif" alt="">Customizing the configuration file</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_setup.htm#levinst"><img src="tocView_data/topic.gif" alt="">Determining what level of XL C/C++ is installed</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_cmplnk.htm#compile"><img src="tocView_data/container_obj.gif" alt="">Editing, compiling, and linking programs with XL C/C++</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_cmplnk.htm#phases"><img src="tocView_data/topic.gif" alt="">The compiler phases</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_cmplnk.htm#editsrc"><img src="tocView_data/topic.gif" alt="">Editing C and C++ source files</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_cmplnk.htm#compilgpgms"><img src="tocView_data/container_obj.gif" alt="">Compiling with XL C/C++</a><ul class="collapsed" id="0_4_2">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_cmplnk.htm#inputfiles"><img src="tocView_data/topic.gif" alt="">XL C/C++ input files</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_cmplnk.htm#outputfiles"><img src="tocView_data/topic.gif" alt="">XL C/C++ output files</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_cmplnk.htm#options"><img src="tocView_data/topic.gif" alt="">Specifying compiler options</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_cmplnk.htm#linkingpgms"><img src="tocView_data/container_obj.gif" alt="">Linking XL C/C++ programs</a><ul class="collapsed" id="0_4_6">
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_run.htm#runpgms"><img src="tocView_data/container_obj.gif" alt="">Running XL C/C++ programs</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_run.htm#wq49"><img src="tocView_data/topic.gif" alt="">Canceling execution</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_run.htm#otherenvvars"><img src="tocView_data/topic.gif" alt="">Setting runtime options</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_diag.htm#problem"><img src="tocView_data/container_obj.gif" alt="">XL C/C++ compiler diagnostic aids</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_diag.htm#return_codes"><img src="tocView_data/topic.gif" alt="">Compilation return codes</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_diag.htm#listing"><img src="tocView_data/container_obj.gif" alt="">XL C/C++ compiler listings</a><ul class="collapsed" id="0_6_1">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/getstart/overview/gs_diag.htm#debugging"><img src="tocView_data/topic.gif" alt="">Debugging compiled applications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="tocView_data/minus.gif" class="expanded" alt="Topic open"><a href="about:blank"><img src="tocView_data/container_obj.gif" alt="">Language Reference</a><ul class="expanded">
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/preface.htm#preface"><img src="tocView_data/container_obj.gif" alt="">About this document</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/audience.htm#audience"><img src="tocView_data/topic.gif" alt="">Who should read this document</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/standards_language.htm#standards_language"><img src="tocView_data/container_obj.gif" alt="">Supported language standards</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/standards_other.htm#standards_other"><img src="tocView_data/topic.gif" alt="">Other standards and specifications</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/ibm_lang_extensions.htm#ibm_lang_extensions"><img src="tocView_data/container_obj.gif" alt="">Language levels and language extensions</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cpp_extensions.htm#cpp_extensions"><img src="tocView_data/topic.gif" alt="">Extensions to C++ to support C99 standard features</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/gcc_extensions.htm#gcc_extensions"><img src="tocView_data/topic.gif" alt="">Extensions related to GNU C and C++</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/altivec_extensions.htm#altivec_extensions"><img src="tocView_data/topic.gif" alt="">Extensions supporting the AltiVec Programming Interface</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/use.htm#use"><img src="tocView_data/topic.gif" alt="">How to use this document</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/structure.htm#structure"><img src="tocView_data/topic.gif" alt="">How this document is organized</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/conventions.htm#conventions"><img src="tocView_data/container_obj.gif" alt="">Conventions used in this document</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/highlighting.htm#highlighting"><img src="tocView_data/topic.gif" alt="">Typographical conventions</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/qualifying_elements.htm#qualifying_elements"><img src="tocView_data/topic.gif" alt="">Qualifying elements (icons and bracket separators)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/syntax.htm#syntax"><img src="tocView_data/topic.gif" alt="">How to read syntax diagrams</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/examples.htm#examples"><img src="tocView_data/topic.gif" alt="">Examples</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/other_pubs_html.htm#other_pubs_html"><img src="tocView_data/topic.gif" alt="">Related publications</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cppintr.htm#cppintr"><img src="tocView_data/container_obj.gif" alt="">Scope and linkage</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr012.htm#cplr012"><img src="tocView_data/container_obj.gif" alt="">Scope</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr013.htm#cplr013"><img src="tocView_data/topic.gif" alt="">Block/local scope</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr014.htm#cplr014"><img src="tocView_data/topic.gif" alt="">Function scope</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/function_prototype_scope.htm#function_prototype_scope"><img src="tocView_data/topic.gif" alt="">Function prototype scope</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr015.htm#cplr015"><img src="tocView_data/topic.gif" alt="">File/global scope</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/zexscope_c.htm#zexscope_c"><img src="tocView_data/topic.gif" alt="">Examples of scope in C</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr016.htm#cplr016"><img src="tocView_data/topic.gif" alt="">Class scope (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/namspac.htm#namspac"><img src="tocView_data/topic.gif" alt="">Namespaces of identifiers</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/name_hiding.htm#name_hiding"><img src="tocView_data/topic.gif" alt="">Name hiding (C++ only)</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr080.htm#cplr080"><img src="tocView_data/container_obj.gif" alt="">Program linkage</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr081.htm#cplr081"><img src="tocView_data/topic.gif" alt="">Internal linkage</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr082.htm#cplr082"><img src="tocView_data/topic.gif" alt="">External linkage</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr083.htm#cplr083"><img src="tocView_data/topic.gif" alt="">No linkage</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr020.htm#cplr020"><img src="tocView_data/topic.gif" alt="">Language linkage (C++ only)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/lexcvn.htm#lexcvn"><img src="tocView_data/container_obj.gif" alt="">Lexical Elements</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr262.htm#cplr262"><img src="tocView_data/container_obj.gif" alt="">Tokens</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/keyw.htm#keyw"><img src="tocView_data/topic.gif" alt="">Keywords</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/ident.htm#ident"><img src="tocView_data/topic.gif" alt="">Identifiers</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/conref.htm#conref"><img src="tocView_data/topic.gif" alt="">Literals</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/punctuators.htm#punctuators"><img src="tocView_data/topic.gif" alt="">Punctuators and operators</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/charset.htm#charset"><img src="tocView_data/container_obj.gif" alt="">Source program character set</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/multibyte_characters.htm#multibyte_characters"><img src="tocView_data/topic.gif" alt="">Multibyte characters</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/escape.htm#escape"><img src="tocView_data/topic.gif" alt="">Escape sequences</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/unicode_standard.htm#unicode_standard"><img src="tocView_data/topic.gif" alt="">The Unicode standard</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr265.htm#cplr265"><img src="tocView_data/topic.gif" alt="">Digraph characters</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/trigraf.htm#trigraf"><img src="tocView_data/topic.gif" alt="">Trigraph sequences</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/com.htm#com"><img src="tocView_data/topic.gif" alt="">Comments</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/stcls.htm#stcls"><img src="tocView_data/container_obj.gif" alt="">Data objects and declarations</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/dclover.htm#dclover"><img src="tocView_data/container_obj.gif" alt="">Overview of data objects and declarations</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/data_objects.htm#data_objects"><img src="tocView_data/topic.gif" alt="">Overview of data objects</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/data_dec.htm#data_dec"><img src="tocView_data/topic.gif" alt="">Overview of data declarations and definitions</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/sc03.htm#sc03"><img src="tocView_data/container_obj.gif" alt="">Storage class specifiers</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/autdef.htm#autdef"><img src="tocView_data/topic.gif" alt="">The auto storage class specifier</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/statdef.htm#statdef"><img src="tocView_data/topic.gif" alt="">The static storage class specifier</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/extsc.htm#extsc"><img src="tocView_data/topic.gif" alt="">The extern storage class specifier</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/mutable_storage_class_specifier.htm#mutable_storage_class_specifier"><img src="tocView_data/topic.gif" alt="">The mutable storage class specifier (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/regdef.htm#regdef"><img src="tocView_data/topic.gif" alt="">The register storage class specifier</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/prmdata.htm#prmdata"><img src="tocView_data/container_obj.gif" alt="">Type specifiers</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/intvar.htm#intvar"><img src="tocView_data/topic.gif" alt="">Integral types</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/boolean_variables.htm#boolean_variables"><img src="tocView_data/topic.gif" alt="">Boolean types</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/fltvar.htm#fltvar"><img src="tocView_data/topic.gif" alt="">Floating-point types</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/ch.htm#ch"><img src="tocView_data/topic.gif" alt="">Character types</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/voidt.htm#voidt"><img src="tocView_data/topic.gif" alt="">The void type</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/compat_arith.htm#compat_arith"><img src="tocView_data/topic.gif" alt="">Compatibility of arithmetic types (C only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/altivec_types.htm#altivec_types"><img src="tocView_data/topic.gif" alt="">Vector types</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/user-defined.htm#user-defined"><img src="tocView_data/container_obj.gif" alt="">User-defined types</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/strct.htm#strct"><img src="tocView_data/topic.gif" alt="">Structures and unions</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/enumdec.htm#enumdec"><img src="tocView_data/topic.gif" alt="">Enumerations</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/compat_user-defined.htm#compat_user-defined"><img src="tocView_data/topic.gif" alt="">Compatibility of structures, unions, and enumerations (C only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/typdef.htm#typdef"><img src="tocView_data/topic.gif" alt="">typedef definitions</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cv_qualifiers.htm#cv_qualifiers"><img src="tocView_data/container_obj.gif" alt="">Type qualifiers</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/const_cv_qualifier.htm#const_cv_qualifier"><img src="tocView_data/topic.gif" alt="">The const type qualifier</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/volatile_type_qualifier.htm#volatile_type_qualifier"><img src="tocView_data/topic.gif" alt="">The volatile type qualifier</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/restrict_type_qualifier.htm#restrict_type_qualifier"><img src="tocView_data/topic.gif" alt="">The restrict type qualifier</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/align_specifier.htm#align_specifier"><img src="tocView_data/topic.gif" alt="">The __align qualifier</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/type_attrib.htm#type_attrib"><img src="tocView_data/container_obj.gif" alt="">Type attributes</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/type_attr_aligned.htm#type_attr_aligned"><img src="tocView_data/topic.gif" alt="">The aligned type attribute</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/type_attr_packed.htm#type_attr_packed"><img src="tocView_data/topic.gif" alt="">The packed type attribute</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/type_attr_transp_union.htm#type_attr_transp_union"><img src="tocView_data/topic.gif" alt="">The transparent_union type attribute (C only)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/declrts.htm#declrts"><img src="tocView_data/container_obj.gif" alt="">Declarators</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/overview_declarators.htm#overview_declarators"><img src="tocView_data/container_obj.gif" alt="">Overview of declarators</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/examples_declarator.htm#examples_declarator"><img src="tocView_data/topic.gif" alt="">Examples of declarators</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/type_names.htm#type_names"><img src="tocView_data/topic.gif" alt="">Type names</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/ptrdec.htm#ptrdec"><img src="tocView_data/container_obj.gif" alt="">Pointers</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/ptarith.htm#ptarith"><img src="tocView_data/topic.gif" alt="">Pointer arithmetic</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/type_based_aliasing.htm#type_based_aliasing"><img src="tocView_data/topic.gif" alt="">Type-based aliasing</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/agnptr.htm#agnptr"><img src="tocView_data/topic.gif" alt="">Compatibility of pointers (C only)</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/ary.htm#ary"><img src="tocView_data/container_obj.gif" alt="">Arrays</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/variable_length_arrays.htm#variable_length_arrays"><img src="tocView_data/topic.gif" alt="">Variable length arrays </a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/compat_arrays.htm#compat_arrays"><img src="tocView_data/topic.gif" alt="">Compatibility of arrays </a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr110.htm#cplr110"><img src="tocView_data/topic.gif" alt="">References (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/initdcl.htm#initdcl"><img src="tocView_data/container_obj.gif" alt="">Initializers</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/init_storage.htm#init_storage"><img src="tocView_data/topic.gif" alt="">Initialization and storage classes</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/designators.htm#designators"><img src="tocView_data/topic.gif" alt="">Designated initializers for aggregate types (C only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/vector_init.htm#vector_init"><img src="tocView_data/topic.gif" alt="">Initialization of vectors</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/strin.htm#strin"><img src="tocView_data/topic.gif" alt="">Initialization of structures and unions</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/init_enum.htm#init_enum"><img src="tocView_data/topic.gif" alt="">Initialization of enumerations</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/iniptr.htm#iniptr"><img src="tocView_data/topic.gif" alt="">Initialization of pointers</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/aryin.htm#aryin"><img src="tocView_data/topic.gif" alt="">Initialization of arrays</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr116.htm#cplr116"><img src="tocView_data/topic.gif" alt="">Initialization of references (C++ only)</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/variable_attrib.htm#variable_attrib"><img src="tocView_data/container_obj.gif" alt="">Variable attributes</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/var_attrib_aligned.htm#var_attrib_aligned"><img src="tocView_data/topic.gif" alt="">The aligned variable attribute</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/var_attrib_packed.htm#var_attrib_packed"><img src="tocView_data/topic.gif" alt="">The packed variable attribute</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/var_attrib_mode.htm#var_attrib_mode"><img src="tocView_data/topic.gif" alt="">The mode variable attribute</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/var_attrib_weak.htm#var_attrib_weak"><img src="tocView_data/topic.gif" alt="">The weak variable attribute</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/convns.htm#convns"><img src="tocView_data/container_obj.gif" alt="">Type conversions</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/uac.htm#uac"><img src="tocView_data/container_obj.gif" alt="">Arithmetic conversions and promotions</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr068.htm#cplr068"><img src="tocView_data/topic.gif" alt="">Integral conversions</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/boolean_conversions.htm#boolean_conversions"><img src="tocView_data/topic.gif" alt="">Boolean conversions</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr070.htm#cplr070"><img src="tocView_data/topic.gif" alt="">Floating-point conversions </a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr066.htm#cplr066"><img src="tocView_data/topic.gif" alt="">Integral and floating-point promotions</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/lvalue_to_rvalue.htm#lvalue_to_rvalue"><img src="tocView_data/topic.gif" alt="">Lvalue-to-rvalue conversions</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/ptrconv.htm#ptrconv"><img src="tocView_data/container_obj.gif" alt="">Pointer conversions</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/convert_void.htm#convert_void"><img src="tocView_data/topic.gif" alt="">Conversion to void*</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr072.htm#cplr072"><img src="tocView_data/topic.gif" alt="">Reference conversions (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/qualification_conversions.htm#qualification_conversions"><img src="tocView_data/topic.gif" alt="">Qualification conversions (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/funcarg.htm#funcarg"><img src="tocView_data/topic.gif" alt="">Function argument conversions</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/expaop.htm#expaop"><img src="tocView_data/container_obj.gif" alt="">Expressions and operators</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/lvalue.htm#lvalue"><img src="tocView_data/topic.gif" alt="">Lvalues and rvalues</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/primary_expressions.htm#primary_expressions"><img src="tocView_data/container_obj.gif" alt="">Primary expressions</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/names.htm#names"><img src="tocView_data/topic.gif" alt="">Names</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/literals.htm#literals"><img src="tocView_data/topic.gif" alt="">Literals</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/conexp.htm#conexp"><img src="tocView_data/topic.gif" alt="">Integer constant expressions</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/id_expressions.htm#id_expressions"><img src="tocView_data/topic.gif" alt="">Identifier expressions (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/peparen.htm#peparen"><img src="tocView_data/topic.gif" alt="">Parenthesized expressions ( )</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr175.htm#cplr175"><img src="tocView_data/topic.gif" alt="">Scope resolution operator :: (C++ only)</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/postfix_expressions.htm#postfix_expressions"><img src="tocView_data/container_obj.gif" alt="">Postfix expressions</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/funcall.htm#funcall"><img src="tocView_data/topic.gif" alt="">Function call operator ( )</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/arsubex.htm#arsubex"><img src="tocView_data/topic.gif" alt="">Array subscripting operator [ ]</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr184.htm#cplr184"><img src="tocView_data/topic.gif" alt="">Dot operator .</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr185.htm#cplr185"><img src="tocView_data/topic.gif" alt="">Arrow operator -&gt;</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/compound_literals.htm#compound_literals"><img src="tocView_data/topic.gif" alt="">Compound literals </a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/the_typeid_operator.htm#the_typeid_operator"><img src="tocView_data/topic.gif" alt="">The typeid operator (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/keyword_static_cast.htm#keyword_static_cast"><img src="tocView_data/topic.gif" alt="">The static_cast operator (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/keyword_reinterpret_cast.htm#keyword_reinterpret_cast"><img src="tocView_data/topic.gif" alt="">The reinterpret_cast operator (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/keyword_const_cast.htm#keyword_const_cast"><img src="tocView_data/topic.gif" alt="">The const_cast operator (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/keyword_dynamic_cast.htm#keyword_dynamic_cast"><img src="tocView_data/topic.gif" alt="">The dynamic_cast operator (C++ only)</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/uexpres.htm#uexpres"><img src="tocView_data/container_obj.gif" alt="">Unary expressions</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/incex.htm#incex"><img src="tocView_data/topic.gif" alt="">Increment  operator ++</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/decex.htm#decex"><img src="tocView_data/topic.gif" alt="">Decrement operator --</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/artaddi.htm#artaddi"><img src="tocView_data/topic.gif" alt="">Unary plus operator +</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/artnege.htm#artnege"><img src="tocView_data/topic.gif" alt="">Unary minus operator</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/lognege.htm#lognege"><img src="tocView_data/topic.gif" alt="">Logical negation operator !</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/bitnege.htm#bitnege"><img src="tocView_data/topic.gif" alt="">Bitwise negation operator ~</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/addre.htm#addre"><img src="tocView_data/topic.gif" alt="">Address operator &amp;</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/inde.htm#inde"><img src="tocView_data/topic.gif" alt="">Indirection operator *</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/alignof.htm#alignof"><img src="tocView_data/topic.gif" alt="">The __alignof__ operator</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/szofe.htm#szofe"><img src="tocView_data/topic.gif" alt="">The sizeof operator</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/typeof_operator.htm#typeof_operator"><img src="tocView_data/topic.gif" alt="">The typeof operator</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/label_value_operator.htm#label_value_operator"><img src="tocView_data/topic.gif" alt="">Label value operator  &amp;&amp;</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr199.htm#cplr199"><img src="tocView_data/topic.gif" alt="">The new operator (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr202.htm#cplr202"><img src="tocView_data/topic.gif" alt="">The delete operator (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/pragma_operator.htm#pragma_operator"><img src="tocView_data/topic.gif" alt="">The _Pragma preprocessing operator </a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/complex_operator.htm#complex_operator"><img src="tocView_data/topic.gif" alt="">The __real__ and __imag__ operators </a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr188.htm#cplr188"><img src="tocView_data/container_obj.gif" alt="">Cast expressions</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cast_to_union.htm#cast_to_union"><img src="tocView_data/topic.gif" alt="">Cast to union type (C only)</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/binops.htm#binops"><img src="tocView_data/container_obj.gif" alt="">Binary expressions</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/multe.htm#multe"><img src="tocView_data/topic.gif" alt="">Multiplication operator *</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/dive.htm#dive"><img src="tocView_data/topic.gif" alt="">Division operator /</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/mode.htm#mode"><img src="tocView_data/topic.gif" alt="">Remainder  operator %</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/addop9.htm#addop9"><img src="tocView_data/topic.gif" alt="">Addition operator +</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/subtrac.htm#subtrac"><img src="tocView_data/topic.gif" alt="">Subtraction operator -</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/bitshe.htm#bitshe"><img src="tocView_data/topic.gif" alt="">Bitwise left and right shift operators &lt;&lt; &gt;&gt;</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/rele.htm#rele"><img src="tocView_data/topic.gif" alt="">Relational operators &lt;  &gt;  &lt;= &gt;=</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/eqle.htm#eqle"><img src="tocView_data/topic.gif" alt="">Equality and inequality operators ==  !=</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/bitande.htm#bitande"><img src="tocView_data/topic.gif" alt="">Bitwise AND operator &amp;</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/biteore.htm#biteore"><img src="tocView_data/topic.gif" alt="">Bitwise exclusive OR operator ^</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/bitiore.htm#bitiore"><img src="tocView_data/topic.gif" alt="">Bitwise inclusive OR operator |</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/logande.htm#logande"><img src="tocView_data/topic.gif" alt="">Logical AND operator &amp;&amp;</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/logore.htm#logore"><img src="tocView_data/topic.gif" alt="">Logical OR operator ||</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr205.htm#cplr205"><img src="tocView_data/topic.gif" alt="">Pointer to member operators .* -&gt;* (C++ only)</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cond.htm#cond"><img src="tocView_data/container_obj.gif" alt="">Conditional expressions</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/type_of_conditional_c_exprs.htm#type_of_conditional_c_exprs"><img src="tocView_data/topic.gif" alt="">Types in conditional C expressions</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/type_of_conditional_cpp_expr.htm#type_of_conditional_cpp_expr"><img src="tocView_data/topic.gif" alt="">Types in conditional C++ expressions</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/examples_of_conditional_exprs.htm#examples_of_conditional_exprs"><img src="tocView_data/topic.gif" alt="">Examples of conditional expressions</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/aso.htm#aso"><img src="tocView_data/container_obj.gif" alt="">Assignment expressions</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/simasse.htm#simasse"><img src="tocView_data/topic.gif" alt="">Simple assignment operator =</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/comasse.htm#comasse"><img src="tocView_data/topic.gif" alt="">Compound assignment operators</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/co.htm#co"><img src="tocView_data/topic.gif" alt="">Comma expressions</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr203.htm#cplr203"><img src="tocView_data/topic.gif" alt="">throw expressions (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/preeval.htm#preeval"><img src="tocView_data/topic.gif" alt="">Operator precedence and associativity</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/dirst.htm#dirst"><img src="tocView_data/container_obj.gif" alt="">Statements</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/labels.htm#labels"><img src="tocView_data/container_obj.gif" alt="">Labeled statements</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/locally_declared_labels.htm#locally_declared_labels"><img src="tocView_data/topic.gif" alt="">Locally declared labels</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/labels_as_values.htm#labels_as_values"><img src="tocView_data/topic.gif" alt="">Labels as values</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/xprssn.htm#xprssn"><img src="tocView_data/container_obj.gif" alt="">Expression statements</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr403.htm#cplr403"><img src="tocView_data/topic.gif" alt="">Resolution of ambiguous statements</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/csor.htm#csor"><img src="tocView_data/container_obj.gif" alt="">Block statements</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/example_block.htm#example_block"><img src="tocView_data/topic.gif" alt="">Example of blocks</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/statement_expressions.htm#statement_expressions"><img src="tocView_data/topic.gif" alt="">Statement expressions</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/selection.htm#selection"><img src="tocView_data/container_obj.gif" alt="">Selection statements</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/is.htm#is"><img src="tocView_data/topic.gif" alt="">The if statement</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/ssits.htm#ssits"><img src="tocView_data/topic.gif" alt="">The switch statement</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/iteration.htm#iteration"><img src="tocView_data/container_obj.gif" alt="">Iteration statements</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/ws.htm#ws"><img src="tocView_data/topic.gif" alt="">The while statement</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/do.htm#do"><img src="tocView_data/topic.gif" alt="">The do statement</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/fs.htm#fs"><img src="tocView_data/topic.gif" alt="">The for statement</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/jump.htm#jump"><img src="tocView_data/container_obj.gif" alt="">Jump statements</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/bs.htm#bs"><img src="tocView_data/topic.gif" alt="">The break statement</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/contin.htm#contin"><img src="tocView_data/topic.gif" alt="">The continue statement</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/rs.htm#rs"><img src="tocView_data/topic.gif" alt="">The return statement</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/gsals.htm#gsals"><img src="tocView_data/topic.gif" alt="">The goto statement</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/ns.htm#ns"><img src="tocView_data/topic.gif" alt="">Null statement</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/asm.htm#asm"><img src="tocView_data/container_obj.gif" alt="">Inline assembly statements</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/asm_example.htm#asm_example"><img src="tocView_data/topic.gif" alt="">Examples of inline assembly statements</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/asm_restrictions.htm#asm_restrictions"><img src="tocView_data/topic.gif" alt="">Restrictions on inline assembly statements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/fnct.htm#fnct"><img src="tocView_data/container_obj.gif" alt="">Functions</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/fundec.htm#fundec"><img src="tocView_data/container_obj.gif" alt="">Function declarations and definitions</a><ul class="collapsed">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/func_decl.htm#func_decl"><img src="tocView_data/topic.gif" alt="">Function declarations</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/funcdef.htm#funcdef"><img src="tocView_data/topic.gif" alt="">Function definitions</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/examples_function_decl.htm#examples_function_decl"><img src="tocView_data/topic.gif" alt="">Examples of function declarations</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/fdecex.htm#fdecex"><img src="tocView_data/topic.gif" alt="">Examples of function definitions</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/compat_functions.htm#compat_functions"><img src="tocView_data/topic.gif" alt="">Compatible functions</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr222.htm#cplr222"><img src="tocView_data/topic.gif" alt="">Multiple function declarations</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/func_storage_class.htm#func_storage_class"><img src="tocView_data/container_obj.gif" alt="">Function storage class specifiers</a><ul class="collapsed" id="1_8_1">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/function_specifiers.htm#function_specifiers"><img src="tocView_data/container_obj.gif" alt="">Function specifiers</a><ul class="collapsed" id="1_8_2">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/func_type_specifier.htm#func_type_specifier"><img src="tocView_data/container_obj.gif" alt="">Function return type specifiers</a><ul class="collapsed" id="1_8_3">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/func_declarator.htm#func_declarator"><img src="tocView_data/container_obj.gif" alt="">Function declarators</a><ul class="collapsed" id="1_8_4">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/function_attributes.htm#function_attributes"><img src="tocView_data/container_obj.gif" alt="">Function attributes</a><ul class="collapsed" id="1_8_5">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/mainf.htm#mainf"><img src="tocView_data/topic.gif" alt="">The main() function</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cfpv.htm#cfpv"><img src="tocView_data/container_obj.gif" alt="">Function calls</a><ul class="collapsed" id="1_8_7">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr237.htm#cplr237"><img src="tocView_data/container_obj.gif" alt="">Default arguments in C++ functions</a><ul class="collapsed" id="1_8_8">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr242.htm#cplr242"><img src="tocView_data/topic.gif" alt="">Pointers to functions</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/nested_functions.htm#nested_functions"><img src="tocView_data/topic.gif" alt="">Nested functions</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/namespace.htm#namespace"><img src="tocView_data/container_obj.gif" alt="">Namespaces (C++ only)</a><ul class="collapsed" id="1_9">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/overl.htm#overl"><img src="tocView_data/container_obj.gif" alt="">Overloading (C++ only)</a><ul class="collapsed" id="1_10">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/class.htm#class"><img src="tocView_data/container_obj.gif" alt="">Classes (C++ only)</a><ul class="collapsed" id="1_11">
+</ul>
+</li>
+<li><img src="tocView_data/minus.gif" class="expanded" alt="Topic open"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cmemb.htm#cmemb"><img src="tocView_data/container_obj.gif" alt="">Class members and friends (C++ only)</a><ul class="expanded">
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr022.htm#cplr022"><img src="tocView_data/topic.gif" alt="">Class member lists (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr024.htm#cplr024"><img src="tocView_data/topic.gif" alt="">Data members (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr027.htm#cplr027"><img src="tocView_data/container_obj.gif" alt="">Member functions (C++ only)</a><ul class="collapsed" id="1_12_2">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr033.htm#cplr033"><img src="tocView_data/topic.gif" alt="">Member scope (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr034.htm#cplr034"><img src="tocView_data/topic.gif" alt="">Pointers to members (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a class="active" href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr035.htm#cplr035"><img src="tocView_data/topic.gif" alt="">The this pointer (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr036.htm#cplr036"><img src="tocView_data/container_obj.gif" alt="">Static members (C++ only)</a><ul class="collapsed" id="1_12_6">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr040.htm#cplr040"><img src="tocView_data/topic.gif" alt="">Member access (C++ only)</a></li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/cplr042.htm#cplr042"><img src="tocView_data/container_obj.gif" alt="">Friends (C++ only)</a><ul class="collapsed" id="1_12_8">
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/inher.htm#inher"><img src="tocView_data/container_obj.gif" alt="">Inheritance (C++ only)</a><ul class="collapsed" id="1_13">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/spmfn.htm#spmfn"><img src="tocView_data/container_obj.gif" alt="">Special member functions (C++ only)</a><ul class="collapsed" id="1_14">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/templates.htm#templates"><img src="tocView_data/container_obj.gif" alt="">Templates (C++ only)</a><ul class="collapsed" id="1_15">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/exceptn.htm#exceptn"><img src="tocView_data/container_obj.gif" alt="">Exception handling (C++ only)</a><ul class="collapsed" id="1_16">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/pcl.htm#pcl"><img src="tocView_data/container_obj.gif" alt="">Preprocessor Directives</a><ul class="collapsed" id="1_17">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/aix_c_extensions.htm#aix_c_extensions"><img src="tocView_data/container_obj.gif" alt="">Appendix A. The IBM XL C language extensions</a><ul class="collapsed" id="1_18">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/aix_cpp_extensions.htm#aix_cpp_extensions"><img src="tocView_data/container_obj.gif" alt="">Appendix B. The IBM XL C++ language extensions</a><ul class="collapsed" id="1_19">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/av_types.htm#av_types"><img src="tocView_data/topic.gif" alt="">Appendix C. Vector data types and literals</a></li>
+<li><img src="tocView_data/plus.gif" class="h" alt=""><a href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.xlcpp8a.doc/language/ref/language03.htm#wq375"><img src="tocView_data/topic.gif" alt="">Index</a></li>
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="about:blank"><img src="tocView_data/container_obj.gif" alt="">Compiler Reference</a><ul class="collapsed" id="2">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="about:blank"><img src="tocView_data/container_obj.gif" alt="">Programming Guide</a><ul class="collapsed" id="3">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="about:blank"><img src="tocView_data/container_obj.gif" alt="">Standard C++ Library Reference</a><ul class="collapsed" id="4">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="about:blank"><img src="tocView_data/container_obj.gif" alt="">Legacy Class Library Reference</a><ul class="collapsed" id="5">
+</ul>
+</li>
+<li><img src="tocView_data/plus.gif" class="collapsed" alt="Topic closed"><a href="about:blank"><img src="tocView_data/container_obj.gif" alt="">Installation Guide</a><ul class="collapsed" id="6">
+</ul>
+</li>
+
+                        <script language="JavaScript">tocId="b"+1</script>
+
+                        
+
+                <li>
+                <!--HPSYS00000137 part 2 of 2-->
+                <img src="tocView_data/toc_closed.gif" alt="Book closed"><a id="b2" name="/com.ibm.xlf101a.doc/toc.xml" style="font-weight: bold;" href="about:blank" onclick='loadTOC("%2f%63%6f%6d%2e%69%62%6d%2e%78%6c%66%31%30%31%61%2e%64%6f%63%2f%74%6f%63%2e%78%6d%6c")'>XL Fortran V10.1 for AIX</a>
+                <!--end HPSYS00000137 part 2 of 2-->
+
+                </li>        
+
+                <li>
+                <!--HPSYS00000137 part 2 of 2-->
+                <img src="tocView_data/toc_closed.gif" alt="Book closed"><a id="b3" name="/com.ibm.ydebug.pdt.doc/debugPDTToc.xml" style="font-weight: bold;" href="about:blank" onclick='loadTOC("%2f%63%6f%6d%2e%69%62%6d%2e%79%64%65%62%75%67%2e%70%64%74%2e%64%6f%63%2f%64%65%62%75%67%50%44%54%54%6f%63%2e%78%6d%6c")'>IBM Debugger for AIX</a>
+                <!--end HPSYS00000137 part 2 of 2-->
+
+                </li>        
+
+                <li>
+                <!--HPSYS00000137 part 2 of 2-->
+                <img src="tocView_data/toc_closed.gif" alt="Book closed"><a id="b4" name="/com.ibm.ibmcom.doc/toc.xml" style="font-weight: bold;" href="http://publib.boulder.ibm.com/infocenter/comphelp/v8v101/topic/com.ibm.ibmcom.doc/footerssi.htm" onclick='loadTOC("%2f%63%6f%6d%2e%69%62%6d%2e%69%62%6d%63%6f%6d%2e%64%6f%63%2f%74%6f%63%2e%78%6d%6c")'>ibm.com: About IBM - Privacy - Contact</a>
+                <!--end HPSYS00000137 part 2 of 2-->
+
+                </li>        
+                
+        </ul>
+   <iframe name="dynLoadFrame" title="Layout frame: dynLoadFrame" style="visibility: hidden;" tabindex="-1" scrolling="no" width="0" frameborder="no" height="0">
+    </iframe>
+
+
+</body></html>

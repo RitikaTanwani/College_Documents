@@ -1,0 +1,99 @@
+\documentclass[10pt]{article}
+ \title{{\LaTeX}
+	 Lab Handout \\25th jan Lab}
+ \begin{document}
+       \maketitle
+       \author{Ritika Tanwani,201101153}
+       \begin{abstract}
+%sdfdlkgjlkdglkdf
+%\paragraph{}
+
+You need to submit a TEX source which when compiled using pdf L TEX (the
+	command pdflatex), produces an exact copy of this pdf, except the sections
+on passwordless ssh and the marking scheme.
+The only difference being that it should have your Name, Roll No. and Email
+in the author field, in place of ours, and the date of compilation (today) in the
+date field, if it differs from what’s present in this file. Try to match the type-
+setting as closely as you can.
+Each of the following carries marks:
+
+\begin{enumerate}
+  \item Content
+    \item Text formatting
+      \item Document structure
+      \end{enumerate}
+     This document has been typeset using the article documentclass, with paper
+     dimensions a4 and font size 10pt.
+     The following packages have been used:
+     \begin{itemize}
+     \item{\textsf{url} to display URLs}
+     \item{\textsf{ hyperref} to make links (including URLs) clickable}
+	     
+     \item{\textsf {graphicx}to include image}
+     \item{\textsf {listings} to include source code}
+     
+     \item{\textsf {xcolor} to get a variety of font colours, referrable by name (used in the
+		     source code listings)
+     }
+\end{itemize}
+%\includegraphics
+\textbf{Note}: If you look closely, you’ll see that this abstract has been generated
+using a special command, which is part of the article documentclass (it has a
+		lesser font size and a smaller margin)! Find it.\\
+\textbf{Note}: We have not used BibTEX for the References. They are written in
+the tex file itself.
+
+       \end{abstract}
+       \section{Typesetting Text}
+  {\tiny size} 
+   {\scriptsize size} 
+    {\footnotesize size}
+     {\small size}
+      {\normalsize size}
+{\LARGE  varied}
+
+
+
+
+       \begin{itemize}
+     \item \textbf{Bold text}
+     \item \emph{emphasised text} 
+     \item \textsl{Slanted Text}
+     \item \textsc{Text in small caps}
+    \item \textsf{sans serif}
+         \item   \textrm{roman}
+   \end{itemize}
+   The above is done using this:
+ \begin{verbatim}
+
+ \textit{For example, this text is written in italics, but
+	 \emph{these words are emphasized text}}. Also, this
+	 is normal text, but \emph{this is emphasized text}.
+\end{verbatim}	 
+   \section{Typesetting Mathematics}
+Math can be typeset inline, for example: a = b2 + c, or displayed separately as
+shown in the rest of this section.\\
+\textit{Note: Do not get intimidated, there are simple commands for generating most
+	of the symbols/structures shown below!
+}
+   \subsection{ General Formulae}
+\[
+D= \frac{-b + \sqrt{b^2-4ac}}{2a}
+\]
+\subsection{Calculas}
+\[
+ \int_0^\infty x^{n}e^{-x}\,\mathrm{d}x =n!
+ \]
+\subsection{Counting}
+\[
+^nC_r={n\choose k}={n! \over k!(n-k)!}
+\]
+\subsection{Trigonometry}
+\[
+\sin^2 + \cos^2=1
+\]
+
+
+\end{document}	        
+
+

@@ -1,0 +1,4 @@
+isa manual
+how possible dat c is set in operation sub???The C flag is set to carry-out from ALU when the operation is
+arithmetic (ADD, ADC, SUB, SBC, RSB, RSC, CMP, CMN)
+

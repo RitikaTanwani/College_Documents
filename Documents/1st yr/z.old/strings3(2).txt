@@ -1,0 +1,46 @@
+*********Program 49.c ******************************
+#include<stdio.h>
+//strcmp; return < 0 if s < t, 0 if s==t, > 0 if s > t
+int my_strcmp(char *s, char *t);
+int main() {
+  char str1[20], str2[20];
+  int cmp;
+  scanf("%19s%19s",str1, str2);
+  cmp = my_strcmp(str1, str2);
+  if (cmp == 0) {
+    printf("%s == %s\n", str1, str2);
+  }else if (cmp > 0) {
+    printf("%s > %s\n", str1, str2);
+  } else {
+    printf("%s < %s\n", str1, str2);
+  }
+}
+
+int my_strcmp(char *s, char *t) {
+  int i = 0;
+  while (s[i] == t[i]) {
+    if (s[i] == '\0'){
+      return 0;
+    }
+    i++;
+  }
+  return s[i] - t[i];
+}
+*********Program 50.c ******************************
+#include<stdio.h>
+#include<string.h>
+long int my_atoi(char *);
+int main() {
+  char tempS[20];
+  scanf("%19s",tempS);
+  printf("integer is %ld\n", my_atoi(tempS));
+}
+
+long int my_atoi(char *s) {
+  long int rv = 0;
+  while (*s) {
+    rv = rv * 10 + (*s - '0');
+    s++;
+  }
+  return rv;
+}

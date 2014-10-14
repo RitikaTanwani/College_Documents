@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>OJ</title>
+		<link href="P6_files/default.css" rel="stylesheet" media="screen" type="text/css">
+		<script src="P6_files/jqminmax.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<h1>*OJ*</h1><h2>happily judging your solution</h2><br clear="all">
+			</div>
+			<div id="mainbody">
+				<div id="nav">
+					<ul>
+						<li><a href="http://10.4.3.68/oj/index">announcements</a></li>
+						<li><a href="http://10.4.3.68/oj/register">register</a></li>
+						<li><a href="http://10.4.3.68/oj/teams">teamList</a></li>
+						<li><a href="http://10.4.3.68/oj/problem">problems</a></li>
+						<li><a href="http://10.4.3.68/oj/submit">submit</a></li>
+						<li><a href="http://10.4.3.68/oj/judge">status</a></li>
+						<li><a href="http://10.4.3.68/oj/ranks">rankList</a></li>
+						<li><a href="http://10.4.3.68/oj/about">about</a></li>
+					</ul><br clear="all">
+				</div>
+				<div id="content">
+					<h1> Check for BST/AVL Propert in Tree T</h1>
+					
+					<h1> Question </h1>
+					
+					Given a binary tree T, write a program to check whether T is a binary search tree. <br> 
+					Output 1 if T is a binary search tree and 0 otherwise. <br>
+
+					Also, write a program to check if T is an AVL tree. Again, output 1 if T is an AVL tree and 0 otherwise. <br>
+ 
+					In case, binary tree T is not an AVL and the tree T is a Binary 
+Search Tree, then list all nodes that fail the height balancing criteria
+ according to their level order. <br>
+
+					Note that if the Binary Tree is not a Binary Search Tree, then it 
+is automatically not a AVL tree and you should NOT print the nodes with 
+height order violations for this case. The o/p will just be 0 0 for this
+ case. <br>
+
+
+
+					<h1>Input Specification</h1>
+					First Line contains the number of testcases (N). <br>
+					The next N lines consist of N testcases (each test case consisting of three lines) : <br>
+					First Line : (m) Number of elements in the tree (&lt; 1000) <br>
+					Second Line : m numbers separated by space which comprise the INORDER traversal
+					Third Line : m numbers separated by space which comprise the PREORDER traversal
+					All the numbers are positive ( &gt; 0 and &lt; 1000) and are not repeated.
+
+					<h1>Output Specification</h1>
+					Output format consists of the following for each test case. 
+					1/0 in the first line -- indicating whether it is a BST or not a 
+BST respectively. ( there is no space after the 1/0, only a \n) <br>
+					1/0 in the second line -- indicating whether it is an AVL tree or 
+not an AVL tree respectively ( there is no space after 1/0, only a \n) <br>
+
+					If the tree is not AVL, then another line is printed where all those nodes for whom  <br>
+					|the height of the left child - height of the right child| &gt; 1 are printed in the level order. <br>
+					
+					Each of these node elements is separated by a space. There is a space after the last element too. <br> 
+					There is a newline at the end of printing all the necessary nodes. <br>
+
+					<h1>Sample Input</h1>
+					4<br>
+					5<br>
+					5 4 1 2 6<br>
+					2 4 5 1 6<br>
+					1<br>
+					490<br>
+					490<br>
+					3<br>
+					76 123 98<br>
+					123 76 98<br>
+					9<br>
+					1 2 3 4 5 6 7 8 9<br>
+					9 8 7 6 5 4 3 2 1<br>
+
+					<h1>Sample Output</h1>
+					0<br>
+					0<br>
+					1<br>
+					1<br>
+					0<br>
+					0<br>
+					1<br>
+					0<br>
+					9 8 7 6 5 4 3 <br>
+				</div>
+			</div>
+			<div id="footer">
+				GPL License . Designed By <a href="http://students.iiit.ac.in/%7Erajatgoel">Rajat Goel</a>
+			</div>
+		</div>
+	
+
+</body></html>

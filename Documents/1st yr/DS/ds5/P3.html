@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>OJ</title>
+		<link href="P3_files/default.css" rel="stylesheet" media="screen" type="text/css">
+		<script src="P3_files/jqminmax.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<h1>*OJ*</h1><h2>happily judging your solution</h2><br clear="all">
+			</div>
+			<div id="mainbody">
+				<div id="nav">
+					<ul>
+						<li><a href="http://10.4.3.68/oj/index">announcements</a></li>
+						<li><a href="http://10.4.3.68/oj/register">register</a></li>
+						<li><a href="http://10.4.3.68/oj/teams">teamList</a></li>
+						<li><a href="http://10.4.3.68/oj/problem">problems</a></li>
+						<li><a href="http://10.4.3.68/oj/submit">submit</a></li>
+						<li><a href="http://10.4.3.68/oj/judge">status</a></li>
+						<li><a href="http://10.4.3.68/oj/ranks">rankList</a></li>
+						<li><a href="http://10.4.3.68/oj/about">about</a></li>
+					</ul><br clear="all">
+				</div>
+				<div id="content">
+					<h1>Root a binary tree</h1>
+					
+					<h1> Question </h1>
+					
+					Implement a binay tree data structure given the inorder and preorder seqences as the input.<br> 
+					
+					In the input you will be given a value (V) which is present in the tree. <br>
+					
+					Now write a function to root the tree at the node corresponding to the given value.<br>
+ 
+					
+					You can use your routines from previous assignments (construct 
+trees from pre-order and in-order and also print different traversals). <br>
+ 
+					As output on the first three lines, print the 3 traversal sequences
+ of the resulting binary tree : Inorder, Preorder, Postorder. <br>
+					<b> Note : </b> Use single rotations (discussed during avl tree re-balancing and splaying) to bring the given node to the root of new tree. <br>
+
+					<h1>Input Specification</h1>
+					First Line : a number N, which indicates the number of nodes in the trees<br>
+					Second Line : Pre order sequence<br>
+					Third Line : In order sequence<br>
+					Fourth Line : Value (V) which is the new root of the resulting tree. <br>
+
+					<h1>Output Specification</h1>
+					First Line : Inorder Traversal of the tree <br>
+					Second Line : Pre-order Traversal of the tree<br>
+					Third Line : Post-order Traversal of the tree<br>
+
+					<h1>Sample Input</h1>
+					9<br>
+					10 5 3 7 6 9 15 11 18<br>
+					3 5 6 7 9 10 11 15 18<br>
+					7
+
+					<h1>Sample Output</h1>
+					3 5 6 7 9 10 11 15 18<br>
+					7 5 3 6 10 9 15 11 18<br>
+					3 6 5 9 11 18 15 10 7<br>
+			</div>
+			</div>
+			<div id="footer">
+				GPL License . Designed By <a href="http://students.iiit.ac.in/%7Erajatgoel">Rajat Goel</a>
+			</div>
+		</div>
+	
+
+</body></html>

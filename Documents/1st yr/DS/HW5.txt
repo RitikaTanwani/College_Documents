@@ -1,0 +1,55 @@
+Homework 5
+Due Last day of class.
+
+1. One measure that is gaining popularity recently for researcher effectiveness is the h-index. Read about
+it on wikepedia. In this problem, we compute a slightly new mesaure as follows. Conisder a graph with two kinds of
+nodes: author nodes corresponding to authors, and paper nodes that correspond to papers. There are directed edges
+from an author node A to all the papers that are authored/co-authored by A. There are also directed edges between
+papers such that an edge from P1 to P2 indicates that paper P2 cites paper P1 .
+Given this graph, for each author find his h-index defined as follows. An author is said to have a h- index of k if
+exactly k of his papers have at least k citations and the remaining papers have at most k citations each. In counting
+the citations of a paper Pi you should discount citations Pk such that there exists a paper Pj where Pj cites Pi , and
+Pk cites both Pj and Pi . In case there is such a Pk with 2 or more such Pj ’s, discount Pk only once overall. Under
+the above definition, find the h-index of all authors in the input.
+1
+The input is given as a set of author-paper tuples followed by a set of paper tuples which correspond to the first
+element in the tuple is cited by the second element. The number of (author, paper) tuples is at the first line of the
+input. A sample input is as given:
+4
+a1 , p1
+a2 , p2
+a3 , p3
+a2 , p3
+p2 , p3
+p3 , p1
+
+
+
+2. One of the advantages of a directed acyclic graph is that it is possible to induce a level ordering on the nodes of the graph as follows. Nodes in level i, for i=1,2,..., have the property that they have edges only to nodes in levels i+1 or above. Given a directed acyclic graph as an input, produce such a level ordering.  The input is in the following format: 
+The first line contains N which will give you the number of nodes present. Then a N*N adjacency matrix of 0 and 1 follow. The graph is directed and acyclic. You have nodes from 0 to N-1.
+You can list your output by listing nodes in each level, starting with level 1, in one line with space separated node numbers. For nodes in each level, you should also sort the node numbers in increasing order. 
+
+
+3.  Implement a binay tree data structure given the inorder and preorder seqences as the input. In the second line of the input you will be given a value which is present in the tree. Now write a function to root the tree at the node corresponding to the given value. Use your routines from HW3 and print the 3 traversal sequences of the resulting binary tree. In the fourth line of the output, print the number of pointer changes performed by your program. 
+Input format:
+A number of N which represents the number of elements to be entered.
+Preorder Sequence
+Inorder Sequence
+Root value
+Output:
+Inorder Traversal
+Preorder Traversal
+Postorder Traversal
+No. of Pointer changes
+
+
+4. Construct a directed graph descirbed as follows: The vertex set is the set of integers 1 through n for a given n both inclusive. Two vertices i and j are joined by an edge from j to i iff i divides j.
+
+From your graph, delete edges (k,i) such that there exists j and i divides j, and j divides k. (In
+effect, delete all the edges implied by transitivity).
+
+Extend your implementation to find the GCD (greatest common divisor) of two vertices i and j.
+
+Your implementation should include a graph traversal routine so that one can check the output. The exact input/output format shall 
+be put up later.
+ 
